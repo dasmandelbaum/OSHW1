@@ -19,3 +19,5 @@ How the system works now:
     - web() method called by line 200 in server.c
 
 6) client process closed
+
+    - currently line 202 in server.c
