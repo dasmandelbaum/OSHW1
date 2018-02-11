@@ -1,0 +1,21 @@
+How the system works now:
+
+1) turn on server.
+    
+    - ex. ./server 8181 ./index.html &
+
+2) turn on any number of clients
+
+3) run get request with clients
+
+     - ex. ./client localhost 2003 /index.html
+    
+4) server forks, creating a new process for each client
+
+    - currently line 194 in server.c
+
+5) process fulfil clients' requests
+    
+    - web() method called by line 200 in server.c
+
+6) client process closed
