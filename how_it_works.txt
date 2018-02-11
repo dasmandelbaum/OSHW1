@@ -1,4 +1,4 @@
-How the system works now:
+How it works now:
 
 1) turn on server.
     
@@ -21,3 +21,91 @@ How the system works now:
 6) client process closed
 
     - currently line 202 in server.c
+    
+How it should work:
+
+1) turn on server with specified number of worker threads and scheduling preference
+included in command line.
+    
+    - ex. ./server 8181 ./index.html 5 fifo &
+    - STAT-MULTIPURPOSE: save time web server starts
+    - create queue to store requests:
+        - regular queue for fifo
+        - priority queue for imagefirst, htmlfirst (stable?)
+    
+2) create worker thread pool with specified number of threads
+
+    - details on slide 32 
+    - pthread_t threads[NUMBEROFTHREADS];
+    - for each thread:
+        - status = pthread_create(&threads[i], NULL, web(), *args);
+        - add new thread to pool queue using mutex
+        - STAT-8: save thread ID
+        - STAT-9: create count of http requests handled
+        - STAT-10: create count of HTML requests handled
+        - STAT-11: create count of Image requests handled
+    - STAT-1: create count of total requests    
+    
+2) turn on any number of clients
+
+3) run get request with clients 
+
+     - ex. ./client localhost 2003 /index.html
+     
+4) add client request to queue (in main())
+
+    - STAT-1: save number of requests that arrived before this one
+    - STAT-2: save arrival time of request (relative to web server start time)
+
+5) when thread wakes up, dispatch next request according to specified 
+    scheduling preference to newly awake thread
+    
+    - STAT-3: add to dispatched request count
+    - STAT-4: save time request was dispatched  
+     
+6) thread deals with client request
+
+     - save arguments in args struct
+     - run web()
+        - STAT-6: save time of read completion (relative to web server start time)
+        - STAT-7: save number of requests given priority over this one
+        - return statistics (time in milliseconds):
+            1) X-stat-req-arrival-count: The number of requests that arrived before 
+                this request arrived. Note that this is a shared value across all of 
+                the threads. 
+            2) X-stat-req-arrival-time: The arrival time of this request, as first seen 
+                by the master thread. This time should be relative to the start time of 
+                the web server. 
+            3) X-stat-req-dispatch-count: The number of requests that were dispatched 
+                before this request was dispatched (i.e., when the request was picked by 
+                a worker thread). Note that this is a shared value across all of the 
+                threads. 
+            4) X-stat-req-dispatch-time: The time this request was dispatched (i.e., when 
+                the request was picked by a worker thread). This time should be relative 
+                to the start time of the web server. 
+            5) X-stat-req-complete-count: The number of requests that completed before 
+                this request completed; we define completed as the point after the file 
+                has been read and just before the worker thread starts writing the 
+                response on the socket.  Note that this is a shared value across all 
+                of the threads. 
+            6) X-stat-req-complete-time: The time at which the read of the file is 
+                complete and the worker thread begins writing the response on the 
+                socket. This time should be relative to the start time of the web server. 
+            7) X-stat-req-age: The number of requests that were given priority over this 
+                request (that is, the number of requests that arrived after this request 
+                arrived, but were dispatched before this request was dispatched). 
+            8) X-stat-thread-id: The id of the responding thread (numbered 0 to number 
+                of threads-1) 
+            9) X-stat-thread-count: The total number of http requests this thread 
+                has handled 
+            10)X-stat-thread-html: The total number of HTML requests this thread has 
+                handled 
+            11)X-stat-thread-image: The total number of image requests this thread 
+                has handled 
+
+7) thread returns to thread pool queue
+
+    - STAT-5: add to completed request count
+     
+    
+    
