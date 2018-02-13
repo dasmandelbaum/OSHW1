@@ -40,7 +40,7 @@
         - mutex
         - STAT-1: count of total requests present
         - STAT-5: completed request count    
-    5) RequestPriorityQueue
+    5) SpecialRequestQueue
         - pointer to requests 
         - mutex
         - HTML or JPG priority
@@ -223,14 +223,30 @@ int main(int argc, char **argv)
 	if( listen(listenfd,64) <0)
 		logger(ERROR,"system call","listen",0);
 		
-	/*TODO: create struct with worker threads
-	    1) malloc space for number of threads provided
-	    2) 
+	/*TODO: create threadpool struct with worker threads
+	    1) malloc space for number of threads provided/create threadpool
+	    2) for number of threads
+	        - create thread, handing off to method to wait for condition to be fulfilled
+	            - pointer to pthread
+                - STAT-8: thread ID
+                - STAT-9: count of http requests handled
+                - STAT-10: count of HTML requests handled
+                - STAT-11: count of Image requests handled
+	        - add to threadpool
 	*/
 	
 	/*TODO: create struct for requests based on the input scheduling:
 	    1) fifo (queue)
-	    or 2) html/image first (priority)
+	        - pointer to requests 
+            - mutex
+            - STAT-1: count of total requests present
+            - STAT-5: completed request count  
+	    and (if not fifo) 2) html/image first 
+	        - pointer to requests 
+            - mutex
+            - HTML or JPG priority
+            - STAT-1: count of total requests present
+            - STAT-5: completed request count
 	*/
 	for(hit=1; ;hit++) {
 		length = sizeof(cli_addr);
@@ -240,6 +256,9 @@ int main(int argc, char **argv)
 	        TODO: pass off request to struct holding requests:
 	        1) lock
 	        2) add request to queue
+	            - if fifo requested or HTML/JPG requested and this is not, 
+	                add to fifo queue
+	            - if HTML/JPG priority requested and this is it, add to to queue
 	        3) unlock
 	        4) alert workers that condition (request added) fulfilled 
 	     */
@@ -258,3 +277,15 @@ int main(int argc, char **argv)
 		}*/
 	}
 }
+
+/**
+    Method for worker thread to wait for request
+*/
+
+/**
+    Method for getting request from queue once worker awake
+*/
+
+/**
+    Method to add request to queue
+*/
