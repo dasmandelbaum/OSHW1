@@ -32,6 +32,8 @@ struct {
 	{"html","text/html" },  
 	{0,0} };
 
+static int dummy; //keep compiler happy
+
 void logger(int type, char *s1, char *s2, int socket_fd)
 {
 	int fd ;
@@ -41,19 +43,19 @@ void logger(int type, char *s1, char *s2, int socket_fd)
 	case ERROR: (void)sprintf(logbuffer,"ERROR: %s:%s Errno=%d exiting pid=%d",s1, s2, errno,getpid()); 
 		break;
 	case FORBIDDEN: 
-		(void)write(socket_fd, "HTTP/1.1 403 Forbidden\nContent-Length: 185\nConnection: close\nContent-Type: text/html\n\n<html><head>\n<title>403 Forbidden</title>\n</head><body>\n<h1>Forbidden</h1>\nThe requested URL, file type or operation is not allowed on this simple static file webserver.\n</body></html>\n",271);
+		dummy = write(socket_fd, "HTTP/1.1 403 Forbidden\nContent-Length: 185\nConnection: close\nContent-Type: text/html\n\n<html><head>\n<title>403 Forbidden</title>\n</head><body>\n<h1>Forbidden</h1>\nThe requested URL, file type or operation is not allowed on this simple static file webserver.\n</body></html>\n",271);
 		(void)sprintf(logbuffer,"FORBIDDEN: %s:%s",s1, s2); 
 		break;
 	case NOTFOUND: 
-		(void)write(socket_fd, "HTTP/1.1 404 Not Found\nContent-Length: 136\nConnection: close\nContent-Type: text/html\n\n<html><head>\n<title>404 Not Found</title>\n</head><body>\n<h1>Not Found</h1>\nThe requested URL was not found on this server.\n</body></html>\n",224);
+		dummy = write(socket_fd, "HTTP/1.1 404 Not Found\nContent-Length: 136\nConnection: close\nContent-Type: text/html\n\n<html><head>\n<title>404 Not Found</title>\n</head><body>\n<h1>Not Found</h1>\nThe requested URL was not found on this server.\n</body></html>\n",224);
 		(void)sprintf(logbuffer,"NOT FOUND: %s:%s",s1, s2); 
 		break;
 	case LOG: (void)sprintf(logbuffer," INFO: %s:%s:%d",s1, s2,socket_fd); break;
 	}	
 	/* No checks here, nothing can be done with a failure anyway */
 	if((fd = open("nweb.log", O_CREAT| O_WRONLY | O_APPEND,0644)) >= 0) {
-		(void)write(fd,logbuffer,strlen(logbuffer)); 
-		(void)write(fd,"\n",1);      
+		dummy = write(fd,logbuffer,strlen(logbuffer)); 
+		dummy = write(fd,"\n",1);      
 		(void)close(fd);
 	}
 	if(type == ERROR || type == NOTFOUND || type == FORBIDDEN) exit(3);
@@ -114,17 +116,17 @@ void web(int fd, int hit)
 	      (void)lseek(file_fd, (off_t)0, SEEK_SET); /* lseek back to the file start ready for reading */
           (void)sprintf(buffer,"HTTP/1.1 200 OK\nServer: nweb/%d.0\nContent-Length: %ld\nConnection: close\nContent-Type: %s\n\n", VERSION, len, fstr); /* Header + a blank line */
 	logger(LOG,"Header",buffer,hit);
-	(void)write(fd,buffer,strlen(buffer));
+	dummy = write(fd,buffer,strlen(buffer));
 	
     /* Send the statistical headers described in the paper, example below
     
     (void)sprintf(buffer,"X-stat-req-arrival-count: %d\r\n", xStatReqArrivalCount);
-	(void)write(fd,buffer,strlen(buffer));
+	dummy = write(fd,buffer,strlen(buffer));
     */
     
     /* send file in 8KB block - last block may be smaller */
 	while (	(ret = read(file_fd, buffer, BUFSIZE)) > 0 ) {
-		(void)write(fd,buffer,ret);
+		dummy = write(fd,buffer,ret);
 	}
 	sleep(1);	/* allow socket to drain before signalling the socket is closed */
 	close(fd);
