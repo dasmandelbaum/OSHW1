@@ -16,6 +16,39 @@
 #define FORBIDDEN 403
 #define NOTFOUND  404
 
+
+/* structs needed:
+    1) Thread
+        - pointer to pthread
+        - STAT-8: thread ID
+        - STAT-9: count of http requests handled
+        - STAT-10: count of HTML requests handled
+        - STAT-11: count of Image requests handled
+    2) Threadpool
+        - pointer to threads
+        - mutex
+        - cond
+    3) Request
+        - pointer to request
+        - STAT-2: arrival time of request (relative to web server start time)
+        - STAT-3: requests dispatched before this request count
+        - STAT-4: time request was dispatched  
+        - STAT-6: time of read completion (relative to web server start time)
+        - STAT-7: number of requests given priority over this one
+    4) FIFORequestQueue
+        - pointer to requests 
+        - mutex
+        - STAT-1: count of total requests present
+        - STAT-5: completed request count    
+    5) RequestPriorityQueue
+        - pointer to requests 
+        - mutex
+        - HTML or JPG priority
+        - STAT-1: count of total requests present
+        - STAT-5: completed request count
+*/
+
+
 struct {
 	char *ext;
 	char *filetype;
@@ -189,20 +222,39 @@ int main(int argc, char **argv)
 		logger(ERROR,"system call","bind",0);
 	if( listen(listenfd,64) <0)
 		logger(ERROR,"system call","listen",0);
+		
+	/*TODO: create struct with worker threads
+	    1) malloc space for number of threads provided
+	    2) 
+	*/
+	
+	/*TODO: create struct for requests based on the input scheduling:
+	    1) fifo (queue)
+	    or 2) html/image first (priority)
+	*/
 	for(hit=1; ;hit++) {
 		length = sizeof(cli_addr);
 		if((socketfd = accept(listenfd, (struct sockaddr *)&cli_addr, &length)) < 0)
 			logger(ERROR,"system call","accept",0);
+	    /*
+	        TODO: pass off request to struct holding requests:
+	        1) lock
+	        2) add request to queue
+	        3) unlock
+	        4) alert workers that condition (request added) fulfilled 
+	     */
+		
+		/*TODO: remove fork
 		if((pid = fork()) < 0) {
 			logger(ERROR,"system call","fork",0);
 		}
 		else {
-			if(pid == 0) { 	/* child */
+			if(pid == 0) { 	/* child 
 				(void)close(listenfd);
-				web(socketfd,hit); /* never returns */
-			} else { 	/* parent */
+				web(socketfd,hit); /* never returns 
+			} else { 	/* parent 
 				(void)close(socketfd);
 			}
-		}
+		}*/
 	}
 }
