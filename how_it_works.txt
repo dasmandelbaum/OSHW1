@@ -27,11 +27,11 @@ How it should work:
 1) turn on server with specified number of worker threads and scheduling preference
 included in command line.
     
-    - ex. ./server 8181 ./index.html 5 fifo &
+    - ex. ./server 8181 . 5 fifo &
     - STAT-MULTIPURPOSE: save time web server starts
     - create queue to store requests:
         - regular queue for fifo
-        - priority queue for imagefirst, htmlfirst (stable?)
+        - priority queue for imagefirst, htmlfirst 
     
 2) create worker thread pool with specified number of threads
 
@@ -107,5 +107,64 @@ included in command line.
 
     - STAT-5: add to completed request count
      
+     
+code snippets:
+
+    - thread pool code outline
+        
+        - dispatcher thread:
+        
+            while(TRUE)
+            {
+                get_next_request(&buf);
+                handoff_work(&buf);
+            }
+            
+        - worker thread:
+        
+            while(TRUE)
+            {
+                wait_for_work(&buf);
+                look_for_page_in_cache(&buf, &page);
+                if(page_not_in_cache(&page))
+                {
+                    read_page_from_disk(&buf, &page);
+                }
+                return_page(&page);
+            }
+            
+    - from tutorial:
+    
+struct thread_data{
+   int  thread_id;
+   int  sum;
+   char *message;
+};
+
+struct thread_data thread_data_array[NUM_THREADS];
+
+void *PrintHello(void *threadarg)
+{
+   struct thread_data *my_data;
+   ...
+   my_data = (struct thread_data *) threadarg;
+   taskid = my_data->thread_id;
+   sum = my_data->sum;
+   hello_msg = my_data->message;
+   ...
+}
+
+int main (int argc, char *argv[])
+{
+   ...
+   thread_data_array[t].thread_id = t;
+   thread_data_array[t].sum = sum;
+   thread_data_array[t].message = messages[t];
+   rc = pthread_create(&threads[t], NULL, PrintHello, 
+        (void *) &thread_data_array[t]);
+   ...
+}
+
+        
     
     
