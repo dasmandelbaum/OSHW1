@@ -19,7 +19,7 @@
 struct {
 	char *ext;
 	char *filetype;
-} extensions [] = {
+}	extensions [] = {
 	{"gif", "image/gif" },  
 	{"jpg", "image/jpg" }, 
 	{"jpeg","image/jpeg"},
