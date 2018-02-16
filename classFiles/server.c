@@ -9,12 +9,21 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
+#include <pthread.h>
+
 #define VERSION 23
 #define BUFSIZE 8096
 #define ERROR      42
 #define LOG        44
 #define FORBIDDEN 403
 #define NOTFOUND  404
+
+/**
+    References used:
+        https://github.com/Pithikos/C-Thread-Pool/blob/master/thpool.c
+        https://github.com/jonhoo/pthread_pool/blob/master/pthread_pool.c
+*/
+
 
 
 /* structs needed:
@@ -37,17 +46,54 @@
         - STAT-7: number of requests given priority over this one
     4) FIFORequestQueue
         - pointer to requests 
-        - mutex
-        - STAT-1: count of total requests present
-        - STAT-5: completed request count    
+        - mutex 
     5) SpecialRequestQueue
         - pointer to requests 
         - mutex
         - HTML or JPG priority
-        - STAT-1: count of total requests present
-        - STAT-5: completed request count
 */
 
+struct  {  
+    pthread_t pthread;
+    int id;
+    int countHttpRequests;
+    int countHtmlRequests;
+    int countImageRequests; 
+} thread;
+
+struct {
+    thread **threads;
+    pthread_cond_t cond;
+} thread_pool;
+
+struct {
+   struct request * previous;
+   int *requestInfo;
+   int arrivalTime;
+   int countDispatchedPreviously;
+   int dispatchedTime;
+   int readCompletionTime;
+   int numRequestsHigherPriority;
+} request;
+
+struct {
+    struct request** requests;
+    pthread_mutex_t mutex;
+} fifo_request_queue;
+
+struct {
+    request** requests;
+    pthread_mutex_t mutex;
+    int priority; //0 for html, 1 for jpg
+} special_request_queue;
+
+/*
+    global variables needed:
+        - STAT-1: count of total requests present
+        - STAT-5: completed request count   
+*/
+static int requestsPresentCount;
+static int requestCountTotal;
 
 struct {
 	char *ext;
@@ -66,6 +112,62 @@ struct {
 	{0,0} };
 
 static int dummy; //keep compiler happy
+
+
+/*
+    initialize thread pool, initialize threads, and add them to thread pool
+*/
+void createPool(int numThreads)
+{
+    thread_pool pool;
+    *pool = (struct thread_pool*)malloc((sizeof(struct thread) * numThreads) + sizeof(pthread_cond_t));
+    pool->threads[numThreads];
+    int i;
+    for(i = 0; i < numThreads; i++)
+    {
+        printf("creating thread %d\n", i);
+        pool->&threads[i] = createThread();
+    }   
+    pool->cond = ;//TODO
+}
+
+/*
+    initialize thread
+*/
+thread createThread()
+{
+    int status; thread thr;
+    * thr = (struct thread*)malloc(sizeof(pthread_t) + (sizeof(int) * 4));
+    status = pthread_create(&thr, NULL, threadWait(), NULL);
+    if (status != 0)
+    {
+        printf("there was issue creating thread %d\n", i);
+        exit(-1);
+    }    
+    return thr; 
+}
+
+/*
+    initialize request queue(s)
+        - indicator variable:
+            0 for fifo 
+            1 for html priority
+            2 for image priority
+*/
+void createQueue(int indicator)
+{
+
+}
+
+
+/*
+    method for threads to wait for request
+*/
+void threadWait()
+{
+    
+}
+
 
 void logger(int type, char *s1, char *s2, int socket_fd)
 {
