@@ -18,6 +18,9 @@
 #define FORBIDDEN 403
 #define NOTFOUND  404
 
+
+void createPool(int numThreads);
+void threadWait();
 /**
     References used:
         https://github.com/Pithikos/C-Thread-Pool/blob/master/thpool.c
@@ -53,20 +56,21 @@
         - HTML or JPG priority
 */
 
-struct  {  
+typedef struct Thread {  
     pthread_t pthread;
     int id;
     int countHttpRequests;
     int countHtmlRequests;
     int countImageRequests; 
-} thread;
+} Thread;
+Thread* createThread();
 
-struct {
-    thread **threads;
+typedef struct {
+    Thread **threads;  
     pthread_cond_t cond;
-} thread_pool;
+} Thread_pool;
 
-struct {
+typedef struct {
    struct request * previous;
    int *requestInfo;
    int arrivalTime;
@@ -76,12 +80,12 @@ struct {
    int numRequestsHigherPriority;
 } request;
 
-struct {
+typedef struct {
     struct request** requests;
     pthread_mutex_t mutex;
 } fifo_request_queue;
 
-struct {
+typedef struct {
     request** requests;
     pthread_mutex_t mutex;
     int priority; //0 for html, 1 for jpg
@@ -115,30 +119,29 @@ static int dummy; //keep compiler happy
 
 
 /*
-    initialize thread pool, initialize threads, and add them to thread pool
+    initialize Thread pool, initialize Threads, and add them to Thread pool
 */
 void createPool(int numThreads)
 {
-    thread_pool pool;
-    *pool = (struct thread_pool*)malloc((sizeof(struct thread) * numThreads) + sizeof(pthread_cond_t));
-    pool->threads[numThreads];
+    Thread_pool * pool = (struct Thread_pool *)malloc((sizeof(struct Thread) * numThreads) + sizeof(pthread_cond_t));
+    //pool->threads[numThreads];
     int i;
     for(i = 0; i < numThreads; i++)
     {
-        printf("creating thread %d\n", i);
-        pool->&threads[i] = createThread();
+        printf("creating Thread %d\n", i);
+        pool->threads[i] = createThread(i);
     }   
-    pool->cond = ;//TODO
+    pool->cond = 1;//TODO
 }
 
 /*
-    initialize thread
+    initialize Thread
 */
-thread createThread()
+Thread*  createThread(int i)
 {
-    int status; thread thr;
-    * thr = (struct thread*)malloc(sizeof(pthread_t) + (sizeof(int) * 4));
-    status = pthread_create(&thr, NULL, threadWait(), NULL);
+    int status; Thread * thr;
+    thr = (struct Thread*)malloc(sizeof(pthread_t) + (sizeof(int) * 4));
+    status = pthread_create(*thr, NULL, threadWait(), NULL);
     if (status != 0)
     {
         printf("there was issue creating thread %d\n", i);
@@ -270,7 +273,7 @@ void web(int fd, int hit)
 
 int main(int argc, char **argv)
 {
-	int i, port, pid, listenfd, socketfd, hit;
+	int i, port, listenfd, socketfd, hit;//pid,
 	socklen_t length;
 	static struct sockaddr_in cli_addr; /* static = initialised to zeros */
 	static struct sockaddr_in serv_addr; /* static = initialised to zeros */
@@ -370,10 +373,10 @@ int main(int argc, char **argv)
 			logger(ERROR,"system call","fork",0);
 		}
 		else {
-			if(pid == 0) { 	/* child 
+			if(pid == 0) { 	// child 
 				(void)close(listenfd);
-				web(socketfd,hit); /* never returns 
-			} else { 	/* parent 
+				web(socketfd,hit); // never returns 
+			} else { 	// parent 
 				(void)close(socketfd);
 			}
 		}*/
@@ -382,6 +385,7 @@ int main(int argc, char **argv)
 
 /**
     Method for worker thread to wait for request
+    threadwait()
 */
 
 /**
