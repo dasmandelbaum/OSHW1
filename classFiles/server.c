@@ -16,6 +16,7 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <pthread.h>
+#include <sys/time.h>
 
 #define VERSION 23
 #define BUFSIZE 8096
@@ -70,8 +71,8 @@ typedef struct {
 
 typedef struct {
    struct request * previous;
-   int *requestInfo;
-   int arrivalTime;
+   int requestInfo;
+   struct timeval arrivalTime;
    int countDispatchedPreviously;
    int dispatchedTime;
    int readCompletionTime;
@@ -79,15 +80,10 @@ typedef struct {
 } request;
 
 typedef struct {
-    struct request** requests;
-    pthread_mutex_t mutex;
-} fifo_request_queue;
-
-typedef struct {
     request** requests;
     pthread_mutex_t mutex;
-    int priority; //0 for html, 1 for jpg
-} special_request_queue;
+    int priority; //0 for fifo, 1 for html, 2 for jpg
+} request_queue;
 
 /*
     global variables needed:
@@ -120,6 +116,8 @@ static int dummy; //keep compiler happy
 */
 void createPool(int numThreads);
 void * threadWait();
+request_queue createQueue(int indicator);
+request createRequest(int fd);
 
 /*
     initialize Thread pool, initialize Threads, and add them to Thread pool
@@ -127,7 +125,7 @@ void * threadWait();
 void createPool(int numThreads)
 {
     thread ** newThreads[numThreads];
-    thread_pool * pool = malloc((sizeof(thread) * numThreads) + sizeof(pthread_cond_t));
+    thread_pool * pool = calloc(numThreads + 1, (sizeof(thread) * numThreads) + sizeof(pthread_cond_t));
     pool->threads = * newThreads;
     int i;
     for(i = 0; i < numThreads; i++)
@@ -144,13 +142,17 @@ void createPool(int numThreads)
 thread*  createThread(int i)
 {
     int status; thread * thr;
-    thr = (struct Thread*)malloc(sizeof(pthread_t) + (sizeof(int) * 4));
+    thr = (struct Thread*)calloc(5, sizeof(pthread_t) + (sizeof(int) * 4));
     status = pthread_create(&thr->pthread, NULL, threadWait, NULL);
     if (status != 0)
     {
         printf("there was issue creating thread %d\n", i);
         exit(-1);
     }    
+    thr->id = i;
+    thr->countHttpRequests = 0;
+    thr->countHtmlRequests = 0;
+    thr->countImageRequests = 0;
     return thr; 
 }
 
@@ -161,9 +163,27 @@ thread*  createThread(int i)
             1 for html priority
             2 for image priority
 */
-void createQueue(int indicator)
+request_queue createQueue(int indicator)
 {
+    request ** newrequests[50];//is this a random max we should have
+    request_queue * rq = calloc(3, sizeof(newrequests) + sizeof(int) + sizeof(pthread_mutex_t));
+    rq->requests = * newrequests;
+    rq->priority = indicator;
+    pthread_mutex_init(&rq->mutex, NULL);
+    return * rq;
+}
 
+request createRequest(int fd)
+{
+    request * r = calloc(7, (sizeof(int) * 6) + sizeof(request));
+    r->previous = NULL;
+    r->requestInfo = fd;
+    gettimeofday(&r->arrivalTime, NULL);
+    r->countDispatchedPreviously = 0;//TODO: how do we get this number?
+    r->dispatchedTime = 0;
+    r->readCompletionTime = 0;
+    r->numRequestsHigherPriority = 0;
+    return * r;  
 }
 
 
@@ -279,6 +299,7 @@ int main(int argc, char **argv)
 {
 	int i, port, listenfd, socketfd, hit;//pid,
 	socklen_t length;
+	request_queue fifoqueue, srqueue;
 	static struct sockaddr_in cli_addr; /* static = initialised to zeros */
 	static struct sockaddr_in serv_addr; /* static = initialised to zeros */
 
@@ -332,35 +353,45 @@ int main(int argc, char **argv)
 	if( listen(listenfd,64) <0)
 		logger(ERROR,"system call","listen",0);
 		
-	/*TODO: create threadpool struct with worker threads
-	    1) malloc space for number of threads provided/create threadpool
-	    2) for number of threads
-	        - create thread, handing off to method to wait for condition to be fulfilled
-	            - pointer to pthread
-                - STAT-8: thread ID
-                - STAT-9: count of http requests handled
-                - STAT-10: count of HTML requests handled
-                - STAT-11: count of Image requests handled
-	        - add to threadpool
+	/*
+	    create threadpool struct with worker threads
 	*/
+	createPool((int)argv[3]);//TODO: might need to add return type threadpool
 	
-	/*TODO: create struct for requests based on the input scheduling:
-	    1) fifo (queue)
-	        - pointer to requests 
-            - mutex
-            - STAT-1: count of total requests present
-            - STAT-5: completed request count  
-	    and (if not fifo) 2) html/image first 
-	        - pointer to requests 
-            - mutex
-            - HTML or JPG priority
-            - STAT-1: count of total requests present
-            - STAT-5: completed request count
+	/*
+	    create struct for requests based on the input scheduling:
 	*/
+	int preference = 0;
+	if(!strcmp(argv[5], "FIFO") || !strcmp(argv[5], "ANY")) //any treated as FIFO
+	{
+	    //create just fifo queue
+	    fifoqueue = createQueue(preference);   
+	}
+	else if(!strcmp(argv[5], "HPHC") || !strcmp(argv[5], "HPIC"))
+	{
+	    //create fifo queue for everything other than preference 
+	    fifoqueue = createQueue(preference); 
+	    //create special queue 
+	    if(!strcmp(argv[5], "HPHC"))
+	    {
+	        preference = 1;
+	    }
+	    else
+	    {
+	        preference = 2;
+	    }
+	    srqueue = createQueue(preference);
+	}
+	else
+	{
+	    logger(ERROR,"system call","createQueue",0);//can we personalize this logger error?
+	}
 	for(hit=1; ;hit++) {
 		length = sizeof(cli_addr);
 		if((socketfd = accept(listenfd, (struct sockaddr *)&cli_addr, &length)) < 0)
 			logger(ERROR,"system call","accept",0);
+		//create request
+		request r = createRequest(socketfd);
 	    /*
 	        TODO: pass off request to struct holding requests:
 	        1) lock
@@ -369,7 +400,7 @@ int main(int argc, char **argv)
                 requestCountTotal++;
 	           /* - if fifo requested or HTML/JPG requested and this is not, 
 	                add to fifo queue
-	            - if HTML/JPG priority requested and this is it, add to to queue
+	            - if HTML/image priority requested and this is it, add to to queue
 	        3) unlock
 	        4) alert workers that condition (request added) fulfilled 
 	     */
