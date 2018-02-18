@@ -119,7 +119,7 @@ static int dummy; //keep compiler happy
     prototypes
 */
 void createPool(int numThreads);
-void * _Nullable threadWait();
+void * threadWait();
 
 /*
     initialize Thread pool, initialize Threads, and add them to Thread pool
@@ -135,7 +135,7 @@ void createPool(int numThreads)
         printf("creating Thread %d\n", i);
         pool->threads[i] = createThread(i);
     }   
-    pool->cond = pthread_cond_init(,NULL);//TOFIX
+    pthread_cond_init(&pool->cond, NULL);
 }
 
 /*
@@ -145,7 +145,7 @@ thread*  createThread(int i)
 {
     int status; thread * thr;
     thr = (struct Thread*)malloc(sizeof(pthread_t) + (sizeof(int) * 4));
-    status = pthread_create(&thr->pthread, NULL, threadWait(), NULL);
+    status = pthread_create(&thr->pthread, NULL, threadWait, NULL);
     if (status != 0)
     {
         printf("there was issue creating thread %d\n", i);
@@ -170,9 +170,9 @@ void createQueue(int indicator)
 /*
     method for threads to wait for request
 */
-void * _Nullable threadWait()
+void * threadWait()
 {
-    
+    return NULL;
 }
 
 
@@ -364,8 +364,10 @@ int main(int argc, char **argv)
 	    /*
 	        TODO: pass off request to struct holding requests:
 	        1) lock
-	        2) add request to queue
-	            - if fifo requested or HTML/JPG requested and this is not, 
+	        2) add request to queue*/
+	            requestsPresentCount++;
+                requestCountTotal++;
+	           /* - if fifo requested or HTML/JPG requested and this is not, 
 	                add to fifo queue
 	            - if HTML/JPG priority requested and this is it, add to to queue
 	        3) unlock
