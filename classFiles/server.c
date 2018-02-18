@@ -62,13 +62,14 @@ typedef struct Thread {
     int countHttpRequests;
     int countHtmlRequests;
     int countImageRequests; 
-} Thread;
-Thread* createThread();
+} thread;
+
+thread* createThread();
 
 typedef struct {
-    Thread **threads;  
+    thread **threads;  
     pthread_cond_t cond;
-} Thread_pool;
+} thread_pool;
 
 typedef struct {
    struct request * previous;
@@ -123,25 +124,26 @@ static int dummy; //keep compiler happy
 */
 void createPool(int numThreads)
 {
-    Thread_pool * pool = (struct Thread_pool *)malloc((sizeof(struct Thread) * numThreads) + sizeof(pthread_cond_t));
-    //pool->threads[numThreads];
+    thread ** newThreads[numThreads];
+    thread_pool * pool = malloc((sizeof(thread) * numThreads) + sizeof(pthread_cond_t));
+    pool->threads = * newThreads;
     int i;
     for(i = 0; i < numThreads; i++)
     {
         printf("creating Thread %d\n", i);
         pool->threads[i] = createThread(i);
     }   
-    pool->cond = 1;//TODO
+    pool->cond = pthread_cond_init(,NULL);//TOFIX
 }
 
 /*
     initialize Thread
 */
-Thread*  createThread(int i)
+thread*  createThread(int i)
 {
-    int status; Thread * thr;
+    int status; thread * thr;
     thr = (struct Thread*)malloc(sizeof(pthread_t) + (sizeof(int) * 4));
-    status = pthread_create(*thr, NULL, threadWait(), NULL);
+    status = pthread_create(&thr->pthread, NULL, threadWait(), NULL);
     if (status != 0)
     {
         printf("there was issue creating thread %d\n", i);
