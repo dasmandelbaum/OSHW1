@@ -1,3 +1,9 @@
+/**
+    References used:
+        https://github.com/Pithikos/C-Thread-Pool/blob/master/thpool.c
+        https://github.com/jonhoo/pthread_pool/blob/master/pthread_pool.c
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -17,15 +23,6 @@
 #define LOG        44
 #define FORBIDDEN 403
 #define NOTFOUND  404
-
-
-void createPool(int numThreads);
-void threadWait();
-/**
-    References used:
-        https://github.com/Pithikos/C-Thread-Pool/blob/master/thpool.c
-        https://github.com/jonhoo/pthread_pool/blob/master/pthread_pool.c
-*/
 
 
 
@@ -118,6 +115,11 @@ struct {
 
 static int dummy; //keep compiler happy
 
+/*
+    prototypes
+*/
+void createPool(int numThreads);
+void * _Nullable threadWait();
 
 /*
     initialize Thread pool, initialize Threads, and add them to Thread pool
@@ -168,7 +170,7 @@ void createQueue(int indicator)
 /*
     method for threads to wait for request
 */
-void threadWait()
+void * _Nullable threadWait()
 {
     
 }
@@ -384,11 +386,6 @@ int main(int argc, char **argv)
 		}*/
 	}
 }
-
-/**
-    Method for worker thread to wait for request
-    threadwait()
-*/
 
 /**
     Method for getting request from queue once worker awake
