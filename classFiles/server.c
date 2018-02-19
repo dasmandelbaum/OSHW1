@@ -71,12 +71,13 @@ typedef struct {
 
 typedef struct {
    struct request * previous;
-   int requestInfo;
+   int requestInfo; //fd
    struct timeval arrivalTime;
    int countDispatchedPreviously;
    int dispatchedTime;
    int readCompletionTime;
    int numRequestsHigherPriority;
+   int requestType; //0 for regular, 1 for html, 2 for jpg
 } request;
 
 typedef struct {
@@ -143,16 +144,16 @@ thread*  createThread(int i)
 {
     int status; thread * thr;
     thr = (struct Thread*)calloc(5, sizeof(pthread_t) + (sizeof(int) * 4));
-    status = pthread_create(&thr->pthread, NULL, threadWait, NULL);
+    thr->id = i;
+    thr->countHttpRequests = 0;
+    thr->countHtmlRequests = 0;
+    thr->countImageRequests = 0;
+    status = pthread_create(&thr->pthread, NULL, threadWait, thr);
     if (status != 0)
     {
         printf("there was issue creating thread %d\n", i);
         exit(-1);
     }    
-    thr->id = i;
-    thr->countHttpRequests = 0;
-    thr->countHtmlRequests = 0;
-    thr->countImageRequests = 0;
     return thr; 
 }
 
@@ -183,6 +184,7 @@ request createRequest(int fd)
     r->dispatchedTime = 0;
     r->readCompletionTime = 0;
     r->numRequestsHigherPriority = 0;
+    //r->requestType = ; dont know this yes
     return * r;  
 }
 
@@ -190,7 +192,7 @@ request createRequest(int fd)
 /*
     method for threads to wait for request
 */
-void * threadWait()
+void * threadWait(thread thr)
 {
     return NULL;
 }
@@ -389,8 +391,25 @@ int main(int argc, char **argv)
 		length = sizeof(cli_addr);
 		if((socketfd = accept(listenfd, (struct sockaddr *)&cli_addr, &length)) < 0)
 			logger(ERROR,"system call","accept",0);
+		//read file to see if .jpg, .gif, or .png
+		static char buffer[BUFSIZE+1]; /* static so zero filled */
+		long ret = read(socketfd,buffer,BUFSIZE); 	/* read Web request */
+		char * requestLine;
+		requestLine = (char*)&ret; //https://stackoverflow.com/a/16537142
+		if(preference != 0)//has a preference
+		{
+		    if((strstr(requestLine, ".jpg") != 0) || (strstr(requestLine, ".png") != 0) || (strstr(requestLine, ".gif") != 0)) //must be image
+		    {
+		
+		    }
+		    else if (strstr(requestLine, ".html") != 0)//html request
+		    {
+		    
+		    }
+		}
 		//create request
 		request r = createRequest(socketfd);
+		//set requestType and stats
 	    /*
 	        TODO: pass off request to struct holding requests:
 	        1) lock
