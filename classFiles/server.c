@@ -223,7 +223,6 @@ void logger(int type, char *s1, char *s2, int socket_fd)
 	if(type == ERROR || type == NOTFOUND || type == FORBIDDEN) exit(3);
 }
 
-/* this is a child web server process, so we can exit on errors */
 void web(int fd, int hit)
 {
 	int j, file_fd, buflen;
@@ -395,7 +394,8 @@ int main(int argc, char **argv)
 	    /*
 	        TODO: pass off request to struct holding requests:
 	        1) lock
-	        2) add request to queue*/
+	        2) add request to queue
+	    */
 	            requestsPresentCount++;
                 requestCountTotal++;
 	           /* - if fifo requested or HTML/JPG requested and this is not, 
