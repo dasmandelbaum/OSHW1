@@ -64,13 +64,13 @@ typedef struct Thread {
 
 thread* createThread();
 
-typedef struct {
+typedef struct thread_pool{
     thread **threads;  
     pthread_cond_t cond;
 } thread_pool;
 
-typedef struct {
-   struct request * previous;
+typedef struct request{
+   struct request * behind;
    int requestInfo; //fd
    struct timeval arrivalTime;
    int countDispatchedPreviously;
@@ -80,8 +80,11 @@ typedef struct {
    int requestType; //0 for regular, 1 for html, 2 for jpg
 } request;
 
-typedef struct {
+typedef struct request_queue{
     request** requests;
+    request * first;
+    request * last;
+    int length;
     pthread_mutex_t mutex;
     int priority; //0 for fifo, 1 for html, 2 for jpg
 } request_queue;
@@ -117,9 +120,10 @@ static int dummy; //keep compiler happy
 */
 thread_pool * createPool(int numThreads);
 void * threadWait();
-request_queue * createQueue(int indicator);
+request_queue createQueue(int indicator);
 request createRequest(int fd);
 void logger(int type, char *s1, char *s2, int socket_fd);
+void addRequest(request * req, request_queue * queue);
 
 /*
 Fields
@@ -181,34 +185,45 @@ thread * createThread(int i)
             1 for html priority
             2 for image priority
 */
-request_queue * createQueue(int indicator)
+request_queue createQueue(int indicator)
 {
     request * newrequests[50];//is this a random max we should have
     request_queue * rq = calloc(3, sizeof(newrequests) + sizeof(int) + sizeof(pthread_mutex_t));
     rq->requests = newrequests;
     rq->priority = indicator;
+    rq->first = NULL;
+    rq->last = NULL;
+    rq->length = 0;
     //pthread_mutex_init(&rq->mutex, NULL);
-<<<<<<< HEAD
     return * rq;
-=======
-    return rq;
->>>>>>> e8cef2198d00046da4e7fe8040d0c00cf5377496
 }
 
 request createRequest(int fd)
 {
     request * r = calloc(7, (sizeof(int) * 6) + sizeof(request));
-    r->previous = NULL;
+    r->behind = NULL;
     r->requestInfo = fd;
     gettimeofday(&r->arrivalTime, NULL);
     r->countDispatchedPreviously = 0;//TODO: how do we get this number?
-    r->dispatchedTime = 0;
+    r->dispatchedTime = 15;
     r->readCompletionTime = 0;
     r->numRequestsHigherPriority = 0;
     //r->requestType = ; dont know this yes
     return * r;  
 }
 
+
+void addRequest(request * req, request_queue * queue)
+{
+	if(queue->length == 0){
+		queue-> first = req;		
+	}
+	else{
+		queue->last->behind = req;
+	}
+	queue-> last = req;
+	queue->length++;
+}
 
 /*
     method for threads to wait for request
@@ -321,7 +336,7 @@ int main(int argc, char **argv)
 {
 	int i, port, listenfd, socketfd, hit, numThreads;//pid,
 	socklen_t length;
-	request_queue* fifoqueue, srqueue;
+	request_queue fifoqueue, srqueue;
 	static struct sockaddr_in cli_addr; /* static = initialised to zeros */
 	static struct sockaddr_in serv_addr; /* static = initialised to zeros */
 
@@ -423,33 +438,35 @@ int main(int argc, char **argv)
 	    logger(ERROR,"system call","createQueue",0);//can we personalize this logger error?
 	}
 	
-<<<<<<< HEAD
 	int pri = srqueue.priority;
-=======
-	int pri = srqueue->priority;
->>>>>>> e8cef2198d00046da4e7fe8040d0c00cf5377496
 	logger(LOG, "checking", "priority number",pri);
 	logger(LOG, "we have reached here", argv[5], 5); 
 	
 	//"portNum: %d  folder: %s  NumThreads: %d  schedule num: %d\n ", port, "folder", numThreads,preference);
 	for(hit=1; ;hit++) {
+		logger(LOG, "starting", "loop", 0);
+
 		length = sizeof(cli_addr);
-		logger(LOG, "we have reached here YAAKOV 1", "1", 5); 
-
-		if((socketfd = accept(listenfd, (struct sockaddr *)&cli_addr, &length)) < 0)
-					logger(LOG, "we have reached here YAAKOV 2", "2", 5); 
-
+		if((socketfd = accept(listenfd, (struct sockaddr *)&cli_addr, &length)) < 0) {
 			logger(ERROR,"system call","accept",0);
+		}
+		request rq = createRequest(socketfd);
+		logger(LOG, "checking", "request creation", rq.dispatchedTime);
+		
+		addRequest(&rq, &fifoqueue);
+		logger(LOG, "checking", "request Queue addition first", fifoqueue.first->dispatchedTime);
+		logger(LOG, "checking", "request Queue addition last", fifoqueue.last->dispatchedTime);
+
+		
 		//read file to see if .jpg, .gif, or .png
 
 		static char buffer[BUFSIZE+1]; /* static so zero filled */
 
 		long ret = read(socketfd,buffer,BUFSIZE); 	/* read Web request */
-						logger(LOG, "we have reached here YAAKOV 3", "3", 5); 
 
 		char * requestLine;
 		requestLine = (char*)&ret; //https://stackoverflow.com/a/16537142
-		logger(LOG, "we have reached here YAAKOV", requestLine, 5); 
+		logger(LOG, "we have reached request line", requestLine, 5); 
 
 		if(preference != 0)//has a preference
 		{
