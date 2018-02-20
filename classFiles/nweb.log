@@ -207,3 +207,78 @@ ERROR: system call:bind Errno=48 exiting pid=20964
  INFO: checking:request Queue addition last:15
  INFO: we have reached request line::5
  INFO: starting:loop:0
+ INFO: nweb starting:4001:21272
+ INFO: we have reached CREATE POOL:8:5
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: thread number 4:i hope:9
+ INFO: we have reached FIFO:FIFO:5
+ INFO: checking:priority number:1898056010
+ INFO: we have reached here:FIFO:5
+ INFO: starting:loop:0
+ INFO: checking:request creation:15
+ INFO: checking:request Queue addition first:15
+ INFO: checking:request Queue addition last:15
+ INFO: nweb starting:4002:21308
+ INFO: we have reached CREATE POOL:8:5
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: thread number 4:i hope:9
+ INFO: we have reached FIFO:FIFO:5
+ INFO: checking:priority number:1898056010
+ INFO: we have reached here:FIFO:5
+ INFO: starting:loop:0
+ INFO: checking:request creation:15
+ INFO: checking:request Queue addition first:15
+ INFO: checking:request Queue addition last:15
+ INFO: we are right before:foo:5
+ INFO: nweb starting:4003:21374
+ INFO: we have reached CREATE POOL:8:5
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: thread number 4:i hope:9
+ INFO: we have reached FIFO:FIFO:5
+ INFO: checking:priority number:1898056010
+ INFO: we have reached here:FIFO:5
+ INFO: starting:loop:0
+ INFO: checking:request creation:15
+ INFO: checking:request Queue addition first:15
+ INFO: checking:request Queue addition last:15
+ INFO: we are right before foo:(null):5
+ INFO: nweb starting:4004:21470
+ INFO: we have reached CREATE POOL:8:5
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: thread number 4:i hope:9
+ INFO: we have reached FIFO:FIFO:5
+ INFO: checking:priority number:1898056010
+ INFO: we have reached here:FIFO:5
+ INFO: starting:loop:0
+ INFO: checking:request creation:15
+ INFO: checking:request Queue addition first:15
+ INFO: checking:request Queue addition last:15
+ INFO: we are right before foo:(null):5

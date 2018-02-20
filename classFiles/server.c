@@ -463,10 +463,17 @@ int main(int argc, char **argv)
 		static char buffer[BUFSIZE+1]; /* static so zero filled */
 
 		long ret = read(socketfd,buffer,BUFSIZE); 	/* read Web request */
+		
+		//char * requestLine = NULL;
+		//char * foo = NULL;
+		//logger(LOG, "we are right before foo" , foo, 5); 
 
-		char * requestLine;
-		requestLine = (char*)&ret; //https://stackoverflow.com/a/16537142
-		logger(LOG, "we have reached request line", requestLine, 5); 
+		printf("\n  This is the long:        %ld\n", ret);
+
+		//sprintf(foo, "%ld", ret);
+		//char * requestLine;
+		//requestLine = (char*)&ret; //https://stackoverflow.com/a/16537142
+		logger(LOG, "we have reached request line", foo, 5); 
 
 		if(preference != 0)//has a preference
 		{
