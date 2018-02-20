@@ -115,41 +115,44 @@ static int dummy; //keep compiler happy
 /*
     prototypes
 */
-void createPool(int numThreads);
+thread_pool * createPool(int numThreads);
 void * threadWait();
-request_queue createQueue(int indicator);
+request_queue * createQueue(int indicator);
 request createRequest(int fd);
 void logger(int type, char *s1, char *s2, int socket_fd);
 
 /*
+Fields
+*/
+
+thread_pool * ourThreads;
+/*
     initialize Thread pool, initialize Threads, and add them to Thread pool
 */
-void createPool(int numThreads)
+thread_pool *  createPool(int numThreads)
 {
- 
 
-    thread ** newThreads[numThreads];
+    thread * newThreads[numThreads];
   
-
     thread_pool * pool = calloc(numThreads + 1, (sizeof(thread) * numThreads) + sizeof(pthread_cond_t));    
     pool->threads =  newThreads;
     int i;
     for(i = 0; i < numThreads; i++)
     {
-    	logger(LOG, "we have reached CREATING THREAD", "THREADING", 5);  
     	//char * j;
     	//j   = 
         //sprintf("creating Thread %d\n", i);
         pool->threads[i] = createThread(i);
-        logger(LOG, "we have CREATED A THREAD", "THREADING", 5);  
+        logger(LOG, "we have CREATED A THREAD", "THREADING", i);  
     }   
     pthread_cond_init(&pool->cond, NULL);
+    return pool;
 }
 
 /*
     initialize Thread
 */
-thread*  createThread(int i)
+thread * createThread(int i)
 {
     /*int status;*/ thread * thr;
     thr = (struct Thread*)calloc(5, sizeof(pthread_t) + (sizeof(int) * 4));
@@ -167,8 +170,8 @@ thread*  createThread(int i)
         printf("there was issue creating thread %d\n", i);
         exit(-1);
     }    */
-    logger(LOG, "we have reached BEG CREATEthread", "HI", 5);  
-    return * thr; 
+    
+    return thr; 
 }
 
 /*
@@ -178,14 +181,14 @@ thread*  createThread(int i)
             1 for html priority
             2 for image priority
 */
-request_queue createQueue(int indicator)
+request_queue * createQueue(int indicator)
 {
-    request ** newrequests[50];//is this a random max we should have
+    request * newrequests[50];//is this a random max we should have
     request_queue * rq = calloc(3, sizeof(newrequests) + sizeof(int) + sizeof(pthread_mutex_t));
-    rq->requests = * newrequests;
+    rq->requests = newrequests;
     rq->priority = indicator;
-    pthread_mutex_init(&rq->mutex, NULL);
-    return * rq;
+    //pthread_mutex_init(&rq->mutex, NULL);
+    return rq;
 }
 
 request createRequest(int fd)
@@ -314,7 +317,7 @@ int main(int argc, char **argv)
 {
 	int i, port, listenfd, socketfd, hit, numThreads;//pid,
 	socklen_t length;
-	request_queue fifoqueue, srqueue;
+	request_queue* fifoqueue, srqueue;
 	static struct sockaddr_in cli_addr; /* static = initialised to zeros */
 	static struct sockaddr_in serv_addr; /* static = initialised to zeros */
 
@@ -379,8 +382,12 @@ int main(int argc, char **argv)
     logger(LOG, "we have reached CREATE POOL", argv[3], 5);      
 
 	numThreads = atoi(argv[3]);
-	createPool(numThreads);//TODO: might need to add return type threadpool
+	ourThreads = createPool(numThreads);//TODO: might need to add return type threadpool
+	(ourThreads-> threads[5])-> countHttpRequests = 9;
+	int thNum = (ourThreads-> threads[5])-> countHttpRequests;
 	
+	logger(LOG, "thread number 4", "i hope", thNum);
+
 	/*
 	    create struct for requests based on the input scheduling:
 	*/
@@ -391,7 +398,7 @@ int main(int argc, char **argv)
 	    fifoqueue = createQueue(preference); 
 	 	logger(LOG, "we have reached FIFO", argv[5], 5);      
 	}
-	else if(!strcmp(argv[5], "HPHC") || !strcmp(argv[5], "HPIC"))
+	else if(strcmp(argv[5], "HPHC") || strcmp(argv[5], "HPIC"))
 	{
 	    //create fifo queue for everything other than preference 
 	    fifoqueue = createQueue(preference); 
@@ -412,7 +419,8 @@ int main(int argc, char **argv)
 	    logger(ERROR,"system call","createQueue",0);//can we personalize this logger error?
 	}
 	
-
+	int pri = srqueue->priority;
+	logger(LOG, "checking", "priority number",pri);
 	logger(LOG, "we have reached here", argv[5], 5); 
 	
 	//"portNum: %d  folder: %s  NumThreads: %d  schedule num: %d\n ", port, "folder", numThreads,preference);
