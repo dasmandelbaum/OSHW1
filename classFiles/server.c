@@ -115,45 +115,62 @@ static int dummy; //keep compiler happy
 /*
     prototypes
 */
-void createPool(int numThreads);
+thread_pool * createPool(int numThreads);
 void * threadWait();
 request_queue createQueue(int indicator);
 request createRequest(int fd);
+void logger(int type, char *s1, char *s2, int socket_fd);
 
+/*
+Fields
+*/
+
+thread_pool * ourThreads;
 /*
     initialize Thread pool, initialize Threads, and add them to Thread pool
 */
-void createPool(int numThreads)
+thread_pool *  createPool(int numThreads)
 {
-    thread ** newThreads[numThreads];
-    thread_pool * pool = calloc(numThreads + 1, (sizeof(thread) * numThreads) + sizeof(pthread_cond_t));
-    pool->threads = * newThreads;
+
+    thread * newThreads[numThreads];
+  
+    thread_pool * pool = calloc(numThreads + 1, (sizeof(thread) * numThreads) + sizeof(pthread_cond_t));    
+    pool->threads =  newThreads;
     int i;
     for(i = 0; i < numThreads; i++)
     {
-        printf("creating Thread %d\n", i);
+    	//char * j;
+    	//j   = 
+        //sprintf("creating Thread %d\n", i);
         pool->threads[i] = createThread(i);
+        logger(LOG, "we have CREATED A THREAD", "THREADING", i);  
     }   
     pthread_cond_init(&pool->cond, NULL);
+    return pool;
 }
 
 /*
     initialize Thread
 */
-thread*  createThread(int i)
+thread * createThread(int i)
 {
-    int status; thread * thr;
+    /*int status;*/ thread * thr;
     thr = (struct Thread*)calloc(5, sizeof(pthread_t) + (sizeof(int) * 4));
+    
     thr->id = i;
     thr->countHttpRequests = 0;
     thr->countHtmlRequests = 0;
     thr->countImageRequests = 0;
-    status = pthread_create(&thr->pthread, NULL, threadWait, thr);
-    if (status != 0)
+       
+    pthread_create(&thr->pthread, NULL, threadWait, thr);
+   /* if (status == NULL)
     {
+    	logger(LOG, "we have reached heaven", "HI", 5);     
+
         printf("there was issue creating thread %d\n", i);
         exit(-1);
-    }    
+    }    */
+    
     return thr; 
 }
 
@@ -166,11 +183,11 @@ thread*  createThread(int i)
 */
 request_queue createQueue(int indicator)
 {
-    request ** newrequests[50];//is this a random max we should have
+    request * newrequests[50];//is this a random max we should have
     request_queue * rq = calloc(3, sizeof(newrequests) + sizeof(int) + sizeof(pthread_mutex_t));
-    rq->requests = * newrequests;
+    rq->requests = newrequests;
     rq->priority = indicator;
-    pthread_mutex_init(&rq->mutex, NULL);
+    //pthread_mutex_init(&rq->mutex, NULL);
     return * rq;
 }
 
@@ -298,13 +315,13 @@ void web(int fd, int hit)
 
 int main(int argc, char **argv)
 {
-	int i, port, listenfd, socketfd, hit;//pid,
+	int i, port, listenfd, socketfd, hit, numThreads;//pid,
 	socklen_t length;
 	request_queue fifoqueue, srqueue;
 	static struct sockaddr_in cli_addr; /* static = initialised to zeros */
 	static struct sockaddr_in serv_addr; /* static = initialised to zeros */
 
-	if( argc < 3  || argc > 3 || !strcmp(argv[1], "-?") ) {
+	if( argc < 6  || argc > 6 || !strcmp(argv[1], "-?") ) {
 		(void)printf("hint: nweb Port-Number Top-Directory\t\tversion %d\n\n"
 	"\tnweb is a small and very safe mini web server\n"
 	"\tnweb only servers out file/web pages with extensions named below\n"
@@ -314,7 +331,6 @@ int main(int argc, char **argv)
 	"\tOnly Supports:", VERSION);
 		for(i=0;extensions[i].ext != 0;i++)
 			(void)printf(" %s",extensions[i].ext);
-
 		(void)printf("\n\tNot Supported: URLs including \"..\", Java, Javascript, CGI\n"
 	"\tNot Supported: directories / /etc /bin /lib /tmp /usr /dev /sbin \n"
 	"\tNo warranty given or implied\n\tNigel Griffiths nag@uk.ibm.com\n"  );
@@ -339,7 +355,12 @@ int main(int argc, char **argv)
 	for(i=0;i<32;i++)
 		(void)close(i);		/* close open files */
 	(void)setpgrp();		/* break away from process group */
+	
+	
+	
 	logger(LOG,"nweb starting",argv[1],getpid());
+	
+	
 	/* setup the network socket */
 	if((listenfd = socket(AF_INET, SOCK_STREAM,0)) <0)
 		logger(ERROR, "system call","socket",0);
@@ -349,6 +370,7 @@ int main(int argc, char **argv)
 	serv_addr.sin_family = AF_INET;
 	serv_addr.sin_addr.s_addr = htonl(INADDR_ANY);
 	serv_addr.sin_port = htons(port);
+	printf("\n     HI        \n");
 	if(bind(listenfd, (struct sockaddr *)&serv_addr,sizeof(serv_addr)) <0)
 		logger(ERROR,"system call","bind",0);
 	if( listen(listenfd,64) <0)
@@ -357,18 +379,26 @@ int main(int argc, char **argv)
 	/*
 	    create threadpool struct with worker threads
 	*/
-	createPool((int)argv[3]);//TODO: might need to add return type threadpool
+    logger(LOG, "we have reached CREATE POOL", argv[3], 5);      
+
+	numThreads = atoi(argv[3]);
+	ourThreads = createPool(numThreads);//TODO: might need to add return type threadpool
+	(ourThreads-> threads[5])-> countHttpRequests = 9;
+	int thNum = (ourThreads-> threads[5])-> countHttpRequests;
 	
+	logger(LOG, "thread number 4", "i hope", thNum);
+
 	/*
 	    create struct for requests based on the input scheduling:
 	*/
 	int preference = 0;
-	if(!strcmp(argv[5], "FIFO") || !strcmp(argv[5], "ANY")) //any treated as FIFO
+	if(strcmp(argv[5], "FIFO") || strcmp(argv[5], "ANY")) //any treated as FIFO
 	{
 	    //create just fifo queue
-	    fifoqueue = createQueue(preference);   
+	    fifoqueue = createQueue(preference); 
+	 	logger(LOG, "we have reached FIFO", argv[5], 5);      
 	}
-	else if(!strcmp(argv[5], "HPHC") || !strcmp(argv[5], "HPIC"))
+	else if(strcmp(argv[5], "HPHC") || strcmp(argv[5], "HPIC"))
 	{
 	    //create fifo queue for everything other than preference 
 	    fifoqueue = createQueue(preference); 
@@ -383,19 +413,36 @@ int main(int argc, char **argv)
 	    }
 	    srqueue = createQueue(preference);
 	}
+
 	else
 	{
 	    logger(ERROR,"system call","createQueue",0);//can we personalize this logger error?
 	}
+	
+	int pri = srqueue.priority;
+	logger(LOG, "checking", "priority number",pri);
+	logger(LOG, "we have reached here", argv[5], 5); 
+	
+	//"portNum: %d  folder: %s  NumThreads: %d  schedule num: %d\n ", port, "folder", numThreads,preference);
 	for(hit=1; ;hit++) {
 		length = sizeof(cli_addr);
+		logger(LOG, "we have reached here YAAKOV 1", "1", 5); 
+
 		if((socketfd = accept(listenfd, (struct sockaddr *)&cli_addr, &length)) < 0)
+					logger(LOG, "we have reached here YAAKOV 2", "2", 5); 
+
 			logger(ERROR,"system call","accept",0);
 		//read file to see if .jpg, .gif, or .png
+
 		static char buffer[BUFSIZE+1]; /* static so zero filled */
+
 		long ret = read(socketfd,buffer,BUFSIZE); 	/* read Web request */
+						logger(LOG, "we have reached here YAAKOV 3", "3", 5); 
+
 		char * requestLine;
 		requestLine = (char*)&ret; //https://stackoverflow.com/a/16537142
+		logger(LOG, "we have reached here YAAKOV", requestLine, 5); 
+
 		if(preference != 0)//has a preference
 		{
 		    if((strstr(requestLine, ".jpg") != 0) || (strstr(requestLine, ".png") != 0) || (strstr(requestLine, ".gif") != 0)) //must be image
@@ -408,7 +455,7 @@ int main(int argc, char **argv)
 		    }
 		}
 		//create request
-		request r = createRequest(socketfd);
+		// UNUSED VARIABLE    request r = createRequest(socketfd);
 		//set requestType and stats
 	    /*
 	        TODO: pass off request to struct holding requests:
@@ -443,6 +490,6 @@ int main(int argc, char **argv)
     Method for getting request from queue once worker awake
 */
 
-/**
+/*
     Method to add request to queue
 */

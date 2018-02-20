@@ -41,3 +41,78 @@ Content-Type: image/jpg
 :7
 FORBIDDEN: failed to read browser request:
 FORBIDDEN: failed to read browser request:
+ INFO: nweb starting:8181:19950
+ INFO: we have reached CREATE POOL:8:5
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: thread number 4:i hope:9
+ INFO: we have reached FIFO:FIFO:5
+ INFO: checking:priority number:1898056010
+ INFO: we have reached here:FIFO:5
+ INFO: nweb starting:8181:19968
+ERROR: system call:bind Errno=48 exiting pid=19968
+ INFO: nweb starting:8183:19970
+ INFO: we have reached CREATE POOL:8:5
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: thread number 4:i hope:9
+ INFO: we have reached FIFO:FIFO:5
+ INFO: checking:priority number:1898056010
+ INFO: we have reached here:FIFO:5
+ INFO: nweb starting:8185:19983
+ INFO: we have reached CREATE POOL:8:5
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: thread number 4:i hope:9
+ INFO: we have reached FIFO:FIFO:5
+ INFO: checking:priority number:1898056010
+ INFO: we have reached here:FIFO:5
+ INFO: we have reached here YAAKOV 1:1:5
+ INFO: nweb starting:8180:19991
+ INFO: we have reached CREATE POOL:8:5
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: thread number 4:i hope:9
+ INFO: we have reached FIFO:FIFO:5
+ INFO: checking:priority number:1898056010
+ INFO: we have reached here:FIFO:5
+ INFO: we have reached here YAAKOV 1:1:5
+ INFO: nweb starting:8380:19999
+ INFO: we have reached CREATE POOL:8:5
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: thread number 4:i hope:9
+ INFO: we have reached FIFO:FIFO:5
+ INFO: checking:priority number:1898056010
+ INFO: we have reached here:FIFO:5
+ INFO: we have reached here YAAKOV 1:1:5
