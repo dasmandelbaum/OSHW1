@@ -117,7 +117,7 @@ static int dummy; //keep compiler happy
 */
 thread_pool * createPool(int numThreads);
 void * threadWait();
-request_queue createQueue(int indicator);
+request_queue * createQueue(int indicator);
 request createRequest(int fd);
 void logger(int type, char *s1, char *s2, int socket_fd);
 
@@ -181,14 +181,18 @@ thread * createThread(int i)
             1 for html priority
             2 for image priority
 */
-request_queue createQueue(int indicator)
+request_queue * createQueue(int indicator)
 {
     request * newrequests[50];//is this a random max we should have
     request_queue * rq = calloc(3, sizeof(newrequests) + sizeof(int) + sizeof(pthread_mutex_t));
     rq->requests = newrequests;
     rq->priority = indicator;
     //pthread_mutex_init(&rq->mutex, NULL);
+<<<<<<< HEAD
     return * rq;
+=======
+    return rq;
+>>>>>>> e8cef2198d00046da4e7fe8040d0c00cf5377496
 }
 
 request createRequest(int fd)
@@ -317,7 +321,7 @@ int main(int argc, char **argv)
 {
 	int i, port, listenfd, socketfd, hit, numThreads;//pid,
 	socklen_t length;
-	request_queue fifoqueue, srqueue;
+	request_queue* fifoqueue, srqueue;
 	static struct sockaddr_in cli_addr; /* static = initialised to zeros */
 	static struct sockaddr_in serv_addr; /* static = initialised to zeros */
 
@@ -419,7 +423,11 @@ int main(int argc, char **argv)
 	    logger(ERROR,"system call","createQueue",0);//can we personalize this logger error?
 	}
 	
+<<<<<<< HEAD
 	int pri = srqueue.priority;
+=======
+	int pri = srqueue->priority;
+>>>>>>> e8cef2198d00046da4e7fe8040d0c00cf5377496
 	logger(LOG, "checking", "priority number",pri);
 	logger(LOG, "we have reached here", argv[5], 5); 
 	
