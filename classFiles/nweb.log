@@ -284,3 +284,162 @@ ERROR: system call:bind Errno=48 exiting pid=53117
  INFO: about to add request:woohoo:2
  INFO: preference set to:....:2
  INFO: print sr first:...:0
+ INFO: max request size:based on input of course..:10
+ INFO: nweb starting:4003:53317
+ INFO: we have reached CREATE POOL:10:5
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached HPIC:HPIC:2
+ INFO: starting:loop:0
+ INFO: checking:request creation:0
+ INFO: we have reached request line:GET nigel.jpg HTTP/1.0
+
+:2
+ INFO: request line contains image:GET nigel.jpg HTTP/1.0
+
+:5
+ INFO: about to add request:woohoo:2
+ INFO: preference set to:....:2
+ INFO: starting:loop:0
+ INFO: max request size:based on input of course..:0
+ INFO: nweb starting:4003:53351
+ERROR: system call:bind Errno=48 exiting pid=53351
+ INFO: max request size:based on input of course..:0
+ INFO: nweb starting:4003:53353
+ INFO: we have reached CREATE POOL:10:5
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached HPIC:HPIC:2
+ INFO: starting:loop:0
+ INFO: checking:request creation:0
+ INFO: we have reached request line:GET nigel.jpg HTTP/1.0
+
+:2
+ INFO: request line contains image:GET nigel.jpg HTTP/1.0
+
+:5
+ INFO: about to add request:woohoo:2
+ INFO: preference set to:....:2
+ INFO: starting:loop:0
+ INFO: max request size:based on input of course..:0
+ INFO: nweb starting:4003:53363
+ERROR: system call:bind Errno=48 exiting pid=53363
+ INFO: max request size:based on input of course..:0
+ INFO: nweb starting:4003:53366
+ERROR: system call:bind Errno=48 exiting pid=53366
+ INFO: max request size:based on input of course..:0
+ INFO: nweb starting:4003:53370
+ INFO: we have reached CREATE POOL:10:5
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached HPIC:HPIC:2
+ INFO: starting:loop:0
+ INFO: checking:request creation:0
+ INFO: we have reached request line:GET nigel.jpg HTTP/1.0
+
+:2
+ INFO: request line contains image:GET nigel.jpg HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: starting:loop:0
+ INFO: max request size:based on input of course..:0
+ INFO: nweb starting:4003:53379
+ INFO: we have reached CREATE POOL:10:5
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached HPIC:HPIC:2
+ INFO: starting:loop:0
+ INFO: checking:request creation:0
+ INFO: we have reached request line:GET nigel.jpg HTTP/1.0
+
+:2
+ INFO: request line contains image:GET nigel.jpg HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ERROR: request overload:darn. Errno=9 exiting pid=53379
+ INFO: max request size:based on input of course..:0
+ INFO: nweb starting:4003:53401
+ERROR: system call:bind Errno=48 exiting pid=53401
+ INFO: max request size:based on input of course..:0
+ INFO: nweb starting:4003:53403
+ERROR: system call:bind Errno=48 exiting pid=53403
+ INFO: max request size:based on input of course..:0
+ INFO: nweb starting:4003:53406
+ INFO: we have reached CREATE POOL:10:5
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached HPIC:HPIC:2
+ INFO: starting:loop:0
+ INFO: max request size:based on input of course..:5
+ INFO: nweb starting:4003:53409
+ INFO: we have reached CREATE POOL:10:5
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached HPIC:HPIC:2
+ INFO: starting:loop:0
+ INFO: checking:request creation:0
+ INFO: we have reached request line:GET nigel.jpg HTTP/1.0
+
+:2
+ INFO: request line contains image:GET nigel.jpg HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:2
+ INFO: starting:loop:0

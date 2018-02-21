@@ -89,13 +89,6 @@ typedef struct request_queue{
     int priority; //0 for fifo, 1 for html, 2 for image
 } request_queue;
 
-/*
-    global variables needed:
-        - STAT-1: count of total requests present
-        - STAT-5: completed request count   
-*/
-static int requestsPresentCount;
-static int requestCountTotal;
 
 struct {
 	char *ext;
@@ -133,6 +126,15 @@ Fields
 thread_pool * ourThreads;
 request_queue fifoqueue, srqueue;
 int preference = 0;
+int maxTotalQueueSize;
+/*
+    global variables needed:
+        - STAT-1: count of total requests present
+        - STAT-5: completed request count   
+*/
+static int requestsPresentCount;
+static int completedRequestsCount;
+
 
 /*
     initialize Thread pool, initialize Threads, and add them to Thread pool
@@ -191,7 +193,7 @@ thread * createThread(int i)
 */
 request_queue createQueue(int indicator)
 {
-    request * newrequests[50];//is this a random max we should have
+    request * newrequests[maxTotalQueueSize];//is this a random max we should have
     request_queue * rq = calloc(3, sizeof(newrequests) + sizeof(int) + sizeof(pthread_mutex_t));
     rq->requests = newrequests;
     rq->priority = indicator;
@@ -258,6 +260,7 @@ void * threadWait(thread thr)
         //unlock mutex
         repeat
     }*/
+    completedRequestsCount++;
     return NULL;
 }
 
@@ -402,7 +405,8 @@ int main(int argc, char **argv)
 		(void)close(i);		/* close open files */
 	(void)setpgrp();		/* break away from process group */
 	
-	
+	maxTotalQueueSize = atoi(argv[4]);
+	logger(LOG,"max request size","based on input of course..",maxTotalQueueSize);
 	
 	logger(LOG,"nweb starting",argv[1],getpid());
 	
@@ -433,6 +437,11 @@ int main(int argc, char **argv)
 	int thNum = (ourThreads-> threads[5])-> countHttpRequests;
 	
 	logger(LOG, "thread number 4", "i hope", thNum);
+	
+	
+	/*
+	    determine sizes for array(s)
+	*/
 
 	/*
 	    create struct for requests based on the input scheduling:
@@ -481,8 +490,6 @@ int main(int argc, char **argv)
 		//logger(LOG, "checking", "request Queue addition first", fifoqueue.first->dispatchedTime);
 		//logger(LOG, "checking", "request Queue addition last", fifoqueue.last->dispatchedTime);
 
-		
-
 		if(preference != 0)//has a preference
 		{
 		    //read file to see if .jpg, .gif, or .png
@@ -504,11 +511,11 @@ int main(int argc, char **argv)
 		{
 		    rq.requestType = 0;
 		}
-		logger(LOG, "about to add request", "woohoo", rq.requestType); 
+		
 		logger(LOG, "preference set to", "....", preference); 
-		addRequest(&rq);
-		logger(LOG, "print sr first", "...", srqueue.first->dispatchedTime);
-		logger(LOG, "print fifo first", "...", fifoqueue.first->dispatchedTime); 
+		
+		/*logger(LOG, "print sr first", "...", srqueue.first->dispatchedTime);
+		logger(LOG, "print fifo first", "...", fifoqueue.first->dispatchedTime); */
 		
 		//set requestType and stats
 	    /*
@@ -516,8 +523,19 @@ int main(int argc, char **argv)
 	        1) lock
 	        2) add request to queue
 	    */
-	            requestsPresentCount++;
-                requestCountTotal++;
+	    //STILL NEED TO LOCK QUEUE
+	    if(requestsPresentCount < maxTotalQueueSize)
+	    {
+	        logger(LOG, "about to add request", "woohoo", rq.requestType); 
+	        addRequest(&rq);
+	        requestsPresentCount++;
+	    }
+	    else
+	    {
+	        logger(ERROR, "request overload", "darn.", rq.requestType); 
+	    }
+	    //UNLOCK QUEUE
+        //not yet -- completedRequestsCount++;
 	           /* - if fifo requested or HTML/JPG requested and this is not, 
 	                add to fifo queue
 	            - if HTML/image priority requested and this is it, add to to queue
