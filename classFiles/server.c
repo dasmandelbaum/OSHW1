@@ -230,6 +230,17 @@ void addRequest(request * req, request_queue * queue)
 */
 void * threadWait(thread thr)
 {
+    /*while(1)
+    {
+        //lock mutex
+        //condition
+        {
+            //grab off request queue
+            //do web with request
+        }
+        //unlock mutex
+        repeat
+    }*/
     return NULL;
 }
 
@@ -411,13 +422,13 @@ int main(int argc, char **argv)
 	    create struct for requests based on the input scheduling:
 	*/
 	int preference = 0;
-	if(strcmp(argv[5], "FIFO") || strcmp(argv[5], "ANY")) //any treated as FIFO
+	if(!strcmp(argv[5], "FIFO") || !strcmp(argv[5], "ANY")) //any treated as FIFO
 	{
 	    //create just fifo queue
 	    fifoqueue = createQueue(preference); 
 	 	logger(LOG, "we have reached FIFO", argv[5], 5);      
 	}
-	else if(strcmp(argv[5], "HPHC") || strcmp(argv[5], "HPIC"))
+	else if(!strcmp(argv[5], "HPHC") || !strcmp(argv[5], "HPIC"))
 	{
 	    //create fifo queue for everything other than preference 
 	    fifoqueue = createQueue(preference); 
@@ -425,10 +436,12 @@ int main(int argc, char **argv)
 	    if(!strcmp(argv[5], "HPHC"))
 	    {
 	        preference = 1;
+	        logger(LOG, "we have reached HPHC", argv[5], preference); 
 	    }
 	    else
 	    {
 	        preference = 2;
+	        logger(LOG, "we have reached HPIC", argv[5], preference); 
 	    }
 	    srqueue = createQueue(preference);
 	}
@@ -437,10 +450,6 @@ int main(int argc, char **argv)
 	{
 	    logger(ERROR,"system call","createQueue",0);//can we personalize this logger error?
 	}
-	
-	int pri = srqueue.priority;
-	logger(LOG, "checking", "priority number",pri);
-	logger(LOG, "we have reached here", argv[5], 5); 
 	
 	//"portNum: %d  folder: %s  NumThreads: %d  schedule num: %d\n ", port, "folder", numThreads,preference);
 	for(hit=1; ;hit++) {
@@ -459,31 +468,19 @@ int main(int argc, char **argv)
 
 		
 		//read file to see if .jpg, .gif, or .png
-
-		static char buffer[BUFSIZE+1]; /* static so zero filled */
-
-		long ret = read(socketfd,buffer,BUFSIZE); 	/* read Web request */
-		
-		//char * requestLine = NULL;
-		//char * foo = NULL;
-		//logger(LOG, "we are right before foo" , foo, 5); 
-
-		printf("\n  This is the long:        %ld\n", ret);
-
-		//sprintf(foo, "%ld", ret);
-		//char * requestLine;
-		//requestLine = (char*)&ret; //https://stackoverflow.com/a/16537142
-		logger(LOG, "we have reached request line", foo, 5); 
+		static char requestLine[60]; /* static so zero filled */
+		read(socketfd,requestLine,BUFSIZE); 	/* read Web request */
+		logger(LOG, "we have reached request line", requestLine, preference); 
 
 		if(preference != 0)//has a preference
 		{
 		    if((strstr(requestLine, ".jpg") != 0) || (strstr(requestLine, ".png") != 0) || (strstr(requestLine, ".gif") != 0)) //must be image
 		    {
-		
+		        logger(LOG, "request line contains image", requestLine, 5); 
 		    }
 		    else if (strstr(requestLine, ".html") != 0)//html request
 		    {
-		    
+		        logger(LOG, "request line contains html", requestLine, 5); 
 		    }
 		}
 		//create request

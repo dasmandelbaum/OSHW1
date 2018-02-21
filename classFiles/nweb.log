@@ -1,48 +1,5 @@
- INFO: nweb starting:3002:30757
- INFO: request:GET /index.html HTTP/1.1**Host: localhost:3002**Connection: keep-alive**Upgrade-Insecure-Requests: 1**User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36**Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8**Accept-Encoding: gzip, deflate, br**Accept-Language: en-US,en;q=0.9****:1
- INFO: SEND:index.html:1
- INFO: Header:HTTP/1.1 200 OK
-Server: nweb/23.0
-Content-Length: 248
-Connection: close
-Content-Type: text/html
-
-:1
- INFO: request:GET /favicon.ico HTTP/1.1**Host: localhost:3002**Connection: keep-alive**User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36**Accept: image/webp,image/apng,image/*,*/*;q=0.8**Referer: http://localhost:3002/index.html**Accept-Encoding: gzip, deflate, br**Accept-Language: en-US,en;q=0.9****:2
-NOT FOUND: failed to open file:favicon.ico
- INFO: request:GET /index.html HTTP/1.1**Host: localhost:3002**Connection: keep-alive**Cache-Control: max-age=0**Upgrade-Insecure-Requests: 1**User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36**Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8**Accept-Encoding: gzip, deflate, br**Accept-Language: en-US,en;q=0.9****:3
- INFO: SEND:index.html:3
- INFO: Header:HTTP/1.1 200 OK
-Server: nweb/23.0
-Content-Length: 248
-Connection: close
-Content-Type: text/html
-
-:3
- INFO: request:GET /index.html HTTP/1.1**Host: localhost:3002**Connection: keep-alive**Cache-Control: max-age=0**Upgrade-Insecure-Requests: 1**User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36**Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8**Accept-Encoding: gzip, deflate, br**Accept-Language: en-US,en;q=0.9****:4
- INFO: SEND:index.html:4
- INFO: Header:HTTP/1.1 200 OK
-Server: nweb/23.0
-Content-Length: 248
-Connection: close
-Content-Type: text/html
-
-:4
-FORBIDDEN: failed to read browser request:
-FORBIDDEN: failed to read browser request:
- INFO: request:GET /nigel.jpg HTTP/1.1**Host: localhost:3002**Connection: keep-alive**Upgrade-Insecure-Requests: 1**User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36**Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8**Accept-Encoding: gzip, deflate, br**Accept-Language: en-US,en;q=0.9****:7
- INFO: SEND:nigel.jpg:7
- INFO: Header:HTTP/1.1 200 OK
-Server: nweb/23.0
-Content-Length: 10184
-Connection: close
-Content-Type: image/jpg
-
-:7
-FORBIDDEN: failed to read browser request:
-FORBIDDEN: failed to read browser request:
- INFO: nweb starting:8181:19950
- INFO: we have reached CREATE POOL:8:5
+ INFO: nweb starting:4003:52344
+ INFO: we have reached CREATE POOL:10:5
  INFO: we have CREATED A THREAD:THREADING:0
  INFO: we have CREATED A THREAD:THREADING:1
  INFO: we have CREATED A THREAD:THREADING:2
@@ -51,220 +8,55 @@ FORBIDDEN: failed to read browser request:
  INFO: we have CREATED A THREAD:THREADING:5
  INFO: we have CREATED A THREAD:THREADING:6
  INFO: we have CREATED A THREAD:THREADING:7
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: we have CREATED A THREAD:THREADING:9
  INFO: thread number 4:i hope:9
  INFO: we have reached FIFO:FIFO:5
- INFO: checking:priority number:1898056010
- INFO: we have reached here:FIFO:5
- INFO: nweb starting:8181:19968
-ERROR: system call:bind Errno=48 exiting pid=19968
- INFO: nweb starting:8183:19970
- INFO: we have reached CREATE POOL:8:5
- INFO: we have CREATED A THREAD:THREADING:0
- INFO: we have CREATED A THREAD:THREADING:1
- INFO: we have CREATED A THREAD:THREADING:2
- INFO: we have CREATED A THREAD:THREADING:3
- INFO: we have CREATED A THREAD:THREADING:4
- INFO: we have CREATED A THREAD:THREADING:5
- INFO: we have CREATED A THREAD:THREADING:6
- INFO: we have CREATED A THREAD:THREADING:7
- INFO: thread number 4:i hope:9
- INFO: we have reached FIFO:FIFO:5
- INFO: checking:priority number:1898056010
- INFO: we have reached here:FIFO:5
- INFO: nweb starting:8185:19983
- INFO: we have reached CREATE POOL:8:5
- INFO: we have CREATED A THREAD:THREADING:0
- INFO: we have CREATED A THREAD:THREADING:1
- INFO: we have CREATED A THREAD:THREADING:2
- INFO: we have CREATED A THREAD:THREADING:3
- INFO: we have CREATED A THREAD:THREADING:4
- INFO: we have CREATED A THREAD:THREADING:5
- INFO: we have CREATED A THREAD:THREADING:6
- INFO: we have CREATED A THREAD:THREADING:7
- INFO: thread number 4:i hope:9
- INFO: we have reached FIFO:FIFO:5
- INFO: checking:priority number:1898056010
- INFO: we have reached here:FIFO:5
- INFO: we have reached here YAAKOV 1:1:5
- INFO: nweb starting:8180:19991
- INFO: we have reached CREATE POOL:8:5
- INFO: we have CREATED A THREAD:THREADING:0
- INFO: we have CREATED A THREAD:THREADING:1
- INFO: we have CREATED A THREAD:THREADING:2
- INFO: we have CREATED A THREAD:THREADING:3
- INFO: we have CREATED A THREAD:THREADING:4
- INFO: we have CREATED A THREAD:THREADING:5
- INFO: we have CREATED A THREAD:THREADING:6
- INFO: we have CREATED A THREAD:THREADING:7
- INFO: thread number 4:i hope:9
- INFO: we have reached FIFO:FIFO:5
- INFO: checking:priority number:1898056010
- INFO: we have reached here:FIFO:5
- INFO: we have reached here YAAKOV 1:1:5
- INFO: nweb starting:8380:19999
- INFO: we have reached CREATE POOL:8:5
- INFO: we have CREATED A THREAD:THREADING:0
- INFO: we have CREATED A THREAD:THREADING:1
- INFO: we have CREATED A THREAD:THREADING:2
- INFO: we have CREATED A THREAD:THREADING:3
- INFO: we have CREATED A THREAD:THREADING:4
- INFO: we have CREATED A THREAD:THREADING:5
- INFO: we have CREATED A THREAD:THREADING:6
- INFO: we have CREATED A THREAD:THREADING:7
- INFO: thread number 4:i hope:9
- INFO: we have reached FIFO:FIFO:5
- INFO: checking:priority number:1898056010
- INFO: we have reached here:FIFO:5
- INFO: we have reached here YAAKOV 1:1:5
- INFO: nweb starting:4380:20213
-ERROR: system call:bind Errno=48 exiting pid=20213
- INFO: nweb starting:8180:20215
-ERROR: system call:bind Errno=48 exiting pid=20215
- INFO: nweb starting:8110:20345
- INFO: we have reached CREATE POOL:8:5
- INFO: we have CREATED A THREAD:THREADING:0
- INFO: we have CREATED A THREAD:THREADING:1
- INFO: we have CREATED A THREAD:THREADING:2
- INFO: we have CREATED A THREAD:THREADING:3
- INFO: we have CREATED A THREAD:THREADING:4
- INFO: we have CREATED A THREAD:THREADING:5
- INFO: we have CREATED A THREAD:THREADING:6
- INFO: we have CREATED A THREAD:THREADING:7
- INFO: thread number 4:i hope:9
- INFO: we have reached FIFO:FIFO:5
- INFO: checking:priority number:1898056010
- INFO: we have reached here:FIFO:5
- INFO: we have reached here YAAKOV 1:1:5
- INFO: nweb starting:8765:20529
- INFO: we have reached CREATE POOL:8:5
- INFO: we have CREATED A THREAD:THREADING:0
- INFO: we have CREATED A THREAD:THREADING:1
- INFO: we have CREATED A THREAD:THREADING:2
- INFO: we have CREATED A THREAD:THREADING:3
- INFO: we have CREATED A THREAD:THREADING:4
- INFO: we have CREATED A THREAD:THREADING:5
- INFO: we have CREATED A THREAD:THREADING:6
- INFO: we have CREATED A THREAD:THREADING:7
- INFO: thread number 4:i hope:9
- INFO: we have reached FIFO:FIFO:5
- INFO: checking:priority number:1898056010
- INFO: we have reached here:FIFO:5
- INFO: we have reached here YAAKOV 1:1:5
- INFO: we have reached here YAAKOV 3:3:5
- INFO: we have reached here YAAKOV::5
- INFO: we have reached here YAAKOV 1:1:5
- INFO: nweb starting:8775:20652
- INFO: we have reached CREATE POOL:8:5
- INFO: we have CREATED A THREAD:THREADING:0
- INFO: we have CREATED A THREAD:THREADING:1
- INFO: we have CREATED A THREAD:THREADING:2
- INFO: we have CREATED A THREAD:THREADING:3
- INFO: we have CREATED A THREAD:THREADING:4
- INFO: we have CREATED A THREAD:THREADING:5
- INFO: we have CREATED A THREAD:THREADING:6
- INFO: we have CREATED A THREAD:THREADING:7
- INFO: thread number 4:i hope:9
- INFO: we have reached FIFO:FIFO:5
- INFO: checking:priority number:1898056010
- INFO: we have reached here:FIFO:5
- INFO: checking:request creation:5
- INFO: we have reached request line::5
- INFO: nweb starting:8765:20957
-ERROR: system call:bind Errno=48 exiting pid=20957
- INFO: nweb starting:9775:20960
- INFO: we have reached CREATE POOL:8:5
- INFO: we have CREATED A THREAD:THREADING:0
- INFO: we have CREATED A THREAD:THREADING:1
- INFO: we have CREATED A THREAD:THREADING:2
- INFO: we have CREATED A THREAD:THREADING:3
- INFO: we have CREATED A THREAD:THREADING:4
- INFO: we have CREATED A THREAD:THREADING:5
- INFO: we have CREATED A THREAD:THREADING:6
- INFO: we have CREATED A THREAD:THREADING:7
- INFO: thread number 4:i hope:9
- INFO: we have reached FIFO:FIFO:5
- INFO: checking:priority number:1898056010
- INFO: we have reached here:FIFO:5
- INFO: nweb starting:9775:20964
-ERROR: system call:bind Errno=48 exiting pid=20964
- INFO: nweb starting:4000:21038
- INFO: we have reached CREATE POOL:8:5
- INFO: we have CREATED A THREAD:THREADING:0
- INFO: we have CREATED A THREAD:THREADING:1
- INFO: we have CREATED A THREAD:THREADING:2
- INFO: we have CREATED A THREAD:THREADING:3
- INFO: we have CREATED A THREAD:THREADING:4
- INFO: we have CREATED A THREAD:THREADING:5
- INFO: we have CREATED A THREAD:THREADING:6
- INFO: we have CREATED A THREAD:THREADING:7
- INFO: thread number 4:i hope:9
- INFO: we have reached FIFO:FIFO:5
- INFO: checking:priority number:1898056010
- INFO: we have reached here:FIFO:5
- INFO: starting:loop:0
- INFO: checking:request creation:15
- INFO: checking:request Queue addition first:15
- INFO: checking:request Queue addition last:15
- INFO: we have reached request line::5
- INFO: starting:loop:0
- INFO: nweb starting:4001:21272
- INFO: we have reached CREATE POOL:8:5
- INFO: we have CREATED A THREAD:THREADING:0
- INFO: we have CREATED A THREAD:THREADING:1
- INFO: we have CREATED A THREAD:THREADING:2
- INFO: we have CREATED A THREAD:THREADING:3
- INFO: we have CREATED A THREAD:THREADING:4
- INFO: we have CREATED A THREAD:THREADING:5
- INFO: we have CREATED A THREAD:THREADING:6
- INFO: we have CREATED A THREAD:THREADING:7
- INFO: thread number 4:i hope:9
- INFO: we have reached FIFO:FIFO:5
- INFO: checking:priority number:1898056010
- INFO: we have reached here:FIFO:5
- INFO: starting:loop:0
- INFO: checking:request creation:15
- INFO: checking:request Queue addition first:15
- INFO: checking:request Queue addition last:15
- INFO: nweb starting:4002:21308
- INFO: we have reached CREATE POOL:8:5
- INFO: we have CREATED A THREAD:THREADING:0
- INFO: we have CREATED A THREAD:THREADING:1
- INFO: we have CREATED A THREAD:THREADING:2
- INFO: we have CREATED A THREAD:THREADING:3
- INFO: we have CREATED A THREAD:THREADING:4
- INFO: we have CREATED A THREAD:THREADING:5
- INFO: we have CREATED A THREAD:THREADING:6
- INFO: we have CREATED A THREAD:THREADING:7
- INFO: thread number 4:i hope:9
- INFO: we have reached FIFO:FIFO:5
- INFO: checking:priority number:1898056010
- INFO: we have reached here:FIFO:5
- INFO: starting:loop:0
- INFO: checking:request creation:15
- INFO: checking:request Queue addition first:15
- INFO: checking:request Queue addition last:15
- INFO: we are right before:foo:5
- INFO: nweb starting:4003:21374
- INFO: we have reached CREATE POOL:8:5
- INFO: we have CREATED A THREAD:THREADING:0
- INFO: we have CREATED A THREAD:THREADING:1
- INFO: we have CREATED A THREAD:THREADING:2
- INFO: we have CREATED A THREAD:THREADING:3
- INFO: we have CREATED A THREAD:THREADING:4
- INFO: we have CREATED A THREAD:THREADING:5
- INFO: we have CREATED A THREAD:THREADING:6
- INFO: we have CREATED A THREAD:THREADING:7
- INFO: thread number 4:i hope:9
- INFO: we have reached FIFO:FIFO:5
- INFO: checking:priority number:1898056010
+ INFO: checking:priority number:1687521234
  INFO: we have reached here:FIFO:5
  INFO: starting:loop:0
  INFO: checking:request creation:15
  INFO: checking:request Queue addition first:15
  INFO: checking:request Queue addition last:15
  INFO: we are right before foo:(null):5
- INFO: nweb starting:4004:21470
- INFO: we have reached CREATE POOL:8:5
+ INFO: we have reached request line:GET nigel.jpg HTTP/1.0
+
+:5
+ INFO: starting:loop:0
+ INFO: nweb starting:4003:52411
+ERROR: system call:bind Errno=48 exiting pid=52411
+ INFO: checking:request creation:15
+ INFO: checking:request Queue addition first:15
+ INFO: checking:request Queue addition last:15
+ INFO: we are right before foo:(null):5
+ INFO: we have reached request line:GET nigel.jpg HTTP/1.0
+
+:5
+ INFO: starting:loop:0
+ INFO: nweb starting:4003:52448
+ERROR: system call:bind Errno=48 exiting pid=52448
+ INFO: checking:request creation:15
+ INFO: checking:request Queue addition first:15
+ INFO: checking:request Queue addition last:15
+ INFO: we are right before foo:(null):5
+ INFO: we have reached request line:GET nigel.jpg HTTP/1.0
+
+:5
+ INFO: starting:loop:0
+ INFO: nweb starting:4003:52461
+ERROR: system call:bind Errno=48 exiting pid=52461
+ INFO: checking:request creation:15
+ INFO: checking:request Queue addition first:15
+ INFO: checking:request Queue addition last:15
+ INFO: we are right before foo:(null):5
+ INFO: we have reached request line:GET nigel.jpg HTTP/1.0
+
+:5
+ INFO: starting:loop:0
+ INFO: nweb starting:4003:52481
+ERROR: system call:bind Errno=48 exiting pid=52481
+ INFO: nweb starting:4003:52486
+ INFO: we have reached CREATE POOL:10:5
  INFO: we have CREATED A THREAD:THREADING:0
  INFO: we have CREATED A THREAD:THREADING:1
  INFO: we have CREATED A THREAD:THREADING:2
@@ -273,12 +65,60 @@ ERROR: system call:bind Errno=48 exiting pid=20964
  INFO: we have CREATED A THREAD:THREADING:5
  INFO: we have CREATED A THREAD:THREADING:6
  INFO: we have CREATED A THREAD:THREADING:7
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: we have CREATED A THREAD:THREADING:9
  INFO: thread number 4:i hope:9
- INFO: we have reached FIFO:FIFO:5
- INFO: checking:priority number:1898056010
- INFO: we have reached here:FIFO:5
+ INFO: we have reached FIFO:HPIC:5
+ INFO: checking:priority number:1687521234
+ INFO: we have reached here:HPIC:5
  INFO: starting:loop:0
  INFO: checking:request creation:15
  INFO: checking:request Queue addition first:15
  INFO: checking:request Queue addition last:15
- INFO: we are right before foo:(null):5
+ INFO: we have reached request line:GET nigel.jpg HTTP/1.0
+
+:0
+ INFO: starting:loop:0
+ INFO: nweb starting:4003:52530
+ERROR: system call:bind Errno=48 exiting pid=52530
+ INFO: nweb starting:4003:52549
+ INFO: we have reached CREATE POOL:10:5
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached FIFO:HPIC:5
+ INFO: we have reached here:HPIC:5
+ INFO: starting:loop:0
+ INFO: nweb starting:4003:52591
+ INFO: we have reached CREATE POOL:10:5
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached HPIC:HPIC:2
+ INFO: starting:loop:0
+ INFO: checking:request creation:15
+ INFO: checking:request Queue addition first:15
+ INFO: checking:request Queue addition last:15
+ INFO: we have reached request line:GET nigel.jpg HTTP/1.0
+
+:2
+ INFO: request line contains image:GET nigel.jpg HTTP/1.0
+
+:5
+ INFO: starting:loop:0
