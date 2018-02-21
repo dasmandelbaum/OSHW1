@@ -62,7 +62,7 @@ typedef struct Thread {
     int countImageRequests; 
 } thread;
 
-thread* createThread();
+
 
 typedef struct thread_pool{
     thread **threads;  
@@ -77,7 +77,7 @@ typedef struct request{
    int dispatchedTime;
    int readCompletionTime;
    int numRequestsHigherPriority;
-   int requestType; //0 for regular, 1 for html, 2 for jpg
+   int requestType; //0 for regular, 1 for html, 2 for image
 } request;
 
 typedef struct request_queue{
@@ -86,7 +86,7 @@ typedef struct request_queue{
     request * last;
     int length;
     pthread_mutex_t mutex;
-    int priority; //0 for fifo, 1 for html, 2 for jpg
+    int priority; //0 for fifo, 1 for html, 2 for image
 } request_queue;
 
 /*
@@ -123,13 +123,17 @@ void * threadWait();
 request_queue createQueue(int indicator);
 request createRequest(int fd);
 void logger(int type, char *s1, char *s2, int socket_fd);
-void addRequest(request * req, request_queue * queue);
+void addRequest(request * req);
+thread* createThread();
 
 /*
 Fields
 */
 
 thread_pool * ourThreads;
+request_queue fifoqueue, srqueue;
+int preference = 0;
+
 /*
     initialize Thread pool, initialize Threads, and add them to Thread pool
 */
@@ -205,23 +209,36 @@ request createRequest(int fd)
     r->requestInfo = fd;
     gettimeofday(&r->arrivalTime, NULL);
     r->countDispatchedPreviously = 0;//TODO: how do we get this number?
-    r->dispatchedTime = 15;
-    r->readCompletionTime = 0;
+    r->dispatchedTime = 0;//TODO: how do we get this number?
+    r->readCompletionTime = 0;//TODO: how do we get this number?
     r->numRequestsHigherPriority = 0;
-    //r->requestType = ; dont know this yes
+    //r->requestType = ; dont know this yet
     return * r;  
 }
 
 
-void addRequest(request * req, request_queue * queue)
+void addRequest(request * req)
 {
-	if(queue->length == 0){
-		queue-> first = req;		
+    request_queue * queue;
+    
+    if(req->requestType == preference)
+    {
+        queue = &srqueue;
+    }
+    else //set queue to default fifo queue
+    {
+        queue = &fifoqueue;
+    }
+    
+	if(queue->length == 0)
+	{
+		queue-> first = req;	
+		queue-> last = req;	
 	}
-	else{
+	else
+	{
 		queue->last->behind = req;
 	}
-	queue-> last = req;
 	queue->length++;
 }
 
@@ -347,7 +364,6 @@ int main(int argc, char **argv)
 {
 	int i, port, listenfd, socketfd, hit, numThreads;//pid,
 	socklen_t length;
-	request_queue fifoqueue, srqueue;
 	static struct sockaddr_in cli_addr; /* static = initialised to zeros */
 	static struct sockaddr_in serv_addr; /* static = initialised to zeros */
 
@@ -421,7 +437,6 @@ int main(int argc, char **argv)
 	/*
 	    create struct for requests based on the input scheduling:
 	*/
-	int preference = 0;
 	if(!strcmp(argv[5], "FIFO") || !strcmp(argv[5], "ANY")) //any treated as FIFO
 	{
 	    //create just fifo queue
@@ -459,32 +474,42 @@ int main(int argc, char **argv)
 		if((socketfd = accept(listenfd, (struct sockaddr *)&cli_addr, &length)) < 0) {
 			logger(ERROR,"system call","accept",0);
 		}
-		request rq = createRequest(socketfd);
+		request rq = createRequest(socketfd); //still need to get priority type
 		logger(LOG, "checking", "request creation", rq.dispatchedTime);
 		
-		addRequest(&rq, &fifoqueue);
-		logger(LOG, "checking", "request Queue addition first", fifoqueue.first->dispatchedTime);
-		logger(LOG, "checking", "request Queue addition last", fifoqueue.last->dispatchedTime);
+		//addRequest(&rq, &fifoqueue);
+		//logger(LOG, "checking", "request Queue addition first", fifoqueue.first->dispatchedTime);
+		//logger(LOG, "checking", "request Queue addition last", fifoqueue.last->dispatchedTime);
 
 		
-		//read file to see if .jpg, .gif, or .png
-		static char requestLine[60]; /* static so zero filled */
-		read(socketfd,requestLine,BUFSIZE); 	/* read Web request */
-		logger(LOG, "we have reached request line", requestLine, preference); 
 
 		if(preference != 0)//has a preference
 		{
+		    //read file to see if .jpg, .gif, or .png
+		    static char requestLine[60]; /* static so zero filled */
+		    read(socketfd,requestLine,BUFSIZE); 	/* read Web request */
+		    logger(LOG, "we have reached request line", requestLine, preference); 
 		    if((strstr(requestLine, ".jpg") != 0) || (strstr(requestLine, ".png") != 0) || (strstr(requestLine, ".gif") != 0)) //must be image
 		    {
 		        logger(LOG, "request line contains image", requestLine, 5); 
+		        rq.requestType = 2;
 		    }
 		    else if (strstr(requestLine, ".html") != 0)//html request
 		    {
 		        logger(LOG, "request line contains html", requestLine, 5); 
+		        rq.requestType = 1;
 		    }
 		}
-		//create request
-		// UNUSED VARIABLE    request r = createRequest(socketfd);
+		else //everything in fifo
+		{
+		    rq.requestType = 0;
+		}
+		logger(LOG, "about to add request", "woohoo", rq.requestType); 
+		logger(LOG, "preference set to", "....", preference); 
+		addRequest(&rq);
+		logger(LOG, "print sr first", "...", srqueue.first->dispatchedTime);
+		logger(LOG, "print fifo first", "...", fifoqueue.first->dispatchedTime); 
+		
 		//set requestType and stats
 	    /*
 	        TODO: pass off request to struct holding requests:

@@ -122,3 +122,165 @@ ERROR: system call:bind Errno=48 exiting pid=52530
 
 :5
  INFO: starting:loop:0
+ INFO: nweb starting:4003:53029
+ERROR: system call:bind Errno=48 exiting pid=53029
+ INFO: checking:request creation:15
+ INFO: checking:request Queue addition first:15
+ INFO: checking:request Queue addition last:15
+ INFO: we have reached request line:GET nigel.jpg HTTP/1.0
+
+:2
+ INFO: request line contains image:GET nigel.jpg HTTP/1.0
+
+:5
+ INFO: starting:loop:0
+ INFO: nweb starting:4003:53057
+ INFO: we have reached CREATE POOL:10:5
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached HPIC:HPIC:2
+ INFO: starting:loop:0
+ INFO: checking:request creation:0
+ INFO: we have reached request line:GET nigel.jpg HTTP/1.0
+
+:2
+ INFO: request line contains image:GET nigel.jpg HTTP/1.0
+
+:5
+ INFO: about to add request:woohoo:2
+ INFO: starting:loop:0
+ INFO: nweb starting:4003:53062
+ERROR: system call:bind Errno=48 exiting pid=53062
+ INFO: nweb starting:4003:53065
+ INFO: we have reached CREATE POOL:10:5
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached HPIC:HPIC:2
+ INFO: starting:loop:0
+ INFO: checking:request creation:0
+ INFO: we have reached request line:GET index.html HTTP/1.0
+
+:2
+ INFO: request line contains html:GET index.html HTTP/1.0
+
+:5
+ INFO: about to add request:woohoo:1
+ INFO: starting:loop:0
+ INFO: nweb starting:4003:53117
+ERROR: system call:bind Errno=48 exiting pid=53117
+ INFO: nweb starting:4003:53119
+ INFO: we have reached CREATE POOL:10:5
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached HPIC:HPIC:2
+ INFO: starting:loop:0
+ INFO: checking:request creation:0
+ INFO: we have reached request line:GET index.html HTTP/1.0
+
+:2
+ INFO: request line contains html:GET index.html HTTP/1.0
+
+:5
+ INFO: about to add request:woohoo:1
+ INFO: starting:loop:0
+ INFO: nweb starting:4003:53158
+ INFO: we have reached CREATE POOL:10:5
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached HPIC:HPIC:2
+ INFO: starting:loop:0
+ INFO: checking:request creation:0
+ INFO: we have reached request line:GET index.html HTTP/1.0
+
+:2
+ INFO: request line contains html:GET index.html HTTP/1.0
+
+:5
+ INFO: about to add request:woohoo:1
+ INFO: preference set to:....:2
+ INFO: print fifo first:...:0
+ INFO: nweb starting:4003:53196
+ INFO: we have reached CREATE POOL:10:5
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached HPIC:HPIC:2
+ INFO: starting:loop:0
+ INFO: checking:request creation:0
+ INFO: we have reached request line:GET nigel.jpg HTTP/1.0
+
+:2
+ INFO: request line contains image:GET nigel.jpg HTTP/1.0
+
+:5
+ INFO: about to add request:woohoo:2
+ INFO: preference set to:....:2
+ INFO: nweb starting:4003:53206
+ INFO: we have reached CREATE POOL:10:5
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached HPIC:HPIC:2
+ INFO: starting:loop:0
+ INFO: checking:request creation:0
+ INFO: we have reached request line:GET nigel.jpg HTTP/1.0
+
+:2
+ INFO: request line contains image:GET nigel.jpg HTTP/1.0
+
+:5
+ INFO: about to add request:woohoo:2
+ INFO: preference set to:....:2
+ INFO: print sr first:...:0
