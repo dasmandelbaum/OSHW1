@@ -260,12 +260,11 @@ void * threadWait(thread thr)
     while(1)
     {
     	
-    	//pthread_cond_wait(&hasJobs);
+    	//pthread_cond_wait(&jobavail);//TODO: IMPLEMENT
     	pthread_mutex_lock(&queueMutex);//lock mutex
         req = removeRequest();
-        pthread_mutex_unlock(&queueMutex);
-        
         web(req->requestInfo, req->hit);
+        pthread_mutex_unlock(&queueMutex);
         
         //condition
         
@@ -504,13 +503,14 @@ int main(int argc, char **argv)
 	}
 	
 	//"portNum: %d  folder: %s  NumThreads: %d  schedule num: %d\n ", port, "folder", numThreads,preference);
-	for(hit=1; ;hit++) {
+	for(hit=1; 1;hit++) {
 		logger(LOG, "starting", "loop", hit);
 
 		length = sizeof(cli_addr);
 		if((socketfd = accept(listenfd, (struct sockaddr *)&cli_addr, &length)) < 0) {
 			logger(ERROR,"system call","accept",0);
 		}
+		logger(LOG, "reached here", "...", 513);
 		request rq = createRequest(socketfd, hit); //still need to get priority type
 		//logger(LOG, "checking", "request creation", rq.dispatchedTime);
 		
@@ -551,14 +551,16 @@ int main(int argc, char **argv)
 	        1) lock
 	        2) add request to queue
 	    */
-	    //STILL NEED TO LOCK QUEUE
 	    if(requestsPresentCount < maxTotalQueueSize)
 	    {
 	        logger(LOG, "about to add request", "woohoo", rq.requestType); 
 	        pthread_mutex_lock(&queueMutex);//lock mutex
 	        addRequest(&rq);
-	        pthread_mutex_unlock(&queueMutex);
 	        requestsPresentCount++;
+	        //signal thread that there is job to grab
+	        //cond_jobavail;//TODO IMPLEMENT
+	        pthread_mutex_unlock(&queueMutex);
+	        
 	    }
 	    else
 	    {
