@@ -130,7 +130,8 @@ thread_pool * ourThreads;
 request_queue fifoqueue, srqueue;
 int preference = 0;
 int maxTotalQueueSize;
-pthread_mutex_t queueMutex;
+pthread_mutex_t queueMutex = PTHREAD_MUTEX_INITIALIZER;
+pthread_cond_t jobavail = PTHREAD_COND_INITIALIZER;
 //pthread_cond_t hasJobs;
 /*
     global variables needed:
@@ -151,7 +152,9 @@ thread_pool *  createPool(int numThreads)
   
     thread_pool * pool = calloc(numThreads + 1, (sizeof(thread) * numThreads) + sizeof(pthread_cond_t));    
     pool->threads =  newThreads;
-    int i;
+    int i;        
+    logger(LOG, "Number of threads", "", numThreads);  
+
     for(i = 0; i < numThreads; i++)
     {
     	//char * j;
@@ -177,6 +180,7 @@ thread * createThread(int i)
     thr->countHtmlRequests = 0;
     thr->countImageRequests = 0;
        
+    logger(LOG, "About to create pThread", "Number", i);   
     int status = pthread_create(&thr->pthread, NULL, threadWait, thr);
     if (status != 0)
     {
@@ -228,27 +232,43 @@ request createRequest(int fd, int hit)
 
 void addRequest(request * req)
 {
-    request_queue * queue;
+    //request_queue * queue;
     
-    if(req->requestType == preference)
+    if(req->requestType == preference && preference > 0)
     {
-        queue = &srqueue;
+        //queue = &srqueue;
+        if(srqueue.length == 0)
+		{
+			srqueue.first = req;	
+			srqueue.last = req;	
+		}
+		else
+		{
+			srqueue.last->behind = req;
+			srqueue.last = req;
+		}
+		srqueue.length++;
     }
     else //set queue to default fifo queue
     {
-        queue = &fifoqueue;
+       if(fifoqueue.length == 0)
+		{
+			fifoqueue.first = req;	
+			fifoqueue.last = req;	
+		}
+		else
+		{
+			fifoqueue.last->behind = req;
+			fifoqueue.last = req;
+		}
+		fifoqueue.length++;
     }
     
-	if(queue->length == 0)
-	{
-		queue-> first = req;	
-		queue-> last = req;	
-	}
-	else
-	{
-		queue->last->behind = req;
-	}
-	queue->length++;
+	
+	//queue->length++;
+	//logger(LOG, "queue length", "", queue->length);  
+	logger(LOG, "request fd", "", req->requestInfo);
+	logger(LOG, "request info off of first in queue", "", fifoqueue.first->requestInfo);
 }
 
 /*
@@ -259,20 +279,15 @@ void * threadWait(thread thr)
 	request * req;
     while(1)
     {
-    	
-    	//pthread_cond_wait(&jobavail);//TODO: IMPLEMENT
     	pthread_mutex_lock(&queueMutex);//lock mutex
+    	pthread_cond_wait(&jobavail, &queueMutex);
+    	logger(LOG, "mutex locked", "thread number ", thr.id);
         req = removeRequest();
+        logger(LOG, "request received", "here we go", req->requestInfo);
         web(req->requestInfo, req->hit);
+        completedRequestsCount++;
         pthread_mutex_unlock(&queueMutex);
-        
-        //condition
-        
-            //grab off request queue
-            //do web with request
-        
-        //unlock mutex
-        //repeat
+        logger(LOG, "number of requests serviced", "...", completedRequestsCount);
     }
     completedRequestsCount++;
     return NULL;
@@ -280,15 +295,35 @@ void * threadWait(thread thr)
 
 request * removeRequest() {
 	request * req;
-    if(preference != 0 && srqueue.first != NULL) {
+    if(preference != 0 && srqueue.length > 0) {
+    	logger(LOG, "remove request", "taking from SPECIAL", 0);
        	req = srqueue.first;	//TODO make sure this doesn't break the queue due to lack of garbage collection. happy Yaakov???
-       	srqueue.first = req->behind;
+       	if(srqueue.length > 1){
+       		srqueue.first = req->behind;
+       	}
+       	else{
+       		srqueue.first = NULL;
+       		srqueue.last = NULL;
+       	}
+       	srqueue.length--;
     }
     
     else {
+    	logger(LOG, "remove request", "taking from FIFO", 0);
+    	logger(LOG, "request info off of first in queue", "", fifoqueue.first->requestInfo);
     	req = fifoqueue.first;
-    	fifoqueue.first = req->behind;
+    	logger(LOG, "request retreived", "here we go", req->requestInfo);
+    	fifoqueue.first = req->behind;//NULL POINTER ERROR!!!!!!!!!!! THANKS FOR TELLING US C?!? 
+    	if(fifoqueue.length > 1){
+       		fifoqueue.first = req->behind;
+       	}
+       	else{
+       		fifoqueue.first = NULL;
+       		fifoqueue.last = NULL;
+       	}
+       	fifoqueue.length--;
     }
+
     return req;
 }
 
@@ -325,8 +360,9 @@ void web(int fd, int hit)
 	long i, ret, len;
 	char * fstr;
 	static char buffer[BUFSIZE+1]; /* static so zero filled */
-
+	logger(LOG, "in web", "i hope", hit);
 	ret =read(fd,buffer,BUFSIZE); 	/* read Web request in one go */
+	logger(LOG, "in web", "read done", fd);
 	if(ret == 0 || ret == -1) {	/* read failure stop now */
 		logger(FORBIDDEN,"failed to read browser request","",fd);
 	}
@@ -433,9 +469,9 @@ int main(int argc, char **argv)
 	(void)setpgrp();		/* break away from process group */
 	
 	maxTotalQueueSize = atoi(argv[4]);
-	logger(LOG,"max request size","based on input of course..",maxTotalQueueSize);
+	//logger(LOG,"max request size","based on input of course..",maxTotalQueueSize);
 	
-	logger(LOG,"nweb starting",argv[1],getpid());
+	logger(LOG,"\n\n nweb starting",argv[1],getpid());
 	
 	
 	/* setup the network socket */
@@ -477,7 +513,7 @@ int main(int argc, char **argv)
 	{
 	    //create just fifo queue
 	    fifoqueue = createQueue(preference); 
-	 	logger(LOG, "we have reached FIFO", argv[5], 5);      
+	 	logger(LOG, "we have reached FIFO", argv[5], preference);      
 	}
 	else if(!strcmp(argv[5], "HPHC") || !strcmp(argv[5], "HPIC"))
 	{
@@ -523,7 +559,7 @@ int main(int argc, char **argv)
 		    //read file to see if .jpg, .gif, or .png
 		    static char requestLine[60]; /* static so zero filled */
 		    read(socketfd,requestLine,BUFSIZE); 	/* read Web request */
-		    logger(LOG, "we have reached request line", requestLine, preference); 
+		    logger(LOG, "we have reached request line", requestLine, socketfd); 
 		    if((strstr(requestLine, ".jpg") != 0) || (strstr(requestLine, ".png") != 0) || (strstr(requestLine, ".gif") != 0)) //must be image
 		    {
 		        logger(LOG, "request line contains image", requestLine, 5); 
@@ -555,11 +591,14 @@ int main(int argc, char **argv)
 	    {
 	        logger(LOG, "about to add request", "woohoo", rq.requestType); 
 	        pthread_mutex_lock(&queueMutex);//lock mutex
+	        logger(LOG, "mutex locked", "in main method", hit);
 	        addRequest(&rq);
 	        requestsPresentCount++;
-	        //signal thread that there is job to grab
-	        //cond_jobavail;//TODO IMPLEMENT
 	        pthread_mutex_unlock(&queueMutex);
+	        logger(LOG, "mutex unlocked", "in main method", hit);
+	        //signal thread that there is job to grab
+	        logger(LOG, "sending signal", "in main method", hit);
+	        pthread_cond_signal(&jobavail);
 	        
 	    }
 	    else
