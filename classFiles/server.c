@@ -141,12 +141,12 @@ static int requestsPresentCount;
 static int completedRequestsCount;
 
 
+
 /*
     initialize Thread pool, initialize Threads, and add them to Thread pool
 */
 thread_pool *  createPool(int numThreads)
 {
-
     thread * newThreads[numThreads];
   
     thread_pool * pool = calloc(numThreads + 1, (sizeof(thread) * numThreads) + sizeof(pthread_cond_t));    
@@ -177,14 +177,14 @@ thread * createThread(int i)
     thr->countHtmlRequests = 0;
     thr->countImageRequests = 0;
        
-    pthread_create(&thr->pthread, NULL, threadWait, thr);
-   /* if (status == NULL)
+    int status = pthread_create(&thr->pthread, NULL, threadWait, thr);
+    if (status != 0)
     {
-    	logger(LOG, "we have reached heaven", "HI", 5);     
+    	logger(LOG, "thread creation failed", "uh oh", 5);     
 
-        printf("there was issue creating thread %d\n", i);
+        //printf("there was issue creating thread %d\n", i);
         exit(-1);
-    }    */
+    }    
     
     return thr; 
 }
@@ -198,6 +198,7 @@ thread * createThread(int i)
 */
 request_queue createQueue(int indicator)
 {
+    pthread_mutex_init(&queueMutex, NULL);
     request * newrequests[maxTotalQueueSize];//is this a random max we should have
     request_queue * rq = calloc(3, sizeof(newrequests) + sizeof(int) + sizeof(pthread_mutex_t));
     rq->requests = newrequests;
@@ -267,10 +268,10 @@ void * threadWait(thread thr)
         web(req->requestInfo, req->hit);
         
         //condition
-        {
+        
             //grab off request queue
             //do web with request
-        }
+        
         //unlock mutex
         //repeat
     }

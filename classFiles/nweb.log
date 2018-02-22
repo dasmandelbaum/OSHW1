@@ -443,3 +443,232 @@ ERROR: system call:bind Errno=48 exiting pid=53403
  INFO: preference set to:....:2
  INFO: about to add request:woohoo:2
  INFO: starting:loop:0
+ INFO: max request size:based on input of course..:5
+ INFO: nweb starting:4003:54429
+ INFO: we have reached CREATE POOL:10:5
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached HPIC:HPIC:2
+ INFO: starting:loop:0
+ INFO: checking:request creation:0
+ INFO: we have reached request line:GET nigel.jpg HTTP/1.0
+
+:2
+ INFO: request line contains image:GET nigel.jpg HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:2
+ INFO: starting:loop:0
+ INFO: max request size:based on input of course..:5
+ INFO: nweb starting:4003:54444
+ERROR: system call:bind Errno=48 exiting pid=54444
+ INFO: max request size:based on input of course..:5
+ INFO: nweb starting:4003:54447
+ INFO: we have reached CREATE POOL:10:5
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached HPIC:HPIC:2
+ INFO: starting:loop:1
+ INFO: max request size:based on input of course..:5
+ INFO: nweb starting:4003:54452
+ INFO: we have reached CREATE POOL:10:5
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: max request size:based on input of course..:5
+ INFO: nweb starting:4003:54455
+ INFO: we have reached CREATE POOL:10:5
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: max request size:based on input of course..:5
+ INFO: nweb starting:4003:54458
+ INFO: we have reached CREATE POOL:10:5
+ INFO: we have CREATED A THREAD:THREADING:0 INFO: max request size:based on input of course..:5
+ INFO: nweb starting:4003:54460
+ INFO: we have reached CREATE POOL:10:5
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: max request size:based on input of course..:5
+ INFO: nweb starting:4003:54466
+ INFO: we have reached CREATE POOL:10:5
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached HPIC:HPIC:2
+ INFO: starting:loop:1
+ INFO: max request size:based on input of course..:5
+ INFO: nweb starting:4003:54469
+ INFO: we have reached CREATE POOL:10:5
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached HPIC:HPIC:2
+ INFO: starting:loop:1
+ INFO: max request size:based on input of course..:5
+ INFO: nweb starting:4003:54472
+ INFO: we have reached CREATE POOL:10:5
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached HPIC:HPIC:2
+ INFO: starting:loop:1
+ INFO: max request size:based on input of course..:5
+ INFO: nweb starting:4003:54478
+ INFO: we have reached CREATE POOL:10:5
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached HPIC:HPIC:2
+ INFO: starting:loop:1
+ INFO: max request size:based on input of course..:5
+ INFO: nweb starting:4003:54522
+ INFO: we have reached CREATE POOL:10:5
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached HPIC:HPIC:2
+ INFO: starting:loop:1
+ INFO: max request size:based on input of course..:5
+ INFO: nweb starting:4003:54526
+ INFO: we have reached CREATE POOL:10:5
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached HPIC:HPIC:2
+ INFO: starting:loop:1
+ INFO: max request size:based on input of course..:5
+ INFO: nweb starting:4003:54532
+ INFO: we have reached CREATE POOL:10:5
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: we have CREATED A THREAD:THREADING:5 INFO: max request size:based on input of course..:5
+ INFO: nweb starting:4003:54535
+ INFO: we have reached CREATE POOL:10:5
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached HPIC:HPIC:2
+ INFO: starting:loop:1
+ INFO: max request size:based on input of course..:5
+ INFO: nweb starting:4003:54555
+ INFO: we have reached CREATE POOL:10:5
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: max request size:based on input of course..:5
+ INFO: nweb starting:4003:54560
+ INFO: we have reached CREATE POOL:10:5
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: max request size:based on input of course..:5
+ INFO: nweb starting:4005:54563
+ INFO: we have reached CREATE POOL:10:5
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: max request size:based on input of course..:5
+ INFO: nweb starting:4005:54566
+ INFO: we have reached CREATE POOL:10:5
+ INFO: we have CREATED A THREAD:THREADING:0 INFO: max request size:based on input of course..:5
+ INFO: nweb starting:4005:54570
+ INFO: we have reached CREATE POOL:10:5
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: we have CREATED A THREAD:THREADING:6
