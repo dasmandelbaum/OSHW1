@@ -78,6 +78,7 @@ typedef struct request{
    int readCompletionTime;
    int numRequestsHigherPriority;
    int requestType; //0 for regular, 1 for html, 2 for image
+   int hit;
 } request;
 
 typedef struct request_queue{
@@ -114,10 +115,12 @@ static int dummy; //keep compiler happy
 thread_pool * createPool(int numThreads);
 void * threadWait();
 request_queue createQueue(int indicator);
-request createRequest(int fd);
+request createRequest(int fd, int hit);
 void logger(int type, char *s1, char *s2, int socket_fd);
 void addRequest(request * req);
 thread* createThread();
+request * removeRequest();
+void web(int fd, int hit);
 
 /*
 Fields
@@ -127,6 +130,8 @@ thread_pool * ourThreads;
 request_queue fifoqueue, srqueue;
 int preference = 0;
 int maxTotalQueueSize;
+pthread_mutex_t queueMutex;
+//pthread_cond_t hasJobs;
 /*
     global variables needed:
         - STAT-1: count of total requests present
@@ -204,7 +209,7 @@ request_queue createQueue(int indicator)
     return * rq;
 }
 
-request createRequest(int fd)
+request createRequest(int fd, int hit)
 {
     request * r = calloc(7, (sizeof(int) * 6) + sizeof(request));
     r->behind = NULL;
@@ -214,6 +219,7 @@ request createRequest(int fd)
     r->dispatchedTime = 0;//TODO: how do we get this number?
     r->readCompletionTime = 0;//TODO: how do we get this number?
     r->numRequestsHigherPriority = 0;
+    r->hit = hit;
     //r->requestType = ; dont know this yet
     return * r;  
 }
@@ -249,21 +255,42 @@ void addRequest(request * req)
 */
 void * threadWait(thread thr)
 {
-    /*while(1)
+	request * req;
+    while(1)
     {
-        //lock mutex
+    	
+    	//pthread_cond_wait(&hasJobs);
+    	pthread_mutex_lock(&queueMutex);//lock mutex
+        req = removeRequest();
+        pthread_mutex_unlock(&queueMutex);
+        
+        web(req->requestInfo, req->hit);
+        
         //condition
         {
             //grab off request queue
             //do web with request
         }
         //unlock mutex
-        repeat
-    }*/
+        //repeat
+    }
     completedRequestsCount++;
     return NULL;
 }
 
+request * removeRequest() {
+	request * req;
+    if(preference != 0 && srqueue.first != NULL) {
+       	req = srqueue.first;	//TODO make sure this doesn't break the queue due to lack of garbage collection. happy Yaakov???
+       	srqueue.first = req->behind;
+    }
+    
+    else {
+    	req = fifoqueue.first;
+    	fifoqueue.first = req->behind;
+    }
+    return req;
+}
 
 void logger(int type, char *s1, char *s2, int socket_fd)
 {
@@ -477,14 +504,14 @@ int main(int argc, char **argv)
 	
 	//"portNum: %d  folder: %s  NumThreads: %d  schedule num: %d\n ", port, "folder", numThreads,preference);
 	for(hit=1; ;hit++) {
-		logger(LOG, "starting", "loop", 0);
+		logger(LOG, "starting", "loop", hit);
 
 		length = sizeof(cli_addr);
 		if((socketfd = accept(listenfd, (struct sockaddr *)&cli_addr, &length)) < 0) {
 			logger(ERROR,"system call","accept",0);
 		}
-		request rq = createRequest(socketfd); //still need to get priority type
-		logger(LOG, "checking", "request creation", rq.dispatchedTime);
+		request rq = createRequest(socketfd, hit); //still need to get priority type
+		//logger(LOG, "checking", "request creation", rq.dispatchedTime);
 		
 		//addRequest(&rq, &fifoqueue);
 		//logger(LOG, "checking", "request Queue addition first", fifoqueue.first->dispatchedTime);
@@ -527,7 +554,9 @@ int main(int argc, char **argv)
 	    if(requestsPresentCount < maxTotalQueueSize)
 	    {
 	        logger(LOG, "about to add request", "woohoo", rq.requestType); 
+	        pthread_mutex_lock(&queueMutex);//lock mutex
 	        addRequest(&rq);
+	        pthread_mutex_unlock(&queueMutex);
 	        requestsPresentCount++;
 	    }
 	    else
