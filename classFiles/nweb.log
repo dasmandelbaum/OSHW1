@@ -808,3 +808,1112 @@ ERROR: system call:bind Errno=48 exiting pid=54444
  INFO: we have CREATED A THREAD:THREADING:0
  INFO: we have CREATED A THREAD:THREADING:1
  INFO: we have CREATED A THREAD:THREADING:2
+ INFO: max request size:based on input of course..:5
+ INFO: nweb starting:4003:23795
+ INFO: we have reached CREATE POOL:10:5
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: max request size:based on input of course..:5
+ INFO: nweb starting:4003:23803
+ INFO: we have reached CREATE POOL:10:5
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: max request size:based on input of course..:5
+ INFO: nweb starting:4003:23812
+ INFO: we have reached CREATE POOL:10:5
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached HPIC:HPIC:2
+ INFO: starting:loop:1
+ INFO: max request size:based on input of course..:5
+ INFO: nweb starting:4003:24010
+ INFO: we have reached CREATE POOL:10:5
+ INFO: About to create pThread:Number:0
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: max request size:based on input of course..:5
+ INFO: nweb starting:4003:24047
+ INFO: we have reached CREATE POOL:10:5
+ INFO: we have CREATED A THREAD:THREADING:10
+ INFO: About to create pThread:Number:0
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: max request size:based on input of course..:5
+ INFO: nweb starting:4025:24080
+ INFO: we have reached CREATE POOL:10:5
+ INFO: Number of threads::10
+ INFO: About to create pThread:Number:0
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: About to create pThread:Number:1
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: About to create pThread:Number:2
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: About to create pThread:Number:3
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: About to create pThread:Number:4
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: About to create pThread:Number:5
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: About to create pThread:Number:6
+ INFO: max request size:based on input of course..:5
+ INFO: nweb starting:4025:24118
+ INFO: we have reached CREATE POOL:10:5
+ INFO: Number of threads::10
+ INFO: About to create pThread:Number:0
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: About to create pThread:Number:1
+ INFO: we have CREATED A THREAD:THREADING:1 INFO: nweb starting:4025:24130
+ INFO: we have reached CREATE POOL:10:5
+ INFO: Number of threads::10
+ INFO: About to create pThread:Number:0
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: About to create pThread:Number:1
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: About to create pThread:Number:2
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: About to create pThread:Number:3
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: About to create pThread:Number:4
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: About to create pThread:Number:5
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: About to create pThread:Number:6
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: About to create pThread:Number:7
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: About to create pThread:Number:8
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: About to create pThread:Number:9
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached HPIC:HPIC:2
+ INFO: starting:loop:1
+ INFO: nweb starting:4025:24396
+ INFO: we have reached CREATE POOL:10:5
+ INFO: Number of threads::10
+ INFO: About to create pThread:Number:0
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: About to create pThread:Number:1 INFO: nweb starting:4444:24401
+ INFO: we have reached CREATE POOL:10:5
+ INFO: Number of threads::10
+ INFO: About to create pThread:Number:0
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: About to create pThread:Number:1
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: About to create pThread:Number:2
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: About to create pThread:Number:3
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: About to create pThread:Number:4
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: About to create pThread:Number:5
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: About to create pThread:Number:6
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: About to create pThread:Number:7
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: About to create pThread:Number:8
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: About to create pThread:Number:9
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached HPIC:HPIC:2
+ INFO: starting:loop:1
+ INFO: nweb starting:4444:24530
+ INFO: we have reached CREATE POOL:10:5
+ INFO: Number of threads::10
+ INFO: About to create pThread:Number:0
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: About to create pThread:Number:1
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: About to create pThread:Number:2
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: About to create pThread:Number:3
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: About to create pThread:Number:4
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: About to create pThread:Number:5
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: About to create pThread:Number:6
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: About to create pThread:Number:7
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: About to create pThread:Number:8
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: About to create pThread:Number:9
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached HPIC:HPIC:2
+ INFO: starting:loop:1
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /nigel.jpg HTTP/1.0
+
+:2
+ INFO: request line contains image:GET /nigel.jpg HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:2
+ INFO: starting:loop:2
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /nigel.jpg HTTP/1.0
+
+:2
+ INFO: request line contains image:GET /nigel.jpg HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:2
+ INFO: nweb starting:4444:24613
+ INFO: we have reached CREATE POOL:10:5
+ INFO: Number of threads::10
+ INFO: About to create pThread:Number:0
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: About to create pThread:Number:1
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: About to create pThread:Number:2
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: About to create pThread:Number:3
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: About to create pThread:Number:4
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: About to create pThread:Number:5
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: About to create pThread:Number:6
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: About to create pThread:Number:7
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: About to create pThread:Number:8
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: About to create pThread:Number:9
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached HPIC:HPIC:2
+ INFO: starting:loop:1
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /nigel.jpg HTTP/1.0
+
+:2
+ INFO: request line contains image:GET /nigel.jpg HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:2
+ INFO: starting:loop:2
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /index.html HTTP/1.0
+
+:2
+ INFO: request line contains html:GET /index.html HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:1
+ INFO: nweb starting:4222:24691
+ INFO: we have reached CREATE POOL:10:5
+ INFO: Number of threads::10
+ INFO: About to create pThread:Number:0
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: About to create pThread:Number:1
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: About to create pThread:Number:2
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: About to create pThread:Number:3
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: About to create pThread:Number:4
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: About to create pThread:Number:5
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: About to create pThread:Number:6
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: About to create pThread:Number:7
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: About to create pThread:Number:8
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: About to create pThread:Number:9
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached HPIC:HPIC:2
+ INFO: starting:loop:1
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /index.html HTTP/1.0
+
+:2
+ INFO: request line contains html:GET /index.html HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:1
+ INFO: number of requests serviced:...:0
+ INFO: starting:loop:2
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /nigel.jpg HTTP/1.0
+
+
+:2
+ INFO: request line contains image:GET /nigel.jpg HTTP/1.0
+
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:2
+ INFO: nweb starting:4222:24730
+ INFO: we have reached CREATE POOL:10:5
+ INFO: Number of threads::10
+ INFO: About to create pThread:Number:0
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: About to create pThread:Number:1
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: About to create pThread:Number:2
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: About to create pThread:Number:3
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: About to create pThread:Number:4
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: About to create pThread:Number:5
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: About to create pThread:Number:6
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: About to create pThread:Number:7
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: About to create pThread:Number:8
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: About to create pThread:Number:9
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached HPIC:HPIC:2
+ INFO: starting:loop:1
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /nigel.jpg HTTP/1.0
+
+:2
+ INFO: request line contains image:GET /nigel.jpg HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:2
+ INFO: number of requests serviced:...:0
+ INFO: starting:loop:2
+ INFO: nweb starting:4444:24764
+ INFO: we have reached CREATE POOL:10:5
+ INFO: Number of threads::10
+ INFO: About to create pThread:Number:0
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: About to create pThread:Number:1
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: About to create pThread:Number:2
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: About to create pThread:Number:3
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: About to create pThread:Number:4
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: About to create pThread:Number:5
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: About to create pThread:Number:6
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: About to create pThread:Number:7
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: About to create pThread:Number:8
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: About to create pThread:Number:9
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached HPIC:HPIC:2
+ INFO: starting:loop:1
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /nigel.jpg HTTP/1.0
+
+:2
+ INFO: request line contains image:GET /nigel.jpg HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:2
+ INFO: number of requests serviced:...:0
+ INFO: starting:loop:2
+ INFO: nweb starting:4444:24809
+ERROR: system call:bind Errno=48 exiting pid=24809
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /nigel.jpg HTTP/1.0
+
+:2
+ INFO: request line contains image:GET /nigel.jpg HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:2
+ INFO: nweb starting:4444:24859
+ERROR: system call:bind Errno=48 exiting pid=24859
+ INFO: nweb starting:4444:24868
+ INFO: we have reached CREATE POOL:10:5
+ INFO: Number of threads::10
+ INFO: About to create pThread:Number:0
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: About to create pThread:Number:1
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: About to create pThread:Number:2
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: About to create pThread:Number:3
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: About to create pThread:Number:4
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: About to create pThread:Number:5
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: About to create pThread:Number:6
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: About to create pThread:Number:7
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: About to create pThread:Number:8
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: About to create pThread:Number:9
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached HPIC:HPIC:2
+ INFO: starting:loop:1
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /nigel.jpg HTTP/1.0
+
+:2
+ INFO: request line contains image:GET /nigel.jpg HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:2
+ INFO: starting:loop:2
+ INFO: nweb starting:4444:24914
+ERROR: system call:bind Errno=48 exiting pid=24914
+ INFO: nweb starting:4444:24924
+ INFO: we have reached CREATE POOL:10:5
+ INFO: Number of threads::10
+ INFO: About to create pThread:Number:0
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: About to create pThread:Number:1
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: About to create pThread:Number:2
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: About to create pThread:Number:3
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: About to create pThread:Number:4
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: About to create pThread:Number:5
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: About to create pThread:Number:6
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: About to create pThread:Number:7
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: About to create pThread:Number:8
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: About to create pThread:Number:9
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached HPIC:HPIC:2
+ INFO: starting:loop:1
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /nigel.jpg HTTP/1.0
+
+:2
+ INFO: request line contains image:GET /nigel.jpg HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:2
+ INFO: mutex locked:in main method:0
+ INFO: mutex unlocked:in main method:0
+ INFO: sending signal:in main method:0
+ INFO: starting:loop:2
+ INFO: nweb starting:4444:24959
+ERROR: system call:bind Errno=48 exiting pid=24959
+ INFO: nweb starting:4444:24965
+ERROR: system call:bind Errno=48 exiting pid=24965
+ INFO: nweb starting:4445:24970
+ INFO: we have reached CREATE POOL:10:5
+ INFO: Number of threads::10
+ INFO: About to create pThread:Number:0
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: About to create pThread:Number:1
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: About to create pThread:Number:2
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: About to create pThread:Number:3
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: About to create pThread:Number:4
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: About to create pThread:Number:5
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: About to create pThread:Number:6
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: About to create pThread:Number:7
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: About to create pThread:Number:8
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: About to create pThread:Number:9
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached HPIC:HPIC:2
+ INFO: starting:loop:1
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /nigel.jpg HTTP/1.0
+
+:2
+ INFO: request line contains image:GET /nigel.jpg HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:2
+ INFO: mutex locked:in main method:0
+ INFO: mutex unlocked:in main method:0
+ INFO: sending signal:in main method:0
+ INFO: starting:loop:2
+ INFO: mutex locked:thread number :124293120
+FORBIDDEN: failed to read browser request:
+ INFO: nweb starting:4445:25013
+ INFO: we have reached CREATE POOL:10:5
+ INFO: Number of threads::10
+ INFO: About to create pThread:Number:0
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: About to create pThread:Number:1
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: About to create pThread:Number:2
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: About to create pThread:Number:3
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: About to create pThread:Number:4
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: About to create pThread:Number:5
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: About to create pThread:Number:6
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: About to create pThread:Number:7
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: About to create pThread:Number:8
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: About to create pThread:Number:9
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached HPIC:HPIC:2
+ INFO: starting:loop:1
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /nigel.jpg HTTP/1.0
+
+:2
+ INFO: request line contains image:GET /nigel.jpg HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:2
+ INFO: mutex locked:in main method:0
+ INFO: mutex unlocked:in main method:0
+ INFO: sending signal:in main method:0
+ INFO: starting:loop:2
+ INFO: mutex locked:thread number :9814016
+FORBIDDEN: failed to read browser request:
+ INFO: nweb starting:4445:25066
+ INFO: we have reached CREATE POOL:10:5
+ INFO: Number of threads::10
+ INFO: About to create pThread:Number:0
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: About to create pThread:Number:1
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: About to create pThread:Number:2
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: About to create pThread:Number:3
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: About to create pThread:Number:4
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: About to create pThread:Number:5
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: About to create pThread:Number:6
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: About to create pThread:Number:7
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: About to create pThread:Number:8
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: About to create pThread:Number:9
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached HPIC:HPIC:2
+ INFO: starting:loop:1
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /nigel.jpg HTTP/1.0
+
+:2
+ INFO: request line contains image:GET /nigel.jpg HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:2
+ INFO: mutex locked:in main method:0
+ INFO: mutex unlocked:in main method:0
+ INFO: sending signal:in main method:0
+ INFO: starting:loop:2
+ INFO: mutex locked:thread number :200658944
+ INFO: request received:here we go:1
+ INFO: in web:i hope:1
+ INFO: nweb starting:4445:25125
+ERROR: system call:bind Errno=48 exiting pid=25125
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /nigel.jpg HTTP/1.0
+
+:2
+ INFO: request line contains image:GET /nigel.jpg HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:2
+ INFO: 
+
+ nweb starting:4222:25216
+ INFO: we have reached CREATE POOL:10:5
+ INFO: Number of threads::10
+ INFO: About to create pThread:Number:0
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: About to create pThread:Number:1
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: About to create pThread:Number:2
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: About to create pThread:Number:3
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: About to create pThread:Number:4
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: About to create pThread:Number:5
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: About to create pThread:Number:6
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: About to create pThread:Number:7
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: About to create pThread:Number:8
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: About to create pThread:Number:9
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached HPIC:HPIC:2
+ INFO: starting:loop:1
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /nigel.jpg HTTP/1.0
+
+:2
+ INFO: request line contains image:GET /nigel.jpg HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:2
+ INFO: mutex locked:in main method:0
+ INFO: mutex unlocked:in main method:0
+ INFO: sending signal:in main method:0
+ INFO: starting:loop:2
+ INFO: mutex locked:thread number :80084992
+ INFO: request received:here we go:1
+ INFO: in web:i hope:1
+ INFO: in web:read done:1
+FORBIDDEN: failed to read browser request:
+ INFO: 
+
+ nweb starting:4222:25284
+ INFO: we have reached CREATE POOL:10:5
+ INFO: Number of threads::10
+ INFO: About to create pThread:Number:0
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: About to create pThread:Number:1
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: About to create pThread:Number:2
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: About to create pThread:Number:3
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: About to create pThread:Number:4
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: About to create pThread:Number:5
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: About to create pThread:Number:6
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: About to create pThread:Number:7
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: About to create pThread:Number:8
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: About to create pThread:Number:9
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached HPIC:HPIC:2
+ INFO: starting:loop:1
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /nigel.jpg HTTP/1.0
+
+:1
+ INFO: request line contains image:GET /nigel.jpg HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:2
+ INFO: mutex locked:in main method:0
+ INFO: mutex unlocked:in main method:0
+ INFO: sending signal:in main method:0
+ INFO: starting:loop:2 INFO: mutex locked:thread number :162336768
+ INFO: request received:here we go:1
+ INFO: in web:i hope:1
+ INFO: 
+
+ nweb starting:4222:25355
+ERROR: system call:bind Errno=48 exiting pid=25355
+ INFO: 
+
+ nweb starting:4555:25362
+ INFO: we have reached CREATE POOL:10:5
+ INFO: Number of threads::10
+ INFO: About to create pThread:Number:0
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: About to create pThread:Number:1
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: About to create pThread:Number:2
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: About to create pThread:Number:3
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: About to create pThread:Number:4
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: About to create pThread:Number:5
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: About to create pThread:Number:6
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: About to create pThread:Number:7
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: About to create pThread:Number:8
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: About to create pThread:Number:9
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached FIFO:FIFO:5
+ INFO: starting:loop:1
+ INFO: reached here:...:513
+ INFO: preference set to:....:0
+ INFO: about to add request:woohoo:0
+ INFO: mutex locked:in main method:0
+ INFO: mutex unlocked:in main method:0
+ INFO: sending signal:in main method:0
+ INFO: starting:loop:2
+ INFO: mutex locked:thread number :36687872
+ INFO: 
+
+ nweb starting:5555:25474
+ INFO: we have reached CREATE POOL:10:5
+ INFO: Number of threads::10
+ INFO: About to create pThread:Number:0
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: About to create pThread:Number:1
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: About to create pThread:Number:2
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: About to create pThread:Number:3
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: About to create pThread:Number:4
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: About to create pThread:Number:5
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: About to create pThread:Number:6
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: About to create pThread:Number:7
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: About to create pThread:Number:8
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: About to create pThread:Number:9
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached FIFO:FIFO:5
+ INFO: starting:loop:1
+ INFO: reached here:...:513
+ INFO: preference set to:....:0
+ INFO: about to add request:woohoo:0
+ INFO: mutex locked:in main method:1
+ INFO: mutex unlocked:in main method:1
+ INFO: sending signal:in main method:1
+ INFO: starting:loop:2
+ INFO: mutex locked:thread number :119803904
+ INFO: 
+
+ nweb starting:5555:25523
+ INFO: we have reached CREATE POOL:10:5
+ INFO: Number of threads::10
+ INFO: About to create pThread:Number:0
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: About to create pThread:Number:1
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: About to create pThread:Number:2
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: About to create pThread:Number:3
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: About to create pThread:Number:4
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: About to create pThread:Number:5
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: About to create pThread:Number:6
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: About to create pThread:Number:7
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: About to create pThread:Number:8
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: About to create pThread:Number:9
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached FIFO:FIFO:5
+ INFO: starting:loop:1
+ INFO: reached here:...:513
+ INFO: preference set to:....:0
+ INFO: about to add request:woohoo:0
+ INFO: mutex locked:in main method:1
+ INFO: mutex unlocked:in main method:1
+ INFO: sending signal:in main method:1
+ INFO: starting:loop:2
+ INFO: mutex locked:thread number :121511936
+ INFO: remove request:taking from FIFO:0
+ INFO: 
+
+ nweb starting:5555:25548
+ INFO: we have reached CREATE POOL:10:5
+ INFO: Number of threads::10
+ INFO: About to create pThread:Number:0
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: About to create pThread:Number:1
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: About to create pThread:Number:2
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: About to create pThread:Number:3
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: About to create pThread:Number:4
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: About to create pThread:Number:5
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: About to create pThread:Number:6
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: About to create pThread:Number:7
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: About to create pThread:Number:8
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: About to create pThread:Number:9
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached FIFO:FIFO:5
+ INFO: starting:loop:1
+ INFO: reached here:...:513
+ INFO: preference set to:....:0
+ INFO: about to add request:woohoo:0
+ INFO: mutex locked:in main method:1
+ INFO: mutex unlocked:in main method:1
+ INFO: sending signal:in main method:1
+ INFO: starting:loop:2 INFO: mutex locked:thread number :215871488
+
+ INFO: remove request:taking from FIFO:0
+ INFO: 
+
+ nweb starting:5555:25572
+ INFO: we have reached CREATE POOL:10:5
+ INFO: Number of threads::10
+ INFO: About to create pThread:Number:0
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: About to create pThread:Number:1
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: About to create pThread:Number:2
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: About to create pThread:Number:3
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: About to create pThread:Number:4
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: About to create pThread:Number:5
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: About to create pThread:Number:6
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: About to create pThread:Number:7
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: About to create pThread:Number:8
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: About to create pThread:Number:9
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached FIFO:FIFO:5
+ INFO: starting:loop:1
+ INFO: reached here:...:513
+ INFO: preference set to:....:0
+ INFO: about to add request:woohoo:0
+ INFO: mutex locked:in main method:1
+ INFO: mutex unlocked:in main method:1
+ INFO: sending signal:in main method:1
+ INFO: starting:loop:2 INFO: mutex locked:thread number :116088832
+
+ INFO: remove request:taking from FIFO:0
+ INFO: 
+
+ nweb starting:8888:25761
+ INFO: we have reached CREATE POOL:10:5
+ INFO: Number of threads::10
+ INFO: About to create pThread:Number:0
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: About to create pThread:Number:1
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: About to create pThread:Number:2
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: About to create pThread:Number:3
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: About to create pThread:Number:4
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: About to create pThread:Number:5
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: About to create pThread:Number:6
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: About to create pThread:Number:7
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: About to create pThread:Number:8
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: About to create pThread:Number:9
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached FIFO:FIFO:5
+ INFO: starting:loop:1
+ INFO: reached here:...:513
+ INFO: preference set to:....:0
+ INFO: about to add request:woohoo:0
+ INFO: mutex locked:in main method:1
+ INFO: mutex unlocked:in main method:1
+ INFO: sending signal:in main method:1
+ INFO: starting:loop:2
+ INFO: mutex locked:thread number :265433088
+ INFO: remove request:taking from FIFO:0
+ INFO: 
+
+ nweb starting:7777:25835
+ INFO: we have reached CREATE POOL:10:5
+ INFO: Number of threads::10
+ INFO: About to create pThread:Number:0
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: About to create pThread:Number:1
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: About to create pThread:Number:2
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: About to create pThread:Number:3
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: About to create pThread:Number:4
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: About to create pThread:Number:5
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: About to create pThread:Number:6
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: About to create pThread:Number:7
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: About to create pThread:Number:8
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: About to create pThread:Number:9
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached FIFO:FIFO:5
+ INFO: starting:loop:1
+ INFO: reached here:...:513
+ INFO: preference set to:....:0
+ INFO: about to add request:woohoo:0
+ INFO: mutex locked:in main method:1
+ INFO: queue length::1
+ INFO: request fd::1
+ INFO: mutex unlocked:in main method:1
+ INFO: sending signal:in main method:1
+ INFO: starting:loop:2
+ INFO: mutex locked:thread number :17649664
+ INFO: remove request:taking from FIFO:0
+ INFO: 
+
+ nweb starting:3333:25935
+ INFO: we have reached CREATE POOL:10:5
+ INFO: Number of threads::10
+ INFO: About to create pThread:Number:0
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: About to create pThread:Number:1
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: About to create pThread:Number:2
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: About to create pThread:Number:3
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: About to create pThread:Number:4
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: About to create pThread:Number:5
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: About to create pThread:Number:6
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: About to create pThread:Number:7
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: About to create pThread:Number:8
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: About to create pThread:Number:9
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached FIFO:FIFO:0
+ INFO: starting:loop:1
+ INFO: reached here:...:513
+ INFO: preference set to:....:0
+ INFO: about to add request:woohoo:0
+ INFO: mutex locked:in main method:1
+ INFO: queue length::1
+ INFO: request fd::1
+ INFO: request info off of first in queue::1
+ INFO: mutex unlocked:in main method:1
+ INFO: sending signal:in main method:1
+ INFO: starting:loop:2
+ INFO: mutex locked:thread number :158281728
+ INFO: remove request:taking from FIFO:0
+ INFO: 
+
+ nweb starting:4444:26122
+ INFO: we have reached CREATE POOL:10:5
+ INFO: Number of threads::10
+ INFO: About to create pThread:Number:0
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: About to create pThread:Number:1
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: About to create pThread:Number:2
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: About to create pThread:Number:3
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: About to create pThread:Number:4
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: About to create pThread:Number:5
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: About to create pThread:Number:6
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: About to create pThread:Number:7
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: About to create pThread:Number:8
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: About to create pThread:Number:9
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached FIFO:FIFO:0
+ INFO: starting:loop:1
+ INFO: reached here:...:513
+ INFO: preference set to:....:0
+ INFO: about to add request:woohoo:0
+ INFO: mutex locked:in main method:1
+ INFO: queue length::1
+ INFO: request fd::1
+ INFO: request info off of first in queue::1
+ INFO: mutex unlocked:in main method:1
+ INFO: sending signal:in main method:1
+ INFO: starting:loop:2
+ INFO: mutex locked:thread number :159010816
+ INFO: remove request:taking from FIFO:0
+ INFO: 
+
+ nweb starting:5555:26160
+ INFO: we have reached CREATE POOL:10:5
+ INFO: Number of threads::10
+ INFO: About to create pThread:Number:0
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: About to create pThread:Number:1
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: About to create pThread:Number:2
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: About to create pThread:Number:3
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: About to create pThread:Number:4
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: About to create pThread:Number:5
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: About to create pThread:Number:6
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: About to create pThread:Number:7
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: About to create pThread:Number:8
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: About to create pThread:Number:9
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached FIFO:FIFO:0
+ INFO: starting:loop:1
+ INFO: reached here:...:513
+ INFO: preference set to:....:0
+ INFO: about to add request:woohoo:0
+ INFO: mutex locked:in main method:1
+ INFO: queue length::1
+ INFO: request fd::1
+ INFO: 
+
+ nweb starting:6666:26284
+ INFO: we have reached CREATE POOL:10:5
+ INFO: Number of threads::10
+ INFO: About to create pThread:Number:0
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: About to create pThread:Number:1
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: About to create pThread:Number:2
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: About to create pThread:Number:3
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: About to create pThread:Number:4
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: About to create pThread:Number:5
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: About to create pThread:Number:6
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: About to create pThread:Number:7
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: About to create pThread:Number:8
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: About to create pThread:Number:9
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached FIFO:FIFO:0
+ INFO: starting:loop:1
+ INFO: reached here:...:513
+ INFO: preference set to:....:0
+ INFO: about to add request:woohoo:0
+ INFO: mutex locked:in main method:1
+ INFO: request fd::1
+ INFO: 
+
+ nweb starting:9999:26343
+ INFO: we have reached CREATE POOL:10:5
+ INFO: Number of threads::10
+ INFO: About to create pThread:Number:0
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: About to create pThread:Number:1
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: About to create pThread:Number:2
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: About to create pThread:Number:3
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: About to create pThread:Number:4
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: About to create pThread:Number:5
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: About to create pThread:Number:6
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: About to create pThread:Number:7
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: About to create pThread:Number:8
+ INFO: we have CREATED A THREAD:THREADING:8
+ INFO: About to create pThread:Number:9
+ INFO: we have CREATED A THREAD:THREADING:9
+ INFO: thread number 4:i hope:9
+ INFO: we have reached FIFO:FIFO:0
+ INFO: starting:loop:1
+ INFO: reached here:...:513
+ INFO: preference set to:....:0
+ INFO: about to add request:woohoo:0
+ INFO: mutex locked:in main method:1
+ INFO: request fd::1
+ INFO: request info off of first in queue::1
+ INFO: mutex unlocked:in main method:1
+ INFO: sending signal:in main method:1
+ INFO: starting:loop:2 INFO: mutex locked:thread number :135032832
+ INFO: remove request:taking from FIFO:0
+ INFO: request info off of first in queue::1
+ INFO: request retreived:here we go:1
+ INFO: request received:here we go:1
+ INFO: in web:i hope:1
+
+ INFO: in web:read done:1
+ INFO: request:GET /index.html HTTP/1.0****:1
+ INFO: SEND:index.html:1
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 248
+Connection: close
+Content-Type: text/html
+
+:1
