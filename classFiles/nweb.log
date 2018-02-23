@@ -6366,3 +6366,101 @@ Content-Type: text/html
 :1
  INFO: Header:X-stat-thread-image: 0
 :1
+ INFO: 
+
+ nweb starting:8080:2490
+ERROR: system call:bind Errno=98 exiting pid=2490
+ INFO: request:GET nigel.jpg HTTP/1.0****:1
+NOT FOUND: failed to open file:igel.jpg
+ INFO: 
+
+ nweb starting:8080:2499
+ERROR: system call:bind Errno=98 exiting pid=2499
+ INFO: request:GET /nigel.jpg HTTP/1.0****:2
+ INFO: SEND:nigel.jpg:2
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+
+:2
+ INFO: 
+
+ nweb starting:8080:2520
+ERROR: system call:bind Errno=98 exiting pid=2520
+ INFO: 
+
+ nweb starting:8081:2527
+ INFO: we have reached CREATE POOL:8:5
+ INFO: Number of threads::8
+ INFO: About to create pThread:Number:0
+ INFO: checking id:in createthread:0
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: About to create pThread:Number:1
+ INFO: checking id:in createthread:1
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: About to create pThread:Number:2
+ INFO: checking id:in createthread:2
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: About to create pThread:Number:3
+ INFO: checking id:in createthread:3
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: About to create pThread:Number:4
+ INFO: checking id:in createthread:4
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: About to create pThread:Number:5
+ INFO: checking id:in createthread:5
+ INFO: we have CREATED A THREAD:THREADING:5
+ INFO: About to create pThread:Number:6
+ INFO: checking id:in createthread:6
+ INFO: we have CREATED A THREAD:THREADING:6
+ INFO: About to create pThread:Number:7
+ INFO: checking id:in createthread:7
+ INFO: we have CREATED A THREAD:THREADING:7
+ INFO: we have reached FIFO:FIFO:0
+ INFO: starting:loop:1
+ INFO: reached here:...:513
+ INFO: preference set to:....:0
+ INFO: about to add request:woohoo:0
+ INFO: mutex locked:in main method:1
+ INFO: request fd::1
+ INFO: request info off of first in queue::1
+ INFO: mutex unlocked:in main method:1
+ INFO: sending signal:in main method:1
+ INFO: starting:loop:2
+ INFO: remove request:taking from FIFO:0
+ INFO: request info off of first in queue::1
+ INFO: request retreived:here we go:1
+ INFO: in web:i hope:1
+ INFO: in web:read done:1
+ INFO: request:GET /nigel.jpg HTTP/1.0****:1
+ INFO: SEND:nigel.jpg:1
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+:1
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 0
+:1
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 8968
+:1
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 0
+:1
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 8969
+:1
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 0
+:1
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 18446742554295705291
+:1
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:1
+ INFO: X-stat-thread-id:X-stat-thread-id: 2096572160
+:1
+ INFO: X-stat-thread-count:X-stat-thread-count: 32575
+:1
+ INFO: X-stat-thread-html:X-stat-thread-html: 2096572160
+:1
+ INFO: Header:X-stat-thread-image: 32575
+:1

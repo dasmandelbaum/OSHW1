@@ -607,7 +607,10 @@ int main(int argc, char **argv)
 		{
 		    //read file to see if .jpg, .gif, or .png
 		    static char requestLine[20]; /* static so zero filled */
-		    read(socketfd,requestLine,BUFSIZE); 	/* read Web request */
+		    long ret =read(socketfd,requestLine,20); 	/* read Web request */
+		    if(ret == 0 || ret == -1) {	/* read failure stop now */
+					logger(FORBIDDEN,"failed to read browser request","",612);
+			}
 		    logger(LOG, "we have reached request line", requestLine, socketfd); 
 		    if((strstr(requestLine, ".jpg") != 0) || (strstr(requestLine, ".png") != 0) || (strstr(requestLine, ".gif") != 0)) //must be image
 		    {
