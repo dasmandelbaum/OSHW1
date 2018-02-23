@@ -120,7 +120,8 @@ void logger(int type, char *s1, char *s2, int socket_fd);
 void addRequest(request * req);
 thread* createThread();
 request * removeRequest();
-void web(int fd, int hit, request req, thread thr);
+void web(int fd, int hit, request req, thread * thr);
+int timeval_subtract (struct timeval *result,struct timeval *x,struct timeval *y);
 
 /*
 Fields
@@ -140,6 +141,7 @@ pthread_cond_t jobavail = PTHREAD_COND_INITIALIZER;
 */
 static int requestsPresentCount;
 static int completedRequestsCount;
+struct timeval startUpTime;
 
 
 
@@ -161,7 +163,7 @@ thread_pool *  createPool(int numThreads)
     	//j   = 
         //sprintf("creating Thread %d\n", i);
         pool->threads[i] = createThread(i);
-        logger(LOG, "we have CREATED A THREAD", "THREADING", i);  
+        logger(LOG, "we have CREATED A THREAD", "THREADING", pool->threads[i]->id);  
     }   
     pthread_cond_init(&pool->cond, NULL);
     return pool;
@@ -172,10 +174,9 @@ thread_pool *  createPool(int numThreads)
 */
 thread * createThread(int i)
 {
-    /*int status;*/ thread * thr;
-    thr = (struct Thread*)calloc(5, sizeof(pthread_t) + (sizeof(int) * 4));
+    thread * thr;
+    thr = calloc(5, sizeof(pthread_t) + (sizeof(int) * 4));
     
-    thr->id = i;
     thr->countHttpRequests = 0;
     thr->countHtmlRequests = 0;
     thr->countImageRequests = 0;
@@ -189,7 +190,8 @@ thread * createThread(int i)
         //printf("there was issue creating thread %d\n", i);
         exit(-1);
     }    
-    
+    thr->id = i;
+    logger(LOG, "checking id", "in createthread", thr->id);
     return thr; 
 }
 
@@ -210,30 +212,56 @@ request_queue createQueue(int indicator)
     rq->first = NULL;
     rq->last = NULL;
     rq->length = 0;
-    //pthread_mutex_init(&rq->mutex, NULL);
     return * rq;
 }
 
 request createRequest(int fd, int hit)
 {
+    struct timeval now;
     request * r = calloc(7, (sizeof(int) * 6) + sizeof(request));
     r->behind = NULL;
     r->requestInfo = fd;
-    gettimeofday(&r->arrivalTime, NULL);//TODO: how do we get this number?
+    gettimeofday(&now, NULL);
+    timeval_subtract(&r->arrivalTime, &now, &startUpTime);
     r->countDispatchedPreviously = 0;//TODO: how do we get this number?
-    gettimeofday(&r->dispatchedTime, NULL);//TODO: how do we get this number?
-    gettimeofday(&r->readCompletionTime, NULL);//TODO: how do we get this number?
+    //gettimeofday(&r->dispatchedTime, NULL);//TODO: how do we get this number?
+    //gettimeofday(&r->readCompletionTime, NULL);//TODO: how do we get this number?
     r->numRequestsHigherPriority = 0;
     r->hit = hit;
     //r->requestType = ; dont know this yet
     return * r;  
 }
 
+/*
+    http://www.gnu.org/savannah-checkouts/gnu/libc/manual/html_node/Elapsed-Time.html
+    and https://www.linuxquestions.org/questions/programming-9/how-to-calculate-time-difference-in-milliseconds-in-c-c-711096/
+*/
+int timeval_subtract (struct timeval * result,struct timeval * x,struct timeval * y)
+{
+  /* Perform the carry for the later subtraction by updating y. */
+  if (x->tv_usec < y->tv_usec) {
+    int nsec = (y->tv_usec - x->tv_usec) / 1000000 + 1;
+    y->tv_usec -= 1000000 * nsec;
+    y->tv_sec += nsec;
+  }
+  if (x->tv_usec - y->tv_usec > 1000000) {
+    int nsec = (y->tv_usec - x->tv_usec) / 1000000;
+    y->tv_usec += 1000000 * nsec;
+    y->tv_sec -= nsec;
+  }
+
+  /* Compute the time remaining to wait.
+     tv_usec is certainly positive. */
+  result->tv_sec = x->tv_sec - y->tv_sec;
+  result->tv_usec = x->tv_usec - y->tv_usec;
+
+  /* Return 1 if result is negative. */
+  return (x->tv_sec < y->tv_sec);
+}
+
 
 void addRequest(request * req)
 {
-    //request_queue * queue;
-    
     if(req->requestType == preference && preference > 0)
     {
         //queue = &srqueue;
@@ -263,10 +291,8 @@ void addRequest(request * req)
 		}
 		fifoqueue.length++;
     }
-    
-	
 	//queue->length++;
-	//logger(LOG, "queue length", "", queue->length);  
+	//logger(LOG, "queue length", "", queue->length); 
 	logger(LOG, "request fd", "", req->requestInfo);
 	logger(LOG, "request info off of first in queue", "", fifoqueue.first->requestInfo);
 }
@@ -276,15 +302,17 @@ void addRequest(request * req)
 */
 void * threadWait(thread thr)
 {
-	request * req;
+	request * req; struct timeval now2;
     while(1)
     {
     	pthread_mutex_lock(&queueMutex);//lock mutex
     	pthread_cond_wait(&jobavail, &queueMutex);
-    	logger(LOG, "mutex locked", "thread number ", thr.id);
+    	//logger(LOG, "mutex locked", "thread number ", thr.id);
         req = removeRequest();
         logger(LOG, "request received", "here we go", req->requestInfo);
-        web(req->requestInfo, req->hit, *req, thr);
+        gettimeofday(&now2, NULL);
+	    timeval_subtract(&req->dispatchedTime, &now2, &startUpTime); 
+        web(req->requestInfo, req->hit, *req, &thr);
         completedRequestsCount++;
         pthread_mutex_unlock(&queueMutex);
         logger(LOG, "number of requests serviced", "...", completedRequestsCount);
@@ -354,9 +382,10 @@ void logger(int type, char *s1, char *s2, int socket_fd)
 	if(type == ERROR || type == NOTFOUND || type == FORBIDDEN) exit(3);
 }
 
-void web(int fd, int hit, request req, thread thr)
+void web(int fd, int hit, request req, thread * thr)
 {
 	int j, file_fd, buflen;
+	struct timeval now3;
 	long i, ret, len;
 	char * fstr;
 	static char buffer[BUFSIZE+1]; /* static so zero filled */
@@ -405,11 +434,25 @@ void web(int fd, int hit, request req, thread thr)
 		logger(NOTFOUND, "failed to open file",&buffer[5],fd);
 	}
 	logger(LOG,"SEND",&buffer[5],hit);
+	
 	len = (long)lseek(file_fd, (off_t)0, SEEK_END); /* lseek to the file end to find the length */
 	      (void)lseek(file_fd, (off_t)0, SEEK_SET); /* lseek back to the file start ready for reading */
           (void)sprintf(buffer,"HTTP/1.1 200 OK\nServer: nweb/%d.0\nContent-Length: %ld\nConnection: close\nContent-Type: %s\n", VERSION, len, fstr); /* Header + a blank line */
 	logger(LOG,"Header",buffer,hit);
+	
+	if((strstr(fstr, "jpg") != 0) || (strstr(fstr, "png") != 0) || (strstr(fstr, "gif") != 0)) //must be image
+	{
+	    thr->countImageRequests++;
+	}
+	else if(strstr(fstr, "html") != 0)//html request)
+	{
+	     thr->countHtmlRequests++;
+	}
+	thr->countHttpRequests++;
+	
+	timeval_subtract(&req.readCompletionTime, &now3, &startUpTime); 
 	dummy = write(fd,buffer,strlen(buffer));
+	
 	
     /* Send the statistical headers described in the instructions*/
     (void)sprintf(buffer,"X-stat-req-arrival-count: %d\r\n", requestsPresentCount - 1);
@@ -433,16 +476,16 @@ void web(int fd, int hit, request req, thread thr)
     (void)sprintf(buffer,"X-stat-req-age: %d\r\n", req.numRequestsHigherPriority);
     logger(LOG,"X-stat-req-age",buffer,hit);
     dummy = write(fd,buffer,strlen(buffer));
-    (void)sprintf(buffer,"X-stat-thread-id: %d\r\n", thr.id);
+    (void)sprintf(buffer,"X-stat-thread-id: %d\r\n", thr->id);
     logger(LOG,"X-stat-thread-id",buffer,hit);
     dummy = write(fd,buffer,strlen(buffer));
-    (void)sprintf(buffer,"X-stat-thread-count: %d\r\n", thr.countHttpRequests);
+    (void)sprintf(buffer,"X-stat-thread-count: %d\r\n", thr->countHttpRequests);
     logger(LOG,"X-stat-thread-count",buffer,hit);
     dummy = write(fd,buffer,strlen(buffer));
-    (void)sprintf(buffer,"X-stat-thread-html: %d\r\n", thr.countHtmlRequests);
+    (void)sprintf(buffer,"X-stat-thread-html: %d\r\n", thr->countHtmlRequests);
     logger(LOG,"X-stat-thread-html",buffer,hit);
     dummy = write(fd,buffer,strlen(buffer));
-    (void)sprintf(buffer,"X-stat-thread-image: %d\r\n", thr.countImageRequests);
+    (void)sprintf(buffer,"X-stat-thread-image: %d\r\n", thr->countImageRequests);
 	logger(LOG,"Header",buffer,hit);
 	dummy = write(fd,buffer,strlen(buffer));
     
@@ -489,6 +532,7 @@ int main(int argc, char **argv)
 		(void)printf("ERROR: Can't Change to directory %s\n",argv[2]);
 		exit(4);
 	}
+	gettimeofday(&startUpTime, NULL);
 	/* Become deamon + unstopable and no zombies children (= no wait()) */
 	if(fork() != 0)
 		return 0; /* parent returns OK to shell */
@@ -573,8 +617,11 @@ int main(int argc, char **argv)
 		logger(LOG, "starting", "loop", hit);
 
 		length = sizeof(cli_addr);
-		if((socketfd = accept(listenfd, (struct sockaddr *)&cli_addr, &length)) < 0) {
-			logger(ERROR,"system call","accept",0);
+		if(requestsPresentCount < maxTotalQueueSize)
+	    {
+		    if((socketfd = accept(listenfd, (struct sockaddr *)&cli_addr, &length)) < 0) {
+			    logger(ERROR,"system call","accept",0);
+		    }
 		}
 		logger(LOG, "reached here", "...", 513);
 		request rq = createRequest(socketfd, hit); //still need to get priority type
@@ -587,7 +634,7 @@ int main(int argc, char **argv)
 		if(preference != 0)//has a preference
 		{
 		    //read file to see if .jpg, .gif, or .png
-		    static char requestLine[60]; /* static so zero filled */
+		    static char requestLine[20]; /* static so zero filled */
 		    read(socketfd,requestLine,BUFSIZE); 	/* read Web request */
 		    logger(LOG, "we have reached request line", requestLine, socketfd); 
 		    if((strstr(requestLine, ".jpg") != 0) || (strstr(requestLine, ".png") != 0) || (strstr(requestLine, ".gif") != 0)) //must be image
@@ -599,6 +646,24 @@ int main(int argc, char **argv)
 		    {
 		        logger(LOG, "request line contains html", requestLine, 5); 
 		        rq.requestType = 1;
+		    }
+		    /*
+		        try to put offset back after this read, so that next read in web works
+		    */
+		    int result = lseek(socketfd, (off_t)0, SEEK_SET);
+		    if(result != 0)
+		    {
+		        logger(ERROR, "failed seek file", "...", 654);
+		    }
+		    result = write(socketfd, requestLine, BUFSIZE);
+		    if(result != 0)
+		    {
+		        logger(ERROR, "failed write file", "...", 659);
+		    }
+		    result = lseek(socketfd, (off_t)0, SEEK_SET);
+		    if(result != 0)
+		    {
+		        logger(ERROR, "failed seek file", "...", 664);
 		    }
 		}
 		else //everything in fifo
@@ -635,34 +700,5 @@ int main(int argc, char **argv)
 	    {
 	        logger(ERROR, "request overload", "darn.", rq.requestType); 
 	    }
-	    //UNLOCK QUEUE
-        //not yet -- completedRequestsCount++;
-	           /* - if fifo requested or HTML/JPG requested and this is not, 
-	                add to fifo queue
-	            - if HTML/image priority requested and this is it, add to to queue
-	        3) unlock
-	        4) alert workers that condition (request added) fulfilled 
-	     */
-		
-		/*TODO: remove fork
-		if((pid = fork()) < 0) {
-			logger(ERROR,"system call","fork",0);
-		}
-		else {
-			if(pid == 0) { 	// child 
-				(void)close(listenfd);
-				web(socketfd,hit); // never returns 
-			} else { 	// parent 
-				(void)close(socketfd);
-			}
-		}*/
 	}
 }
-
-/**
-    Method for getting request from queue once worker awake
-*/
-
-/*
-    Method to add request to queue
-*/
