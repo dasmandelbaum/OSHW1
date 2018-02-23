@@ -134,13 +134,8 @@ int maxTotalQueueSize;
 pthread_mutex_t queueMutex = PTHREAD_MUTEX_INITIALIZER;
 pthread_cond_t jobavail = PTHREAD_COND_INITIALIZER;
 //pthread_cond_t hasJobs;
-/*
-    global variables needed:
-        - STAT-1: count of total requests present
-        - STAT-5: completed request count   
-*/
-static int requestsPresentCount;
-static int completedRequestsCount;
+static int requestsPresentCount;//STAT-1: count of total requests present
+static int completedRequestsCount;//STAT-5: completed request count 
 struct timeval startUpTime;
 
 
