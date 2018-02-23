@@ -108,7 +108,7 @@ struct {
 static int dummy; //keep compiler happy
 
 /*
-    prototypes
+    prototypes - see below
 */
 thread_pool * createPool(int numThreads);
 void * threadWait();
@@ -116,7 +116,7 @@ request_queue createQueue(int indicator);
 request createRequest(int fd, int hit);
 void logger(int type, char *s1, char *s2, int socket_fd);
 void addRequest(request * req);
-thread* createThread();
+thread* createThread(int i);
 request * removeRequest();
 void web(int fd, int hit, request req, thread * thr);
 int timeval_subtract (struct timeval *result,struct timeval *x,struct timeval *y);
@@ -162,7 +162,7 @@ thread_pool *  createPool(int numThreads)
 thread * createThread(int i)
 {
     thread * thr;
-    thr = calloc(5, sizeof(pthread_t) + (sizeof(int) * 4));
+    thr = calloc(5, (sizeof(int) * 4) + sizeof(pthread_t));
     thr->countHttpRequests = 0;
     thr->countHtmlRequests = 0;
     thr->countImageRequests = 0;
@@ -281,6 +281,8 @@ void addRequest(request * req)
 */
 void * threadWait(thread thr)
 {
+    //thread threadhere = thr;
+    //logger(LOG, "in threadwait", "with thread", threadhere.id);//test
 	request * req; struct timeval now2;
     while(1)
     {
@@ -288,7 +290,7 @@ void * threadWait(thread thr)
     	pthread_cond_wait(&jobavail, &queueMutex);
     	//logger(LOG, "mutex locked", "thread number ", thr.id);//testing
         req = removeRequest();
-        logger(LOG, "request received", "here we go", req->requestInfo);
+        //logger(LOG, "request received", "with thread", thr.id);//test
         gettimeofday(&now2, NULL);
 	    timeval_subtract(&req->dispatchedTime, &now2, &startUpTime); 
         web(req->requestInfo, req->hit, *req, &thr);
@@ -371,6 +373,7 @@ void web(int fd, int hit, request req, thread * thr)
 	logger(LOG, "in web", "i hope", hit);
 	ret =read(fd,buffer,BUFSIZE); 	/* read Web request in one go */
 	logger(LOG, "in web", "read done", fd);
+	//logger(LOG, "in web", "checking thread id", thr->id);//test
 	if(ret == 0 || ret == -1) {	/* read failure stop now */
 		logger(FORBIDDEN,"failed to read browser request","",fd);
 	}
@@ -434,37 +437,37 @@ void web(int fd, int hit, request req, thread * thr)
 	
 	
     /* Send the statistical headers described in the instructions*/
-    (void)sprintf(buffer,"X-stat-req-arrival-count: %d\r\n", requestsPresentCount - 1);
+    (void)sprintf(buffer,"X-stat-req-arrival-count: %d\r\n", requestsPresentCount - 1);//substract itself to get previous count, works
     logger(LOG,"X-stat-req-arrival-count",buffer,hit);
     dummy = write(fd,buffer,strlen(buffer));
     (void)sprintf(buffer,"X-stat-req-arrival-time: %lu\r\n", (req.arrivalTime.tv_sec) * 1000 + (req.arrivalTime.tv_usec) / 1000);//https://stackoverflow.com/a/3756954
     logger(LOG,"X-stat-req-arrival-time",buffer,hit);
     dummy = write(fd,buffer,strlen(buffer));
-    (void)sprintf(buffer,"X-stat-req-dispatch-count: %d\r\n", req.countDispatchedPreviously);
+    (void)sprintf(buffer,"X-stat-req-dispatch-count: %d\r\n", req.countDispatchedPreviously);//doesn't work
     logger(LOG,"X-stat-req-dispatch-count",buffer,hit);
     dummy = write(fd,buffer,strlen(buffer));
-    (void)sprintf(buffer,"X-stat-req-dispatch-time: %lu\r\n", (req.dispatchedTime.tv_sec) * 1000 + (req.dispatchedTime.tv_usec) / 1000);
+    (void)sprintf(buffer,"X-stat-req-dispatch-time: %lu\r\n", (req.dispatchedTime.tv_sec) * 1000 + (req.dispatchedTime.tv_usec) / 1000);//seems to work?
     logger(LOG,"X-stat-req-dispatch-time",buffer,hit);
     dummy = write(fd,buffer,strlen(buffer));
-    (void)sprintf(buffer,"X-stat-req-complete-count: %d\r\n", completedRequestsCount);
+    (void)sprintf(buffer,"X-stat-req-complete-count: %d\r\n", completedRequestsCount);//seems to work
     logger(LOG,"X-stat-req-complete-count",buffer,hit);
     dummy = write(fd,buffer,strlen(buffer));
-    (void)sprintf(buffer,"X-stat-req-complete-time: %lu\r\n", (req.readCompletionTime.tv_sec) * 1000 + (req.readCompletionTime.tv_usec) / 1000);
+    (void)sprintf(buffer,"X-stat-req-complete-time: %lu\r\n", (req.readCompletionTime.tv_sec) * 1000 + (req.readCompletionTime.tv_usec) / 1000);//does not work
     logger(LOG,"X-stat-req-complete-time",buffer,hit);
     dummy = write(fd,buffer,strlen(buffer));
-    (void)sprintf(buffer,"X-stat-req-age: %d\r\n", req.numRequestsHigherPriority);
+    (void)sprintf(buffer,"X-stat-req-age: %d\r\n", req.numRequestsHigherPriority);//not yet implemented
     logger(LOG,"X-stat-req-age",buffer,hit);
     dummy = write(fd,buffer,strlen(buffer));
-    (void)sprintf(buffer,"X-stat-thread-id: %d\r\n", thr->id);
+    (void)sprintf(buffer,"X-stat-thread-id: %d\r\n", thr->id);//does not work
     logger(LOG,"X-stat-thread-id",buffer,hit);
     dummy = write(fd,buffer,strlen(buffer));
-    (void)sprintf(buffer,"X-stat-thread-count: %d\r\n", thr->countHttpRequests);
+    (void)sprintf(buffer,"X-stat-thread-count: %d\r\n", thr->countHttpRequests);//does not work
     logger(LOG,"X-stat-thread-count",buffer,hit);
     dummy = write(fd,buffer,strlen(buffer));
-    (void)sprintf(buffer,"X-stat-thread-html: %d\r\n", thr->countHtmlRequests);
+    (void)sprintf(buffer,"X-stat-thread-html: %d\r\n", thr->countHtmlRequests);//does not work
     logger(LOG,"X-stat-thread-html",buffer,hit);
     dummy = write(fd,buffer,strlen(buffer));
-    (void)sprintf(buffer,"X-stat-thread-image: %d\r\n", thr->countImageRequests);
+    (void)sprintf(buffer,"X-stat-thread-image: %d\r\n", thr->countImageRequests);//works
 	logger(LOG,"Header",buffer,hit);
 	dummy = write(fd,buffer,strlen(buffer));
     
@@ -543,8 +546,8 @@ int main(int argc, char **argv)
     logger(LOG, "we have reached CREATE POOL", argv[3], 5);      
 
 	numThreads = atoi(argv[3]);
-	ourThreads = createPool(numThreads);//TODO: might need to add return type threadpool
-	(ourThreads-> threads[5])-> countHttpRequests = 9;
+	ourThreads = createPool(numThreads);
+	//(ourThreads-> threads[5])-> countHttpRequests = 9;
 	//int thNum = (ourThreads-> threads[5])-> countHttpRequests;//test
 	//logger(LOG, "thread number", "i hope", thNum);//test
 	
