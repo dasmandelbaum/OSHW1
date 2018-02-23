@@ -25,8 +25,6 @@
 #define FORBIDDEN 403
 #define NOTFOUND  404
 
-
-
 /* structs needed:
     1) Thread
         - pointer to pthread
@@ -126,7 +124,6 @@ int timeval_subtract (struct timeval *result,struct timeval *x,struct timeval *y
 /*
 Fields
 */
-
 thread_pool * ourThreads;
 request_queue fifoqueue, srqueue;
 int preference = 0;
@@ -137,8 +134,6 @@ pthread_cond_t jobavail = PTHREAD_COND_INITIALIZER;
 static int requestsPresentCount;//STAT-1: count of total requests present
 static int completedRequestsCount;//STAT-5: completed request count 
 struct timeval startUpTime;
-
-
 
 /*
     initialize Thread pool, initialize Threads, and add them to Thread pool
@@ -154,9 +149,6 @@ thread_pool *  createPool(int numThreads)
 
     for(i = 0; i < numThreads; i++)
     {
-    	//char * j;
-    	//j   = 
-        //sprintf("creating Thread %d\n", i);
         pool->threads[i] = createThread(i);
         logger(LOG, "we have CREATED A THREAD", "THREADING", pool->threads[i]->id);  
     }   
@@ -171,18 +163,14 @@ thread * createThread(int i)
 {
     thread * thr;
     thr = calloc(5, sizeof(pthread_t) + (sizeof(int) * 4));
-    
     thr->countHttpRequests = 0;
     thr->countHtmlRequests = 0;
     thr->countImageRequests = 0;
-       
     logger(LOG, "About to create pThread", "Number", i);   
     int status = pthread_create(&thr->pthread, NULL, threadWait, thr);
     if (status != 0)
     {
     	logger(LOG, "thread creation failed", "uh oh", 5);     
-
-        //printf("there was issue creating thread %d\n", i);
         exit(-1);
     }    
     thr->id = i;
@@ -219,11 +207,9 @@ request createRequest(int fd, int hit)
     gettimeofday(&now, NULL);
     timeval_subtract(&r->arrivalTime, &now, &startUpTime);
     r->countDispatchedPreviously = 0;//TODO: how do we get this number?
-    //gettimeofday(&r->dispatchedTime, NULL);//TODO: how do we get this number?
-    //gettimeofday(&r->readCompletionTime, NULL);//TODO: how do we get this number?
     r->numRequestsHigherPriority = 0;
     r->hit = hit;
-    //r->requestType = ; dont know this yet
+    //other fields declared later
     return * r;  
 }
 
@@ -286,8 +272,6 @@ void addRequest(request * req)
 		}
 		fifoqueue.length++;
     }
-	//queue->length++;
-	//logger(LOG, "queue length", "", queue->length); 
 	logger(LOG, "request fd", "", req->requestInfo);
 	logger(LOG, "request info off of first in queue", "", fifoqueue.first->requestInfo);
 }
@@ -302,7 +286,7 @@ void * threadWait(thread thr)
     {
     	pthread_mutex_lock(&queueMutex);//lock mutex
     	pthread_cond_wait(&jobavail, &queueMutex);
-    	//logger(LOG, "mutex locked", "thread number ", thr.id);
+    	//logger(LOG, "mutex locked", "thread number ", thr.id);//testing
         req = removeRequest();
         logger(LOG, "request received", "here we go", req->requestInfo);
         gettimeofday(&now2, NULL);
@@ -320,7 +304,7 @@ request * removeRequest() {
 	request * req;
     if(preference != 0 && srqueue.length > 0) {
     	logger(LOG, "remove request", "taking from SPECIAL", 0);
-       	req = srqueue.first;	//TODO make sure this doesn't break the queue due to lack of garbage collection. happy Yaakov???
+       	req = srqueue.first;	//TODO make sure this doesn't break the queue??
        	if(srqueue.length > 1){
        		srqueue.first = req->behind;
        	}
@@ -336,7 +320,7 @@ request * removeRequest() {
     	logger(LOG, "request info off of first in queue", "", fifoqueue.first->requestInfo);
     	req = fifoqueue.first;
     	logger(LOG, "request retreived", "here we go", req->requestInfo);
-    	fifoqueue.first = req->behind;//NULL POINTER ERROR!!!!!!!!!!! THANKS FOR TELLING US C?!? 
+    	fifoqueue.first = req->behind;//NULL POINTER ERROR?
     	if(fifoqueue.length > 1){
        		fifoqueue.first = req->behind;
        	}
@@ -439,13 +423,13 @@ void web(int fd, int hit, request req, thread * thr)
 	{
 	    thr->countImageRequests++;
 	}
-	else if(strstr(fstr, "html") != 0)//html request)
+	else if(strstr(fstr, "html") != 0)//html request
 	{
 	     thr->countHtmlRequests++;
 	}
-	thr->countHttpRequests++;
+	thr->countHttpRequests++;//total requests handled by thread
 	
-	timeval_subtract(&req.readCompletionTime, &now3, &startUpTime); 
+	timeval_subtract(&req.readCompletionTime, &now3, &startUpTime); //read completion time
 	dummy = write(fd,buffer,strlen(buffer));
 	
 	
@@ -483,7 +467,6 @@ void web(int fd, int hit, request req, thread * thr)
     (void)sprintf(buffer,"X-stat-thread-image: %d\r\n", thr->countImageRequests);
 	logger(LOG,"Header",buffer,hit);
 	dummy = write(fd,buffer,strlen(buffer));
-    
     
     /* send file in 8KB block - last block may be smaller */
 	while (	(ret = read(file_fd, buffer, BUFSIZE)) > 0 ) {
@@ -538,10 +521,7 @@ int main(int argc, char **argv)
 	(void)setpgrp();		/* break away from process group */
 	
 	maxTotalQueueSize = atoi(argv[4]);
-	//logger(LOG,"max request size","based on input of course..",maxTotalQueueSize);
-	
 	logger(LOG,"\n\n nweb starting",argv[1],getpid());
-	
 	
 	/* setup the network socket */
 	if((listenfd = socket(AF_INET, SOCK_STREAM,0)) <0)
@@ -557,7 +537,6 @@ int main(int argc, char **argv)
 		logger(ERROR,"system call","bind",0);
 	if( listen(listenfd,64) <0)
 		logger(ERROR,"system call","listen",0);
-		
 	/*
 	    create threadpool struct with worker threads
 	*/
@@ -566,9 +545,8 @@ int main(int argc, char **argv)
 	numThreads = atoi(argv[3]);
 	ourThreads = createPool(numThreads);//TODO: might need to add return type threadpool
 	(ourThreads-> threads[5])-> countHttpRequests = 9;
-	int thNum = (ourThreads-> threads[5])-> countHttpRequests;
-	
-	logger(LOG, "thread number 4", "i hope", thNum);
+	//int thNum = (ourThreads-> threads[5])-> countHttpRequests;//test
+	//logger(LOG, "thread number", "i hope", thNum);//test
 	
 	
 	/*
@@ -588,7 +566,7 @@ int main(int argc, char **argv)
 	{
 	    //create fifo queue for everything other than preference 
 	    fifoqueue = createQueue(preference); 
-	    //create special queue 
+	    //create special queue if preference > 0
 	    if(!strcmp(argv[5], "HPHC"))
 	    {
 	        preference = 1;
@@ -620,11 +598,7 @@ int main(int argc, char **argv)
 		}
 		logger(LOG, "reached here", "...", 513);
 		request rq = createRequest(socketfd, hit); //still need to get priority type
-		//logger(LOG, "checking", "request creation", rq.dispatchedTime);
-		
-		//addRequest(&rq, &fifoqueue);
-		//logger(LOG, "checking", "request Queue addition first", fifoqueue.first->dispatchedTime);
-		//logger(LOG, "checking", "request Queue addition last", fifoqueue.last->dispatchedTime);
+		//logger(LOG, "checking", "request creation", rq.dispatchedTime);//test
 
 		if(preference != 0)//has a preference
 		{
@@ -667,9 +641,6 @@ int main(int argc, char **argv)
 		}
 		
 		logger(LOG, "preference set to", "....", preference); 
-		
-		/*logger(LOG, "print sr first", "...", srqueue.first->dispatchedTime);
-		logger(LOG, "print fifo first", "...", fifoqueue.first->dispatchedTime); */
 		
 		//set requestType and stats
 	    /*
