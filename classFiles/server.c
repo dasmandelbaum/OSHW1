@@ -136,6 +136,7 @@ pthread_cond_t jobavail = PTHREAD_COND_INITIALIZER;
 static int requestsPresentCount;//STAT-1: count of total requests present
 static int completedRequestsCount;//STAT-5: completed request count 
 struct timeval startUpTime;
+static int dispatchedRequets = 0;
 
 /*
     initialize Thread pool, initialize Threads, and add them to Thread pool
@@ -325,8 +326,10 @@ void * threadWait(thread * thr)
         gettimeofday(&now2, NULL);
 	    timeval_subtract(&req->dispatchedTime, &now2, &startUpTime); 
 	    //thr->id = 100;//ID test - works
+	    req->countDispatchedPreviously = dispatchedRequets;
         web(req->requestInfo, req->hit, *req, thr, req->ret);
         completedRequestsCount++;
+        dispatchedRequets++;
         pthread_mutex_unlock(&queueMutex);
         logger(LOG, "number of requests serviced", "...", completedRequestsCount);
     }
