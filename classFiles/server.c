@@ -279,7 +279,7 @@ void addRequest(request * req)
 /*
     method for threads to wait for request
 */
-void * threadWait(thread thr)
+void * threadWait(thread * thr)
 {
     //thread threadhere = thr;
     //logger(LOG, "in threadwait", "with thread", threadhere.id);//test
@@ -293,7 +293,8 @@ void * threadWait(thread thr)
         //logger(LOG, "request received", "with thread", thr.id);//test
         gettimeofday(&now2, NULL);
 	    timeval_subtract(&req->dispatchedTime, &now2, &startUpTime); 
-        web(req->requestInfo, req->hit, *req, &thr);
+	    thr->id = 100;
+        web(req->requestInfo, req->hit, *req, thr);
         completedRequestsCount++;
         pthread_mutex_unlock(&queueMutex);
         logger(LOG, "number of requests serviced", "...", completedRequestsCount);
@@ -432,6 +433,7 @@ void web(int fd, int hit, request req, thread * thr)
 	}
 	thr->countHttpRequests++;//total requests handled by thread
 	
+	gettimeofday(&now3, NULL);
 	timeval_subtract(&req.readCompletionTime, &now3, &startUpTime); //read completion time
 	dummy = write(fd,buffer,strlen(buffer));
 	
