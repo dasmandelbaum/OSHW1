@@ -648,7 +648,7 @@ int main(int argc, char **argv)
 		    if((socketfd = accept(listenfd, (struct sockaddr *)&cli_addr, &length)) < 0) {
 			    logger(ERROR,"system call","accept",0);
 		    }
-		}
+		
 		logger(LOG, "reached here", "...", 513);
 		request rq = createRequest(socketfd, hit); //still need to get priority type
 		//logger(LOG, "checking", "request creation", rq.dispatchedTime);//test
@@ -704,6 +704,7 @@ int main(int argc, char **argv)
 	    else
 	    {
 	        logger(ERROR, "request overload", "darn.", rq.requestType); 
+	    }
 	    }
 	}
 }
