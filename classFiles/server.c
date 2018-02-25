@@ -137,7 +137,7 @@ pthread_cond_t jobavail = PTHREAD_COND_INITIALIZER;
 static int requestsPresentCount;//STAT-1: count of total requests present
 static int completedRequestsCount;//STAT-5: completed request count 
 struct timeval startUpTime;
-static int dispatchedRequets = 0;
+static int dispatchedRequests = 0;
 static int totalRequestsReceived = 0;
 
 /*
@@ -308,6 +308,8 @@ void addRequest(request * req)
 		fifoqueue.length++;
     }
 	logger(LOG, "request fd", "", req->requestInfo);
+	totalRequestsReceived++;
+	requestsPresentCount++;
 	//logger(LOG, "request info off of first in queue", "", fifoqueue.first->requestInfo);//test
 }
 
@@ -330,17 +332,17 @@ void * threadWait(thread * thr)
         gettimeofday(&now2, NULL);
 	    timeval_subtract(&req->dispatchedTime, &now2, &startUpTime); 
 	    //thr->id = 100;//ID test - works
-	    req->countDispatchedPreviously = dispatchedRequets;
+	    req->countDispatchedPreviously = dispatchedRequests;
 	    req->numRequestsHigherPriority =  0;
-	    arrival = (req->hit -1);
-	    if( dispatchedRequets  >  arrival){
-	    	req->numRequestsHigherPriority = (dispatchedRequets - arrival ) ;
+	    arrival = req->numberRequest;
+	    if(dispatchedRequests  >  arrival){
+	    	req->numRequestsHigherPriority = (dispatchedRequests - arrival ) ;
 	    }
 
         web(req->requestInfo, req->hit, *req, thr, req->ret);
         req = NULL;
         completedRequestsCount++;
-        dispatchedRequets++;
+        dispatchedRequests++;
         pthread_mutex_unlock(&queueMutex);
         logger(LOG, "number of requests serviced", "...", completedRequestsCount);
     }
@@ -485,7 +487,7 @@ void web(int fd, int hit, request req, thread * thr, long ret)
 	
 	
     /* Send the statistical headers described in the instructions*/
-    (void)sprintf(buffer,"X-stat-req-arrival-count: %d\r\n", req.numberRequest );//substract itself to get previous count, works
+    (void)sprintf(buffer,"X-stat-req-arrival-count: %d\r\n", req.numberRequest);
     logger(LOG,"X-stat-req-arrival-count",buffer,hit);
     dummy = write(fd,buffer,strlen(buffer));
     (void)sprintf(buffer,"X-stat-req-arrival-time: %lu\r\n", (req.arrivalTime.tv_sec) * 1000 + (req.arrivalTime.tv_usec) / 1000);//https://stackoverflow.com/a/3756954
@@ -693,8 +695,6 @@ int main(int argc, char **argv)
 	        pthread_mutex_lock(&queueMutex);//lock mutex
 	        logger(LOG, "mutex locked", "in main method", hit);
 	        addRequest(&rq);
-	        totalRequestsReceived++;
-	        requestsPresentCount++;
 	        pthread_mutex_unlock(&queueMutex);
 	        logger(LOG, "mutex unlocked", "in main method", hit);
 	        //signal thread that there is job to grab

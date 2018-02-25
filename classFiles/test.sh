@@ -3,87 +3,25 @@
 #Last updated: 2.24.18
 echo '####################################################################################################################################################################################################'
 echo 'BEGINNING PROGRAM'
-./server 8181 . 4 10 HPIC &
+./server 8000 . 4 10 HPIC &
 
+./client localhost 8000 /index.html &
+./client localhost 8000 /index.html &
+./client localhost 8000 /index.html &
+./client localhost 8000 /nigel.jpg &
+./client localhost 8000 /nigel.jpg &
+./client localhost 8000 /nigel.jpg &
+./client localhost 8000 /nigel.jpg &
+./client localhost 8000 /index.html &
+./client localhost 8000 /index.html &
+./client localhost 8000 /index.html &
+./client localhost 8000 /index.html &
+./client localhost 8000 /index.html &
+./client localhost 8000 /nigel.jpg &
+./client localhost 8000 /nigel.jpg &
+./client localhost 8000 /nigel.jpg &
 
-./client localhost 8181 /index.html &
-sleep 3
-./client localhost 8181 /index.html &
-sleep 3
-./client localhost 8181 /index.html &
-sleep 3
-./client localhost 8181 /nigel.jpg &
-sleep 3
-./client localhost 8181 /nigel.jpg &
-
-./client localhost 8181 /nigel.jpg &
-
-./client localhost 8181 /nigel.jpg &
-
-./client localhost 8181 /index.html &
-
-./client localhost 8181 /index.html &
-
-./client localhost 8181 /index.html &
-
-./client localhost 8181 /index.html &
-
-./client localhost 8181 /index.html &
-
-./client localhost 8181 /nigel.jpg &
-
-./client localhost 8181 /nigel.jpg &
-
-./client localhost 8181 /nigel.jpg &
-
-./client localhost 8181 /nigel.jpg &
-
-./client localhost 8181 /index.html &
-
-./client localhost 8181 /index.html &
-
-./client localhost 8181 /index.html &
-
-./client localhost 8181 /index.html &
-
-./client localhost 8181 /index.html &
-
-./client localhost 8181 /nigel.jpg &
-
-./client localhost 8181 /nigel.jpg &
-
-./client localhost 8181 /nigel.jpg &
-
-./client localhost 8181 /nigel.jpg &
-
-./client localhost 8181 /index.html &
-
-./client localhost 8181 /index.html &
-
-./client localhost 8181 /index.html &
-
-./client localhost 8181 /index.html &
-
-./client localhost 8181 /index.html &
-
-./client localhost 8181 /nigel.jpg &
-
-./client localhost 8181 /nigel.jpg &
-
-./client localhost 8181 /nigel.jpg &
-
-./client localhost 8181 /nigel.jpg &
-
-./client localhost 8181 /index.html &
-
-./client localhost 8181 /index.html &
-
-./client localhost 8181 /index.html &
-
-./client localhost 8181 /index.html &
-
-./client localhost 8181 /index.html &
-
+sleep 1
 echo 'ENDING PROGRAM' 
 
 echo '####################################################################################################################################################################################################' 
