@@ -24898,3 +24898,2321 @@ Content-Type: text/html
  INFO: number of requests serviced:...:33
  INFO: remove request:taking from SPECIAL:0
  INFO:                                 how many are in SPECIAL::1
+ INFO: 
+
+ nweb starting:8181:8934
+ INFO: we have reached CREATE POOL:4:5
+ INFO: Number of threads::4
+ INFO: About to create pThread:Number:0
+ INFO: checking id:in createthread:0
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: About to create pThread:Number:1
+ INFO: checking id:in createthread:1
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: About to create pThread:Number:2
+ INFO: checking id:in createthread:2
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: About to create pThread:Number:3
+ INFO: checking id:in createthread:3
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: we have reached HPIC:HPIC:2
+ INFO: starting:loop:1
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /index.html HTTP/1.0
+
+:1
+ INFO: request line contains html:GET /index.html HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:1
+ INFO: mutex locked:in main method:1
+ INFO: request fd::1
+ INFO: mutex unlocked:in main method:1
+ INFO: sending signal:in main method:1
+ INFO: starting:loop:2
+ INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::1
+ INFO: in web:i hope:1
+ INFO: in web:read done:1
+ INFO: request:GET /index.html HTTP/1.0****:1
+ INFO: SEND:index.html:1
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 248
+Connection: close
+Content-Type: text/html
+:1
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 0
+:1
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 15
+:1
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 0
+:1
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 16
+:1
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 0
+:1
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 16
+:1
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:1
+ INFO: X-stat-thread-id:X-stat-thread-id: 0
+:1
+ INFO: X-stat-thread-count:X-stat-thread-count: 1
+:1
+ INFO: X-stat-thread-html:X-stat-thread-html: 1
+:1
+ INFO: Header:X-stat-thread-image: 0
+:1
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /index.html HTTP/1.0
+
+:3
+ INFO: request line contains html:GET /index.html HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:1
+ INFO: mutex locked:in main method:2 INFO: number of requests serviced:...:1
+ INFO: request fd::3
+ INFO: mutex unlocked:in main method:2
+ INFO: sending signal:in main method:2
+
+ INFO: starting:loop:3
+ INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::1
+ INFO: in web:i hope:2
+ INFO: reached here:...:513 INFO: in web:read done:3
+ INFO: request:GET /index.html HTTP/1.0****:2
+
+ INFO: SEND:index.html:2
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 248
+Connection: close
+Content-Type: text/html
+:2 INFO: we have reached request line:GET /nigel.jpg HTTP/1.0
+
+:1
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 1
+:2
+ INFO: request line contains image:GET /nigel.jpg HTTP/1.0
+
+:5
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 21
+:2 INFO: preference set to:....:2
+
+ INFO: about to add request:woohoo:2
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 1
+:2
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 1021
+:2
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 1
+:2
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 1022
+:2
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:2
+ INFO: X-stat-thread-id:X-stat-thread-id: 1
+:2
+ INFO: X-stat-thread-count:X-stat-thread-count: 1
+:2
+ INFO: X-stat-thread-html:X-stat-thread-html: 1
+:2
+ INFO: Header:X-stat-thread-image: 0
+:2
+ INFO: number of requests serviced:...:2 INFO: mutex locked:in main method:3
+
+ INFO: request fd::1
+ INFO: mutex unlocked:in main method:3
+ INFO: sending signal:in main method:3
+ INFO: starting:loop:4
+ INFO: reached here:...:513 INFO: remove request:taking from SPECIAL:0
+ INFO:                                 how many are in SPECIAL::1 INFO: we have reached request line:GET /nigel.jpg HTTP/1.0
+
+:3
+ INFO: in web:i hope:4
+ INFO: request line contains image:GET /nigel.jpg HTTP/1.0
+
+:5
+ INFO: in web:read done:3 INFO: preference set to:....:2
+ INFO: request:GET /nigel.jpg HTTP/1.0****:4
+ INFO: SEND:nigel.jpg:4
+
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+:4
+ INFO: about to add request:woohoo:2
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 3
+:4
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 2026
+:4
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 2
+:4
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 2027
+:4
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 2
+:4
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 2027
+:4
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:4
+ INFO: X-stat-thread-id:X-stat-thread-id: 2
+:4
+ INFO: X-stat-thread-count:X-stat-thread-count: 1
+:4
+ INFO: X-stat-thread-html:X-stat-thread-html: 0
+:4
+ INFO: Header:X-stat-thread-image: 1
+:4
+ INFO: number of requests serviced:...:3 INFO: mutex locked:in main method:4
+ INFO: request fd::3
+
+ INFO: mutex unlocked:in main method:4
+ INFO: sending signal:in main method:4
+ INFO: starting:loop:5
+ INFO: remove request:taking from SPECIAL:0
+ INFO:                                 how many are in SPECIAL::1
+ INFO: in web:i hope:4
+ INFO: reached here:...:513 INFO: in web:read done:3
+
+ INFO: request:GET /nigel.jpg HTTP/1.0****:4
+ INFO: we have reached request line:GET /index.html HTTP/1.0
+
+:3 INFO: SEND:nigel.jpg:4
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+:4 INFO: request line contains html:GET /index.html HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+
+ INFO: about to add request:woohoo:1
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 3
+:4
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 2026
+:4
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 3
+:4
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 3031
+:4
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 3
+:4
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 3032
+:4
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:4
+ INFO: X-stat-thread-id:X-stat-thread-id: 3
+:4
+ INFO: X-stat-thread-count:X-stat-thread-count: 1
+:4
+ INFO: X-stat-thread-html:X-stat-thread-html: 0
+:4
+ INFO: Header:X-stat-thread-image: 1
+:4
+ INFO: mutex locked:in main method:5
+ INFO: number of requests serviced:...:4
+ INFO: request fd::3
+ INFO: mutex unlocked:in main method:5
+ INFO: sending signal:in main method:5
+ INFO: starting:loop:6
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /index.html HTTP/1.0
+
+:3
+ INFO: request line contains html:GET /index.html HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:1
+ INFO: mutex locked:in main method:6
+ INFO: request fd::3
+ INFO: mutex unlocked:in main method:6
+ INFO: remove request:taking from FIFO:0
+ INFO: sending signal:in main method:6 INFO: 								how many are in FIFO::2
+ INFO: in web:i hope:6
+ INFO: in web:read done:3
+ INFO: request:GET /index.html HTTP/1.0****:6
+ INFO: starting:loop:7
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /index.html HTTP/1.0
+
+:7 INFO: SEND:index.html:6 INFO: request line contains html:GET /index.html HTTP/1.0
+
+:5
+
+ INFO: preference set to:....:2erver: nweb/23.0
+Content-Length: 248
+Connection: close
+Content-Type: text/html
+:6
+
+ INFO: about to add request:woohoo:1 INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 5
+:6
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 4039
+:6
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 4
+:6
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 4039
+:6
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 4
+:6
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 4040
+:6
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:6
+ INFO: X-stat-thread-id:X-stat-thread-id: 0
+:6
+ INFO: X-stat-thread-count:X-stat-thread-count: 2
+:6
+ INFO: X-stat-thread-html:X-stat-thread-html: 2
+:6
+ INFO: Header:X-stat-thread-image: 0
+:6
+ INFO: number of requests serviced:...:5 INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::1
+ INFO: in web:i hope:7
+ INFO: in web:read done:7
+ INFO: request:GET /index.html HTTP/1.0****:7
+ INFO: SEND:index.html:7
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 248
+Connection: close
+Content-Type: text/html
+:7
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 6
+:7
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 4040
+:7
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 5
+:7
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 5044
+:7
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 5
+:7
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 5044
+:7
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:7
+ INFO: X-stat-thread-id:X-stat-thread-id: 1
+:7
+ INFO: X-stat-thread-count:X-stat-thread-count: 2
+:7
+ INFO: X-stat-thread-html:X-stat-thread-html: 2
+:7
+ INFO: Header:X-stat-thread-image: 0
+:7
+ INFO: number of requests serviced:...:6
+ INFO: mutex locked:in main method:7
+ INFO: request fd::7
+ INFO: mutex unlocked:in main method:7
+ INFO: sending signal:in main method:7
+ INFO: starting:loop:8
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /index.html HTTP/1.0
+
+:7
+ INFO: request line contains html:GET /index.html HTTP/1.0
+
+:5 INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::1
+ INFO: in web:i hope:8
+ INFO: in web:read done:7
+ INFO: request:GET /index.html HTTP/1.0****:8
+ INFO: SEND:index.html:8
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 248
+Connection: close
+Content-Type: text/html
+:8
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 7
+:8
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 6046
+:8
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 6
+:8
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 6046
+:8
+
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 6
+:8 INFO: preference set to:....:2
+
+ INFO: about to add request:woohoo:1
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 6047
+:8
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:8
+ INFO: X-stat-thread-id:X-stat-thread-id: 2
+:8
+ INFO: X-stat-thread-count:X-stat-thread-count: 2
+:8
+ INFO: X-stat-thread-html:X-stat-thread-html: 1
+:8
+ INFO: Header:X-stat-thread-image: 1
+:8
+ INFO: number of requests serviced:...:7 INFO: mutex locked:in main method:8
+
+ INFO: request fd::7
+ INFO: mutex unlocked:in main method:8
+ INFO: sending signal:in main method:8
+ INFO: starting:loop:9 INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::1
+
+ INFO: in web:i hope:8
+ INFO: reached here:...:513
+ INFO: in web:read done:7
+ INFO: we have reached request line:GET /index.html HTTP/1.0
+
+:7
+ INFO: request:GET /index.html HTTP/1.0****:8
+ INFO: request line contains html:GET /index.html HTTP/1.0
+
+:5 INFO: SEND:index.html:8
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 248
+Connection: close
+Content-Type: text/html
+:8
+
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 7
+:8 INFO: preference set to:....:2
+ INFO: about to add request:woohoo:1 INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 6046
+:8
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 7
+:8
+
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 7050
+:8
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 7
+:8
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 7051
+:8
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:8
+ INFO: X-stat-thread-id:X-stat-thread-id: 3
+:8
+ INFO: X-stat-thread-count:X-stat-thread-count: 2
+:8
+ INFO: X-stat-thread-html:X-stat-thread-html: 1
+:8
+ INFO: Header:X-stat-thread-image: 1
+:8
+ INFO: mutex locked:in main method:9 INFO: number of requests serviced:...:8
+
+ INFO: request fd::7
+ INFO: mutex unlocked:in main method:9
+ INFO: sending signal:in main method:9
+ INFO: starting:loop:10
+ INFO: remove request:taking from FIFO:0
+ INFO: reached here:...:513
+ INFO: 								how many are in FIFO::1
+ INFO: in web:i hope:10
+ INFO: we have reached request line:GET /nigel.jpg HTTP/1.0
+
+:7 INFO: in web:read done:7
+
+ INFO: request line contains image:GET /nigel.jpg HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:2
+FORBIDDEN: failed to read browser request:
+ INFO: 
+
+ nweb starting:8181:9030
+ INFO: we have reached CREATE POOL:4:5
+ INFO: Number of threads::4
+ INFO: About to create pThread:Number:0
+ INFO: checking id:in createthread:0
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: About to create pThread:Number:1
+ INFO: checking id:in createthread:1
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: About to create pThread:Number:2
+ INFO: checking id:in createthread:2
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: About to create pThread:Number:3
+ INFO: checking id:in createthread:3
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: we have reached HPIC:HPIC:2
+ INFO: starting:loop:1
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /index.html HTTP/1.0
+
+:1
+ INFO: request line contains html:GET /index.html HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:1
+ INFO: mutex locked:in main method:1
+ INFO: request fd::1
+ INFO: mutex unlocked:in main method:1
+ INFO: sending signal:in main method:1
+ INFO: starting:loop:2
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /index.html HTTP/1.0
+
+:2
+ INFO: request line contains html:GET /index.html HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:1
+ INFO: mutex locked:in main method:2
+ INFO: request fd::2
+ INFO: mutex unlocked:in main method:2
+ INFO: sending signal:in main method:2
+ INFO: starting:loop:3
+ INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::2
+ INFO: in web:i hope:2
+ INFO: in web:read done:2
+ INFO: request:GET /index.html HTTP/1.0****:2
+ INFO: SEND:index.html:2
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 248
+Connection: close
+Content-Type: text/html
+:2
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 1
+:2
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 20
+:2
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 0
+:2
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 22
+:2
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 0
+:2
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 22
+:2
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:2
+ INFO: X-stat-thread-id:X-stat-thread-id: 0
+:2
+ INFO: X-stat-thread-count:X-stat-thread-count: 1
+:2
+ INFO: X-stat-thread-html:X-stat-thread-html: 1
+:2
+ INFO: Header:X-stat-thread-image: 0
+:2
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /index.html HTTP/1.0
+
+:4
+ INFO: request line contains html:GET /index.html HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:1
+ INFO: number of requests serviced:...:1
+ INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::1
+ INFO: in web:i hope:3
+ INFO: in web:read done:4
+ INFO: request:GET /index.html HTTP/1.0****:3
+ INFO: SEND:index.html:3
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 248
+Connection: close
+Content-Type: text/html
+:3
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 2
+:3
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 33
+:3
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 1
+:3
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 1030
+:3
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 1
+:3
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 1031
+:3
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:3
+ INFO: X-stat-thread-id:X-stat-thread-id: 1
+:3
+ INFO: X-stat-thread-count:X-stat-thread-count: 1
+:3
+ INFO: X-stat-thread-html:X-stat-thread-html: 1
+:3
+ INFO: Header:X-stat-thread-image: 0
+:3
+ INFO: number of requests serviced:...:2
+INFO: mutex locked:in main method:3
+ INFO: request fd::4
+ INFO: mutex unlocked:in main method:3
+ INFO: sending signal:in main method:3
+ INFO: starting:loop:4
+ INFO: reached here:...:513 INFO: remove request:taking from FIFO:0
+ INFO: we have reached request line:GET /nigel.jpg HTTP/1.0
+
+:4 INFO: 								how many are in FIFO::1 INFO: request line contains image:GET /nigel.jpg HTTP/1.0
+
+:5
+
+ INFO: preference set to:....:2
+ INFO: in web:i hope:4 INFO: about to add request:woohoo:2
+
+ INFO: in web:read done:4
+ INFO: request:GET /nigel.jpg HTTP/1.0****:4
+ INFO: SEND:nigel.jpg:4
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+:4
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 3
+:4
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 2034
+:4
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 2
+:4
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 2035
+:4
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 2
+:4
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 2035
+:4
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:4
+ INFO: X-stat-thread-id:X-stat-thread-id: 2
+:4
+ INFO: X-stat-thread-count:X-stat-thread-count: 1
+:4
+ INFO: X-stat-thread-html:X-stat-thread-html: 0
+:4
+ INFO: Header:X-stat-thread-image: 1
+:4
+ INFO: mutex locked:in main method:4 INFO: number of requests serviced:...:3
+ INFO: request fd::4
+ INFO: mutex unlocked:in main method:4
+ INFO: sending signal:in main method:4
+ INFO: starting:loop:5
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /nigel.jpg HTTP/1.0
+
+:6
+ INFO: request line contains image:GET /nigel.jpg HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:2
+
+ INFO: mutex locked:in main method:5
+ INFO: request fd::6
+ INFO: mutex unlocked:in main method:5
+ INFO: sending signal:in main method:5
+ INFO: starting:loop:6
+ INFO: reached here:...:513
+ INFO: remove request:taking from SPECIAL:0
+ INFO: we have reached request line:GET /nigel.jpg HTTP/1.0
+
+:4 INFO:                                 how many are in SPECIAL::2
+ INFO: request line contains image:GET /nigel.jpg HTTP/1.0
+
+:5
+
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:2 INFO: in web:i hope:6
+ INFO: in web:read done:4
+ INFO: request:GET /nigel.jpg HTTP/1.0****:6
+ INFO: SEND:nigel.jpg:6
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+:6
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 5
+:6
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 3040
+:6
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 3
+:6
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 3040
+:6
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 3
+:6
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 3040
+:6
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:6
+ INFO: X-stat-thread-id:X-stat-thread-id: 3
+:6
+ INFO: X-stat-thread-count:X-stat-thread-count: 1
+:6
+ INFO: X-stat-thread-html:X-stat-thread-html: 0
+:6
+ INFO: Header:X-stat-thread-image: 1
+:6
+ INFO: number of requests serviced:...:4
+ INFO: remove request:taking from SPECIAL:0
+ INFO:                                 how many are in SPECIAL::1
+ INFO: 
+
+ nweb starting:8181:9157
+ INFO: we have reached CREATE POOL:4:5
+ INFO: Number of threads::4
+ INFO: About to create pThread:Number:0
+ INFO: checking id:in createthread:0
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: About to create pThread:Number:1
+ INFO: checking id:in createthread:1
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: About to create pThread:Number:2
+ INFO: checking id:in createthread:2
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: About to create pThread:Number:3
+ INFO: checking id:in createthread:3
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: we have reached HPIC:HPIC:2
+ INFO: starting:loop:1
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /index.html HTTP/1.0
+
+:1
+ INFO: request line contains html:GET /index.html HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:1
+ INFO: mutex locked:in main method:1
+ INFO: request fd::1
+ INFO: mutex unlocked:in main method:1
+ INFO: sending signal:in main method:1
+ INFO: starting:loop:2
+ INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::1
+ INFO: in web:i hope:1
+ INFO: in web:read done:1
+ INFO: request:GET /index.html HTTP/1.0****:1
+ INFO: SEND:index.html:1
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 248
+Connection: close
+Content-Type: text/html
+:1
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 0
+:1
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 8
+:1
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 0
+:1
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 9
+:1
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 0
+:1
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 9
+:1
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:1
+ INFO: X-stat-thread-id:X-stat-thread-id: 0
+:1
+ INFO: X-stat-thread-count:X-stat-thread-count: 1
+:1 INFO: reached here:...:513
+
+ INFO: X-stat-thread-html:X-stat-thread-html: 1
+:1
+ INFO: Header:X-stat-thread-image: 0
+:1
+ INFO: we have reached request line:GET /index.html HTTP/1.0
+
+:4
+ INFO: request line contains html:GET /index.html HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:1
+ INFO: number of requests serviced:...:1 INFO: mutex locked:in main method:2
+ INFO: request fd::4
+ INFO: mutex unlocked:in main method:2
+ INFO: sending signal:in main method:2
+ INFO: starting:loop:3
+ INFO: remove request:taking from FIFO:0 INFO: reached here:...:513
+
+ INFO: 								how many are in FIFO::1
+ INFO: we have reached request line:GET /index.html HTTP/1.0
+
+:1 INFO: in web:i hope:3
+ INFO: request line contains html:GET /index.html HTTP/1.0
+
+:5
+
+ INFO: preference set to:....:2
+ INFO: in web:read done:1 INFO: about to add request:woohoo:1
+
+ INFO: request:GET /index.html HTTP/1.0****:3
+ INFO: SEND:index.html:3
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 248
+Connection: close
+Content-Type: text/html
+:3
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 2
+:3
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 1015
+:3
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 1
+:3
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 1016
+:3
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 1
+:3
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 1016
+:3
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:3
+ INFO: X-stat-thread-id:X-stat-thread-id: 1
+:3
+ INFO: X-stat-thread-count:X-stat-thread-count: 1
+:3
+ INFO: X-stat-thread-html:X-stat-thread-html: 1
+:3
+ INFO: Header:X-stat-thread-image: 0
+:3
+ INFO: number of requests serviced:...:2 INFO: mutex locked:in main method:3
+ INFO: request fd::1
+ INFO: mutex unlocked:in main method:3
+ INFO: sending signal:in main method:3
+ INFO: starting:loop:4
+ INFO: reached here:...:513
+ INFO: remove request:taking from FIFO:0 INFO: we have reached request line:GET /nigel.jpg HTTP/1.0
+
+:1
+
+ INFO: 								how many are in FIFO::1
+ INFO: in web:i hope:4 INFO: request line contains image:GET /nigel.jpg HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+
+ INFO: about to add request:woohoo:2
+ INFO: in web:read done:1
+ INFO: request:GET /nigel.jpg HTTP/1.0****:4
+ INFO: SEND:nigel.jpg:4
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+:4
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 3
+:4
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 2021
+:4
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 2
+:4
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 2022
+:4
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 2
+:4
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 2022
+:4
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:4
+ INFO: X-stat-thread-id:X-stat-thread-id: 2
+:4
+ INFO: X-stat-thread-count:X-stat-thread-count: 1
+:4
+ INFO: X-stat-thread-html:X-stat-thread-html: 0
+:4
+ INFO: Header:X-stat-thread-image: 1
+:4
+ INFO: number of requests serviced:...:3 INFO: mutex locked:in main method:4
+ INFO: request fd::1
+ INFO: mutex unlocked:in main method:4
+ INFO: sending signal:in main method:4
+ INFO: starting:loop:5
+ INFO: remove request:taking from SPECIAL:0
+ INFO: reached here:...:513
+ INFO:                                 how many are in SPECIAL::1
+ INFO: we have reached request line:GET /nigel.jpg HTTP/1.0
+
+:1 INFO: in web:i hope:5
+
+ INFO: in web:read done:1
+ INFO: request line contains image:GET /nigel.jpg HTTP/1.0
+
+:5 INFO: request:GET /nigel.jpg HTTP/1.0****:5
+
+ INFO: SEND:nigel.jpg:5
+ INFO: preference set to:....:2
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+:5 INFO: about to add request:woohoo:2
+
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 4
+:5
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 3028
+:5
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 3
+:5
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 3028
+:5
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 3
+:5
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 3028
+:5
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:5
+ INFO: X-stat-thread-id:X-stat-thread-id: 3
+:5
+ INFO: X-stat-thread-count:X-stat-thread-count: 1
+:5
+ INFO: X-stat-thread-html:X-stat-thread-html: 0
+:5
+ INFO: Header:X-stat-thread-image: 1
+:5
+ INFO: number of requests serviced:...:4
+ INFO: mutex locked:in main method:5
+ INFO: request fd::1
+ INFO: mutex unlocked:in main method:5
+ INFO: sending signal:in main method:5
+ INFO: starting:loop:6 INFO: remove request:taking from SPECIAL:0
+
+ INFO:                                 how many are in SPECIAL::1
+ INFO: reached here:...:513 INFO: in web:i hope:5
+
+ INFO: in web:read done:1
+ INFO: request:GET /nigel.jpg HTTP/1.0****:5
+ INFO: we have reached request line:GET /nigel.jpg HTTP/1.0
+
+:1
+ INFO: SEND:nigel.jpg:5 INFO: request line contains image:GET /nigel.jpg HTTP/1.0
+
+:5
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:2
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 4
+:5
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 3028
+:5
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 4
+:5
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 4034
+:5
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 4
+:5
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 4034
+:5
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:5
+ INFO: X-stat-thread-id:X-stat-thread-id: 0
+:5
+ INFO: X-stat-thread-count:X-stat-thread-count: 2
+:5
+ INFO: X-stat-thread-html:X-stat-thread-html: 1
+:5
+ INFO: Header:X-stat-thread-image: 1
+:5
+ INFO: mutex locked:in main method:6 INFO: number of requests serviced:...:5
+
+ INFO: request fd::1
+ INFO: mutex unlocked:in main method:6
+ INFO: sending signal:in main method:6
+ INFO: remove request:taking from SPECIAL:0
+ INFO: starting:loop:7 INFO:                                 how many are in SPECIAL::1
+ INFO: reached here:...:513
+ INFO: in web:i hope:6
+ INFO: in web:read done:1 INFO: we have reached request line:GET /nigel.jpg HTTP/1.0
+
+:8
+ INFO: request:GET /nigel.jpg HTTP/1.0****:6
+ INFO: request line contains image:GET /nigel.jpg HTTP/1.0
+
+:5
+ INFO: SEND:nigel.jpg:6 INFO: preference set to:....:2
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+:6
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 5
+:6
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 4034
+:6
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 5
+:6
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 5043
+:6
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 5
+:6
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 5044
+:6
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:6
+ INFO: X-stat-thread-id:X-stat-thread-id: 1
+:6
+ INFO: X-stat-thread-count:X-stat-thread-count: 2
+:6
+ INFO: X-stat-thread-html:X-stat-thread-html: 1
+:6
+ INFO: Header:X-stat-thread-image: 1
+:6
+ INFO: mutex locked:in main method:7 INFO: number of requests serviced:...:6
+ INFO: request fd::8
+ INFO: mutex unlocked:in main method:7
+ INFO: sending signal:in main method:7
+
+ INFO: starting:loop:8
+ INFO: remove request:taking from SPECIAL:0
+ INFO: reached here:...:513
+ INFO:                                 how many are in SPECIAL::1
+ INFO: in web:i hope:7
+ INFO: we have reached request line:GET /index.html HTTP/1.0
+
+:10
+ INFO: request line contains html:GET /index.html HTTP/1.0
+
+:5
+ INFO: in web:read done:8
+ INFO: request:GET /nigel.jpg HTTP/1.0****:7
+ INFO: SEND:nigel.jpg:7 INFO: preference set to:....:2
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+:7 INFO: about to add request:woohoo:1
+
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 6
+:7
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 5043
+:7
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 6
+:7
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 6049
+:7
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 6
+:7
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 6050
+:7
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:7
+ INFO: X-stat-thread-id:X-stat-thread-id: 2
+:7
+ INFO: X-stat-thread-count:X-stat-thread-count: 2
+:7
+ INFO: X-stat-thread-html:X-stat-thread-html: 0
+:7
+ INFO: Header:X-stat-thread-image: 2
+:7
+ INFO: number of requests serviced:...:7 INFO: mutex locked:in main method:8
+ INFO: request fd::10
+ INFO: mutex unlocked:in main method:8
+ INFO: sending signal:in main method:8
+ INFO: starting:loop:9
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /index.html HTTP/1.0
+
+:8 INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::1
+
+ INFO: in web:i hope:9 INFO: request line contains html:GET /index.html HTTP/1.0
+
+:5
+
+ INFO: preference set to:....:2 INFO: in web:read done:8
+ INFO: about to add request:woohoo:1
+
+ INFO: request:GET /index.html HTTP/1.0****:9
+ INFO: SEND:index.html:9
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 248
+Connection: close
+Content-Type: text/html
+:9
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 8
+:9
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 7057
+:9
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 7
+:9
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 7058
+:9
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 7
+:9
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 7058
+:9
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:9
+ INFO: X-stat-thread-id:X-stat-thread-id: 3
+:9
+ INFO: X-stat-thread-count:X-stat-thread-count: 2
+:9
+ INFO: X-stat-thread-html:X-stat-thread-html: 1
+:9
+ INFO: Header:X-stat-thread-image: 1
+:9
+ INFO: number of requests serviced:...:8 INFO: mutex locked:in main method:9
+ INFO: request fd::8
+ INFO: mutex unlocked:in main method:9
+ INFO: sending signal:in main method:9
+ INFO: starting:loop:10
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /index.html HTTP/1.0
+
+:8
+ INFO: request line contains html:GET /index.html HTTP/1.0
+
+:5 INFO: remove request:taking from FIFO:0
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:1
+
+ INFO: 								how many are in FIFO::1
+ INFO: in web:i hope:10
+ INFO: in web:read done:8
+ INFO: request:GET /index.html HTTP/1.0****:10
+ INFO: SEND:index.html:10
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 248
+Connection: close
+Content-Type: text/html
+:10
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 9
+:10
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 8064
+:10
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 8
+:10
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 8065
+:10
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 8
+:10
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 8065
+:10
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:10
+ INFO: X-stat-thread-id:X-stat-thread-id: 0
+:10
+ INFO: X-stat-thread-count:X-stat-thread-count: 3
+:10
+ INFO: X-stat-thread-html:X-stat-thread-html: 2
+:10
+ INFO: Header:X-stat-thread-image: 1
+:10
+ INFO: mutex locked:in main method:10 INFO: number of requests serviced:...:9
+ INFO: request fd::8
+ INFO: mutex unlocked:in main method:10
+ INFO: sending signal:in main method:10
+ INFO: starting:loop:11
+ INFO: remove request:taking from FIFO:0
+ INFO: reached here:...:513
+ INFO: 								how many are in FIFO::1
+ INFO: in web:i hope:10
+ INFO: in web:read done:8
+ INFO: we have reached request line:GET /index.html HTTP/1.0
+
+:8
+ INFO: request:GET /index.html HTTP/1.0****:10
+ INFO: request line contains html:GET /index.html HTTP/1.0
+
+:5
+ INFO: SEND:index.html:10 INFO: preference set to:....:2
+
+ INFO: about to add request:woohoo:1
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 248
+Connection: close
+Content-Type: text/html
+:10
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 9
+:10
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 8064
+:10
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 9
+:10
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 9072
+:10
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 9
+:10
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 9072
+:10
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:10
+ INFO: X-stat-thread-id:X-stat-thread-id: 1
+:10
+ INFO: X-stat-thread-count:X-stat-thread-count: 3
+:10
+ INFO: X-stat-thread-html:X-stat-thread-html: 2
+:10
+ INFO: Header:X-stat-thread-image: 1
+:10
+ INFO: mutex locked:in main method:11.:10
+
+ INFO: request fd::8
+ INFO: mutex unlocked:in main method:11
+ INFO: sending signal:in main method:11
+ INFO: starting:loop:12
+ INFO: remove request:taking from FIFO:0
+INFO: reached here:...:513
+ INFO: 								how many are in FIFO::1 INFO: we have reached request line:GET /index.html HTTP/1.0
+
+:8
+ INFO: request line contains html:GET /index.html HTTP/1.0
+
+:5
+
+ INFO: in web:i hope:12 INFO: preference set to:....:2
+
+ INFO: in web:read done:8 INFO: about to add request:woohoo:1
+
+ INFO: request:GET /index.html HTTP/1.0****:12
+ INFO: SEND:index.html:12
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 248
+Connection: close
+Content-Type: text/html
+:12
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 11
+:12
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 10076
+:12
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 10
+:12
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 10076
+:12
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 10
+:12
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 10077
+:12
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:12
+ INFO: X-stat-thread-id:X-stat-thread-id: 2
+:12
+ INFO: X-stat-thread-count:X-stat-thread-count: 3
+:12
+ INFO: X-stat-thread-html:X-stat-thread-html: 1
+:12
+ INFO: Header:X-stat-thread-image: 2
+:12
+ INFO: number of requests serviced:...:11 INFO: mutex locked:in main method:12
+
+ INFO: request fd::8
+ INFO: mutex unlocked:in main method:12
+ INFO: sending signal:in main method:12
+ INFO: starting:loop:13
+ INFO: reached here:...:513
+ INFO: remove request:taking from FIFO:0
+ INFO: we have reached request line:GET /nigel.jpg HTTP/1.0
+
+:8 INFO: 								how many are in FIFO::1
+ INFO: request line contains image:GET /nigel.jpg HTTP/1.0
+
+:5
+ INFO: in web:i hope:13 INFO: preference set to:....:2
+
+ INFO: about to add request:woohoo:2
+ INFO: in web:read done:8
+ INFO: request:GET /nigel.jpg HTTP/1.0****:13
+ INFO: SEND:nigel.jpg:13
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+:13
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 12
+:13
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 11080
+:13
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 11
+:13
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 11080
+:13
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 11
+:13
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 11081
+:13
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:13
+ INFO: X-stat-thread-id:X-stat-thread-id: 3
+:13
+ INFO: X-stat-thread-count:X-stat-thread-count: 3
+:13
+ INFO: X-stat-thread-html:X-stat-thread-html: 1
+:13
+ INFO: Header:X-stat-thread-image: 2
+:13
+ INFO: mutex locked:in main method:13 INFO: number of requests serviced:...:12 INFO: request fd::8
+ INFO: mutex unlocked:in main method:13
+ INFO: sending signal:in main method:13
+ INFO: starting:loop:14
+ INFO: reached here:...:513
+
+ INFO: remove request:taking from SPECIAL:0
+ INFO: we have reached request line:GET /nigel.jpg HTTP/1.0
+
+:16
+ INFO:                                 how many are in SPECIAL::1 INFO: request line contains image:GET /nigel.jpg HTTP/1.0
+
+:5
+ INFO: in web:i hope:14
+ INFO: preference set to:....:2
+ INFO: in web:read done:16
+ INFO: about to add request:woohoo:2 INFO: request:GET /nigel.jpg HTTP/1.0****:14
+
+ INFO: SEND:nigel.jpg:14
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+:14
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 13
+:14
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 12084
+:14
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 12
+:14
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 12084
+:14
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 12
+:14
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 12085
+:14
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:14
+ INFO: X-stat-thread-id:X-stat-thread-id: 0
+:14
+ INFO: X-stat-thread-count:X-stat-thread-count: 4
+:14
+ INFO: X-stat-thread-html:X-stat-thread-html: 2
+:14
+ INFO: Header:X-stat-thread-image: 2
+:14
+ INFO: number of requests serviced:...:13 INFO: mutex locked:in main method:14
+
+ INFO: request fd::16
+ INFO: mutex unlocked:in main method:14
+ INFO: sending signal:in main method:14
+ INFO: starting:loop:15
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /nigel.jpg HTTP/1.0
+
+:8
+ INFO: request line contains image:GET /nigel.jpg HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: remove request:taking from SPECIAL:0 INFO: about to add request:woohoo:2
+ INFO:                                 how many are in SPECIAL::1
+ INFO: in web:i hope:15
+ INFO: in web:read done:8
+ INFO: request:GET /nigel.jpg HTTP/1.0****:15
+ INFO: SEND:nigel.jpg:15
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+:15
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 14
+:15
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 13089
+:15
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 13
+:15
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 13089
+:15
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 13
+:15
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 13089
+:15
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:15
+ INFO: X-stat-thread-id:X-stat-thread-id: 1
+:15
+ INFO: X-stat-thread-count:X-stat-thread-count: 4
+:15
+ INFO: X-stat-thread-html:X-stat-thread-html: 2
+:15
+ INFO: Header:X-stat-thread-image: 2
+:15
+ INFO: number of requests serviced:...:14 INFO: mutex locked:in main method:15
+ INFO: request fd::8
+ INFO: mutex unlocked:in main method:15
+ INFO: sending signal:in main method:15
+ INFO: starting:loop:16
+ INFO: reached here:...:513
+ INFO: remove request:taking from SPECIAL:0
+ INFO: we have reached request line:GET /nigel.jpg HTTP/1.0
+
+:8 INFO:                                 how many are in SPECIAL::1
+
+ INFO: in web:i hope:16
+ INFO: request line contains image:GET /nigel.jpg HTTP/1.0
+
+:5 INFO: in web:read done:8
+
+ INFO: request:GET /nigel.jpg HTTP/1.0****:16
+ INFO: preference set to:....:2
+ INFO: SEND:nigel.jpg:16 INFO: about to add request:woohoo:2
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+:16
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 15
+:16
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 14092
+:16
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 14
+:16
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 14092
+:16
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 14
+:16
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 14093
+:16
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:16
+ INFO: X-stat-thread-id:X-stat-thread-id: 2
+:16
+ INFO: X-stat-thread-count:X-stat-thread-count: 4
+:16
+ INFO: X-stat-thread-html:X-stat-thread-html: 1
+:16
+ INFO: Header:X-stat-thread-image: 3
+:16
+ INFO: mutex locked:in main method:16
+ INFO: number of requests serviced:...:15d:in main method:16
+ INFO: sending signal:in main method:16
+
+ INFO: starting:loop:17
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /index.html HTTP/1.0
+
+:8
+ INFO: remove request:taking from SPECIAL:0
+ INFO: request line contains html:GET /index.html HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:1
+ INFO:                                 how many are in SPECIAL::1
+ INFO: in web:i hope:17
+ INFO: in web:read done:8
+ INFO: request:GET /index.html HTTP/1.0****:17
+ INFO: SEND:index.html:17
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 248
+Connection: close
+Content-Type: text/html
+:17
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 16
+:17
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 15099
+:17
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 15
+:17
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 15099
+:17
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 15
+:17
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 15099
+:17
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:17
+ INFO: X-stat-thread-id:X-stat-thread-id: 3
+:17
+ INFO: X-stat-thread-count:X-stat-thread-count: 4
+:17
+ INFO: X-stat-thread-html:X-stat-thread-html: 2
+:17
+ INFO: Header:X-stat-thread-image: 2
+:17
+ INFO: number of requests serviced:...:16
+ INFO: mutex locked:in main method:17
+ INFO: request fd::8
+ INFO: mutex unlocked:in main method:17
+ INFO: sending signal:in main method:17
+ INFO: starting:loop:18 INFO: remove request:taking from FIFO:0
+
+ INFO: 								how many are in FIFO::1
+ INFO: reached here:...:513 INFO: in web:i hope:17
+
+ INFO: in web:read done:8
+ INFO: we have reached request line:GET /index.html HTTP/1.0
+
+:8 INFO: request:GET /index.html HTTP/1.0****:17
+
+ INFO: request line contains html:GET /index.html HTTP/1.0
+
+:5 INFO: SEND:index.html:17
+
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 248
+Connection: close
+Content-Type: text/html
+:17
+ INFO: preference set to:....:2
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 16
+:17 INFO: about to add request:woohoo:1
+
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 15099
+:17
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 16
+:17
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 16106
+:17
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 16
+:17
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 16107
+:17
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:17
+ INFO: X-stat-thread-id:X-stat-thread-id: 0
+:17
+ INFO: X-stat-thread-count:X-stat-thread-count: 5
+:17
+ INFO: X-stat-thread-html:X-stat-thread-html: 3
+:17
+ INFO: Header:X-stat-thread-image: 2
+:17
+ INFO: mutex locked:in main method:18
+ INFO: number of requests serviced:...:17 INFO: request fd::8
+ INFO: mutex unlocked:in main method:18
+ INFO: sending signal:in main method:18
+ INFO: starting:loop:19
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /index.html HTTP/1.0
+
+:8
+ INFO: request line contains html:GET /index.html HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:1
+ INFO: mutex locked:in main method:19
+ INFO: request fd::8
+ INFO: mutex unlocked:in main method:19
+ INFO: sending signal:in main method:19
+ INFO: starting:loop:20
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /index.html HTTP/1.0
+
+:21 INFO: remove request:taking from FIFO:0
+
+ INFO: 								how many are in FIFO::2
+ INFO: request line contains html:GET /index.html HTTP/1.0
+
+:5
+ INFO: in web:i hope:20 INFO: preference set to:....:2
+
+ INFO: about to add request:woohoo:1
+ INFO: in web:read done:21
+ INFO: request:GET /index.html HTTP/1.0****:20
+ INFO: SEND:index.html:20
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 248
+Connection: close
+Content-Type: text/html
+:20
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 19
+:20
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 17110
+:20
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 17
+:20
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 17111
+:20
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 17
+:20
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 17111
+:20
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:20
+ INFO: X-stat-thread-id:X-stat-thread-id: 1
+:20
+ INFO: X-stat-thread-count:X-stat-thread-count: 5
+:20
+ INFO: X-stat-thread-html:X-stat-thread-html: 3
+:20
+ INFO: Header:X-stat-thread-image: 2
+:20
+ INFO: number of requests serviced:...:18 INFO: remove request:taking from FIFO:0
+
+ INFO: 								how many are in FIFO::1
+ INFO: 
+
+ nweb starting:8181:9288
+ INFO: we have reached CREATE POOL:4:5
+ INFO: Number of threads::4
+ INFO: About to create pThread:Number:0
+ INFO: checking id:in createthread:0
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: About to create pThread:Number:1
+ INFO: checking id:in createthread:1
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: About to create pThread:Number:2
+ INFO: checking id:in createthread:2
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: About to create pThread:Number:3
+ INFO: checking id:in createthread:3
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: we have reached HPIC:HPIC:2
+ INFO: starting:loop:1
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /index.html HTTP/1.0
+
+:1
+ INFO: request line contains html:GET /index.html HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:1
+ INFO: mutex locked:in main method:1
+ INFO: request fd::1
+ INFO: mutex unlocked:in main method:1
+ INFO: sending signal:in main method:1
+ INFO: starting:loop:2
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /index.html HTTP/1.0
+
+:2
+ INFO: request line contains html:GET /index.html HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:1
+ INFO: mutex locked:in main method:2
+ INFO: request fd::2
+ INFO: mutex unlocked:in main method:2
+ INFO: sending signal:in main method:2
+ INFO: starting:loop:3
+ INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::2
+ INFO: in web:i hope:2
+ INFO: in web:read done:2
+ INFO: request:GET /index.html HTTP/1.0****:2
+ INFO: SEND:index.html:2
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 248
+Connection: close
+Content-Type: text/html
+:2
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 1
+:2
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 26
+:2
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 0
+:2
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 27
+:2
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 0
+:2
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 27
+:2
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:2
+ INFO: X-stat-thread-id:X-stat-thread-id: 0
+:2
+ INFO: X-stat-thread-count:X-stat-thread-count: 1
+:2
+ INFO: X-stat-thread-html:X-stat-thread-html: 1
+:2
+ INFO: Header:X-stat-thread-image: 0
+:2
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /index.html HTTP/1.0
+
+:3
+ INFO: request line contains html:GET /index.html HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:1
+ INFO: number of requests serviced:...:1
+ INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::1
+ INFO: in web:i hope:3
+ INFO: in web:read done:3
+ INFO: request:GET /index.html HTTP/1.0****:3
+ INFO: SEND:index.html:3
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 248
+Connection: close
+Content-Type: text/html
+:3
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 2
+:3
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 28
+:3
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 1
+:3
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 1030
+:3
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 1
+:3
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 1030
+:3
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:3
+ INFO: X-stat-thread-id:X-stat-thread-id: 1
+:3
+ INFO: X-stat-thread-count:X-stat-thread-count: 1
+:3
+ INFO: X-stat-thread-html:X-stat-thread-html: 1
+:3
+ INFO: Header:X-stat-thread-image: 0
+:3
+ INFO: number of requests serviced:...:2
+ INFO: mutex locked:in main method:3
+ INFO: request fd::3
+ INFO: mutex unlocked:in main method:3
+ INFO: sending signal:in main method:3
+ INFO: starting:loop:4
+INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::1
+ INFO: reached here:...:513
+ INFO: in web:i hope:4 INFO: we have reached request line:GET /nigel.jpg HTTP/1.0
+
+:3
+
+ INFO: request line contains image:GET /nigel.jpg HTTP/1.0
+
+:5
+ INFO: in web:read done:3
+ INFO: preference set to:....:2FORBIDDEN: failed to read browser request:
+
+ INFO: 
+
+ nweb starting:8181:9332
+ INFO: we have reached CREATE POOL:4:5
+ INFO: Number of threads::4
+ INFO: About to create pThread:Number:0
+ INFO: checking id:in createthread:0
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: About to create pThread:Number:1
+ INFO: checking id:in createthread:1
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: About to create pThread:Number:2
+ INFO: checking id:in createthread:2
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: About to create pThread:Number:3
+ INFO: checking id:in createthread:3
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: we have reached HPIC:HPIC:2
+ INFO: starting:loop:1
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /index.html HTTP/1.0
+
+:1
+ INFO: request line contains html:GET /index.html HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:1
+ INFO: mutex locked:in main method:1
+ INFO: request fd::1
+ INFO: mutex unlocked:in main method:1
+ INFO: sending signal:in main method:1
+ INFO: starting:loop:2
+ INFO: reached here:...:513
+ INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::1
+ INFO: in web:i hope:2
+ INFO: in web:read done:2
+FORBIDDEN: failed to read browser request:
+ INFO: 
+
+ nweb starting:8181:9379
+ INFO: we have reached CREATE POOL:4:5
+ INFO: Number of threads::4
+ INFO: About to create pThread:Number:0
+ INFO: checking id:in createthread:0
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: About to create pThread:Number:1
+ INFO: checking id:in createthread:1
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: About to create pThread:Number:2
+ INFO: checking id:in createthread:2
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: About to create pThread:Number:3
+ INFO: checking id:in createthread:3
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: we have reached HPIC:HPIC:2
+ INFO: starting:loop:1
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /index.html HTTP/1.0
+
+:1
+ INFO: request line contains html:GET /index.html HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:1
+ INFO: mutex locked:in main method:1
+ INFO: request fd::1
+ INFO: mutex unlocked:in main method:1
+ INFO: sending signal:in main method:1
+ INFO: starting:loop:2
+ INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::1
+ INFO: in web:i hope:1
+ INFO: in web:read done:1
+ INFO: request:GET /index.html HTTP/1.0****:1
+ INFO: SEND:index.html:1
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 248
+Connection: close
+Content-Type: text/html
+:1
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 0
+:1
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 41
+:1
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 0
+:1
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 43
+:1
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 0
+:1
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 43
+:1
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:1
+ INFO: X-stat-thread-id:X-stat-thread-id: 0
+:1
+ INFO: X-stat-thread-count:X-stat-thread-count: 1
+:1
+ INFO: X-stat-thread-html:X-stat-thread-html: 1
+:1
+ INFO: Header:X-stat-thread-image: 0
+:1
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /index.html HTTP/1.0
+
+:3
+ INFO: request line contains html:GET /index.html HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:1
+ INFO: mutex locked:in main method:2
+ INFO: number of requests serviced:...:1
+ INFO: request fd::3
+ INFO: mutex unlocked:in main method:2
+ INFO: sending signal:in main method:2
+ INFO: starting:loop:3
+ INFO: remove request:taking from FIFO:0 INFO: reached here:...:513
+ INFO: 								how many are in FIFO::1
+ INFO: in web:i hope:3 INFO: we have reached request line:GET /index.html HTTP/1.0
+
+:1
+ INFO: request line contains html:GET /index.html HTTP/1.0
+
+:5
+
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:1
+ INFO: in web:read done:1
+FORBIDDEN: failed to read browser request:
+ INFO: 
+
+ nweb starting:8181:9443
+ INFO: we have reached CREATE POOL:4:5
+ INFO: Number of threads::4
+ INFO: About to create pThread:Number:0
+ INFO: checking id:in createthread:0
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: About to create pThread:Number:1
+ INFO: checking id:in createthread:1
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: About to create pThread:Number:2
+ INFO: checking id:in createthread:2
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: About to create pThread:Number:3
+ INFO: checking id:in createthread:3
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: we have reached HPIC:HPIC:2
+ INFO: starting:loop:1
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /index.html HTTP/1.0
+
+:1
+ INFO: request line contains html:GET /index.html HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:1
+ INFO: mutex locked:in main method:1
+ INFO: request fd::1
+ INFO: mutex unlocked:in main method:1
+ INFO: sending signal:in main method:1
+ INFO: starting:loop:2
+ INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::1
+ INFO: in web:i hope:1
+ INFO: in web:read done:1
+ INFO: request:GET /index.html HTTP/1.0****:1
+ INFO: SEND:index.html:1
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 248
+Connection: close
+Content-Type: text/html
+:1
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 0
+:1
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 4
+:1
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 0
+:1
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 5
+:1
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 0
+:1
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 5
+:1
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:1
+ INFO: X-stat-thread-id:X-stat-thread-id: 0
+:1
+ INFO: X-stat-thread-count:X-stat-thread-count: 1
+:1
+ INFO: X-stat-thread-html:X-stat-thread-html: 1
+:1
+ INFO: Header:X-stat-thread-image: 0
+:1
+ INFO: number of requests serviced:...:1
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /index.html HTTP/1.0
+
+:1
+ INFO: request line contains html:GET /index.html HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:1
+ INFO: mutex locked:in main method:2
+ INFO: request fd::1
+ INFO: mutex unlocked:in main method:2
+ INFO: sending signal:in main method:2
+ INFO: starting:loop:3
+ INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::1
+ INFO: in web:i hope:2
+ INFO: in web:read done:1
+ INFO: request:GET /index.html HTTP/1.0****:2
+ INFO: SEND:index.html:2
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 248
+Connection: close
+Content-Type: text/html
+:2
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 1
+:2
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 3013
+:2
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 1
+:2
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 3013
+:2
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 1
+:2
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 3014
+:2
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:2
+ INFO: X-stat-thread-id:X-stat-thread-id: 1
+:2
+ INFO: X-stat-thread-count:X-stat-thread-count: 1
+:2
+ INFO: X-stat-thread-html:X-stat-thread-html: 1
+:2
+ INFO: Header:X-stat-thread-image: 0
+:2
+ INFO: number of requests serviced:...:2
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /index.html HTTP/1.0
+
+:1
+ INFO: request line contains html:GET /index.html HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:1
+ INFO: mutex locked:in main method:3
+ INFO: request fd::1
+ INFO: mutex unlocked:in main method:3
+ INFO: sending signal:in main method:3
+ INFO: starting:loop:4
+ INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::1
+ INFO: in web:i hope:3
+ INFO: in web:read done:1
+ INFO: request:GET /index.html HTTP/1.0****:3
+ INFO: SEND:index.html:3
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 248
+Connection: close
+Content-Type: text/html
+:3
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 2
+:3
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 6022
+:3
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 2
+:3
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 6022
+:3
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 2
+:3
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 6023
+:3
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:3
+ INFO: X-stat-thread-id:X-stat-thread-id: 2
+:3
+ INFO: X-stat-thread-count:X-stat-thread-count: 1
+:3
+ INFO: X-stat-thread-html:X-stat-thread-html: 1
+:3
+ INFO: Header:X-stat-thread-image: 0
+:3
+ INFO: number of requests serviced:...:3
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /nigel.jpg HTTP/1.0
+
+:1
+ INFO: request line contains image:GET /nigel.jpg HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:2
+ INFO: mutex locked:in main method:4
+ INFO: request fd::1
+ INFO: mutex unlocked:in main method:4
+ INFO: sending signal:in main method:4
+ INFO: starting:loop:5 INFO: remove request:taking from SPECIAL:0
+ INFO:                                 how many are in SPECIAL::1
+ INFO: in web:i hope:4
+ INFO: in web:read done:1
+ INFO: request:GET /nigel.jpg HTTP/1.0****:4
+ INFO: SEND:nigel.jpg:4
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+:4
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 3
+:4
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 9032
+:4
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 3
+:4
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 9032
+:4
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 3
+:4
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 9032
+:4
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:4
+ INFO: X-stat-thread-id:X-stat-thread-id: 3
+:4
+ INFO: X-stat-thread-count:X-stat-thread-count: 1
+:4
+ INFO: X-stat-thread-html:X-stat-thread-html: 0
+:4
+ INFO: Header:X-stat-thread-image: 1
+:4
+ INFO: number of requests serviced:...:4
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /nigel.jpg HTTP/1.0
+
+:1
+ INFO: request line contains image:GET /nigel.jpg HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:2
+ INFO: mutex locked:in main method:5
+ INFO: request fd::1
+ INFO: mutex unlocked:in main method:5
+ INFO: sending signal:in main method:5
+ INFO: starting:loop:6
+ INFO: reached here:...:513
+ INFO: remove request:taking from SPECIAL:0
+ INFO:                                 how many are in SPECIAL::1
+ INFO: in web:i hope:6
+ INFO: in web:read done:6
+FORBIDDEN: failed to read browser request:
+ INFO: 
+
+ nweb starting:8181:9505
+ INFO: we have reached CREATE POOL:4:5
+ INFO: Number of threads::4
+ INFO: About to create pThread:Number:0
+ INFO: checking id:in createthread:0
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: About to create pThread:Number:1
+ INFO: checking id:in createthread:1
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: About to create pThread:Number:2
+ INFO: checking id:in createthread:2
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: About to create pThread:Number:3
+ INFO: checking id:in createthread:3
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: we have reached HPIC:HPIC:2
+ INFO: starting:loop:1
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /index.html HTTP/1.0
+
+:1
+ INFO: request line contains html:GET /index.html HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:1
+ INFO: mutex locked:in main method:1
+ INFO: request fd::1
+ INFO: mutex unlocked:in main method:1
+ INFO: sending signal:in main method:1
+ INFO: starting:loop:2
+ INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::1
+ INFO: in web:i hope:1
+ INFO: in web:read done:1
+ INFO: request:GET /index.html HTTP/1.0****:1
+ INFO: SEND:index.html:1
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 248
+Connection: close
+Content-Type: text/html
+:1
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 0
+:1
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 4
+:1
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 0
+:1
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 5
+:1
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 0
+:1
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 5
+:1
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:1
+ INFO: X-stat-thread-id:X-stat-thread-id: 0
+:1
+ INFO: X-stat-thread-count:X-stat-thread-count: 1
+:1
+ INFO: X-stat-thread-html:X-stat-thread-html: 1
+:1
+ INFO: Header:X-stat-thread-image: 0
+:1
+ INFO: number of requests serviced:...:1
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /index.html HTTP/1.0
+
+:1
+ INFO: request line contains html:GET /index.html HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:1
+ INFO: mutex locked:in main method:2
+ INFO: request fd::1
+ INFO: mutex unlocked:in main method:2
+ INFO: sending signal:in main method:2
+ INFO: starting:loop:3 INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::1
+ INFO: in web:i hope:2
+ INFO: in web:read done:1
+ INFO: request:GET /index.html HTTP/1.0****:2
+ INFO: SEND:index.html:2
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 248
+Connection: close
+Content-Type: text/html
+:2
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 1
+:2
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 3008
+:2
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 1
+:2
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 3008
+:2
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 1
+:2
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 3009
+:2
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:2
+ INFO: X-stat-thread-id:X-stat-thread-id: 1
+:2
+ INFO: X-stat-thread-count:X-stat-thread-count: 1
+:2
+ INFO: X-stat-thread-html:X-stat-thread-html: 1
+:2
+ INFO: Header:X-stat-thread-image: 0
+:2
+ INFO: number of requests serviced:...:2
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /index.html HTTP/1.0
+
+:1
+ INFO: request line contains html:GET /index.html HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:1
+ INFO: mutex locked:in main method:3
+ INFO: request fd::1
+ INFO: mutex unlocked:in main method:3
+ INFO: sending signal:in main method:3
+ INFO: starting:loop:4
+ INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::1
+ INFO: in web:i hope:3
+ INFO: in web:read done:1
+ INFO: request:GET /index.html HTTP/1.0****:3
+ INFO: SEND:index.html:3
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 248
+Connection: close
+Content-Type: text/html
+:3
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 2
+:3
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 6014
+:3
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 2
+:3
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 6015
+:3
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 2
+:3
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 6015
+:3
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:3
+ INFO: X-stat-thread-id:X-stat-thread-id: 2
+:3
+ INFO: X-stat-thread-count:X-stat-thread-count: 1
+:3
+ INFO: X-stat-thread-html:X-stat-thread-html: 1
+:3
+ INFO: Header:X-stat-thread-image: 0
+:3
+ INFO: number of requests serviced:...:3
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /nigel.jpg HTTP/1.0
+
+:1
+ INFO: request line contains image:GET /nigel.jpg HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:2
+ INFO: mutex locked:in main method:4
+ INFO: request fd::1
+ INFO: mutex unlocked:in main method:4
+ INFO: sending signal:in main method:4
+ INFO: starting:loop:5
+ INFO: remove request:taking from SPECIAL:0
+ INFO:                                 how many are in SPECIAL::1
+ INFO: in web:i hope:4
+ INFO: in web:read done:1
+ INFO: request:GET /nigel.jpg HTTP/1.0****:4
+ INFO: SEND:nigel.jpg:4
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+:4
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 3
+:4
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 9021
+:4
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 3
+:4
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 9022
+:4
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 3
+:4
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 9022
+:4
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:4
+ INFO: X-stat-thread-id:X-stat-thread-id: 3
+:4
+ INFO: X-stat-thread-count:X-stat-thread-count: 1
+:4
+ INFO: X-stat-thread-html:X-stat-thread-html: 0
+:4
+ INFO: Header:X-stat-thread-image: 1
+:4
+ INFO: number of requests serviced:...:4
+ INFO: reached here:...:513
+ INFO: we have reached request line:GET /nigel.jpg HTTP/1.0
+
+:1
+ INFO: request line contains image:GET /nigel.jpg HTTP/1.0
+
+:5
+ INFO: preference set to:....:2
+ INFO: about to add request:woohoo:2
+ INFO: mutex locked:in main method:5
+ INFO: request fd::1
+ INFO: mutex unlocked:in main method:5
+ INFO: sending signal:in main method:5
+ INFO: starting:loop:6
+ INFO: reached here:...:513
+ INFO: remove request:taking from SPECIAL:0
+ INFO:                                 how many are in SPECIAL::1
+ INFO: in web:i hope:6
+ INFO: in web:read done:6
+FORBIDDEN: failed to read browser request:

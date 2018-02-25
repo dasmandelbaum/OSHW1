@@ -138,7 +138,7 @@ static int requestsPresentCount;//STAT-1: count of total requests present
 static int completedRequestsCount;//STAT-5: completed request count 
 struct timeval startUpTime;
 static int dispatchedRequets = 0;
-//static int totalRequestsRecieved = 0;
+static int totalRequestsReceived = 0;
 
 /*
     initialize Thread pool, initialize Threads, and add them to Thread pool
@@ -206,7 +206,7 @@ request_queue createQueue(int indicator)
 request createRequest(int fd, int hit)
 {
     struct timeval now;
-    request * r = calloc(9, (sizeof(int) * 6) + sizeof(request) + sizeof(long) + (BUFSIZE + 1));
+    request * r = calloc(9, (sizeof(int) * 6) + sizeof(request) + sizeof(long) + (BUFSIZE + 1));// are we allocating too much space
     r->behind = NULL;
     r->requestInfo = fd;
     gettimeofday(&now, NULL);
@@ -214,7 +214,7 @@ request createRequest(int fd, int hit)
     r->countDispatchedPreviously = 0;//TODO: how do we get this number?
     r->numRequestsHigherPriority = 0;
     r->hit = hit;
-    //r->numberRequest = totalRequestsRecieved;
+    r->numberRequest = totalRequestsReceived;
     //other fields declared later
     return * r;  
 }
@@ -422,7 +422,7 @@ void web(int fd, int hit, request req, thread * thr, long ret)
 	logger(LOG, "in web", "read done", fd);
 	//logger(LOG, "in web", "checking thread id", thr->id);//test
 	if(ret == 0 || ret == -1) {	/* read failure stop now */
-		logger(FORBIDDEN,"failed to read browser request","",fd);
+		logger(FORBIDDEN,"failed to read browser request",buffer,fd);
 	}
 	if(ret > 0 && ret < BUFSIZE)	/* return code is valid chars */
 		buffer[ret]=0;		/* terminate the buffer */
@@ -485,7 +485,7 @@ void web(int fd, int hit, request req, thread * thr, long ret)
 	
 	
     /* Send the statistical headers described in the instructions*/
-    (void)sprintf(buffer,"X-stat-req-arrival-count: %d\r\n", (req.hit - 1) );//substract itself to get previous count, works
+    (void)sprintf(buffer,"X-stat-req-arrival-count: %d\r\n", req.numberRequest );//substract itself to get previous count, works
     logger(LOG,"X-stat-req-arrival-count",buffer,hit);
     dummy = write(fd,buffer,strlen(buffer));
     (void)sprintf(buffer,"X-stat-req-arrival-time: %lu\r\n", (req.arrivalTime.tv_sec) * 1000 + (req.arrivalTime.tv_usec) / 1000);//https://stackoverflow.com/a/3756954
@@ -693,6 +693,7 @@ int main(int argc, char **argv)
 	        pthread_mutex_lock(&queueMutex);//lock mutex
 	        logger(LOG, "mutex locked", "in main method", hit);
 	        addRequest(&rq);
+	        totalRequestsReceived++;
 	        requestsPresentCount++;
 	        pthread_mutex_unlock(&queueMutex);
 	        logger(LOG, "mutex unlocked", "in main method", hit);

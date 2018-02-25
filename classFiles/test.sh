@@ -7,13 +7,13 @@ echo 'BEGINNING PROGRAM'
 
 
 ./client localhost 8181 /index.html &
-
+sleep 3
 ./client localhost 8181 /index.html &
-
+sleep 3
 ./client localhost 8181 /index.html &
-
+sleep 3
 ./client localhost 8181 /nigel.jpg &
-
+sleep 3
 ./client localhost 8181 /nigel.jpg &
 
 ./client localhost 8181 /nigel.jpg &
