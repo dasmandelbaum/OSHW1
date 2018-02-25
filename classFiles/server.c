@@ -330,14 +330,18 @@ void * threadWait(thread * thr)
 	    timeval_subtract(&req->dispatchedTime, &now2, &startUpTime); 
 	    //thr->id = 100;//ID test - works
 	    req->countDispatchedPreviously = dispatchedRequets;
-	    req->numRequestsHigherPriority = dispatchedRequets - (req->hit -1);
+	    req->numRequestsHigherPriority =  0;
+	    if( dispatchedRequets  > (req->hit -1) ){
+	    	req->numRequestsHigherPriority = (dispatchedRequets - (req->hit -1) ) ;
+	    }
+
         web(req->requestInfo, req->hit, *req, thr, req->ret);
         completedRequestsCount++;
         dispatchedRequets++;
         pthread_mutex_unlock(&queueMutex);
         logger(LOG, "number of requests serviced", "...", completedRequestsCount);
     }
-    completedRequestsCount++;
+
     return NULL;
 }
 
@@ -478,7 +482,7 @@ void web(int fd, int hit, request req, thread * thr, long ret)
 	
 	
     /* Send the statistical headers described in the instructions*/
-    (void)sprintf(buffer,"X-stat-req-arrival-count: %d\r\n", req.hit - 1);//substract itself to get previous count, works
+    (void)sprintf(buffer,"X-stat-req-arrival-count: %d\r\n", (req.hit - 1) );//substract itself to get previous count, works
     logger(LOG,"X-stat-req-arrival-count",buffer,hit);
     dummy = write(fd,buffer,strlen(buffer));
     (void)sprintf(buffer,"X-stat-req-arrival-time: %lu\r\n", (req.arrivalTime.tv_sec) * 1000 + (req.arrivalTime.tv_usec) / 1000);//https://stackoverflow.com/a/3756954
