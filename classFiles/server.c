@@ -319,6 +319,7 @@ void * threadWait(thread * thr)
     //thread threadhere = thr;
     //logger(LOG, "in threadwait", "with thread", threadhere.id);//test
 	request * req; struct timeval now2;
+	int arrival = 0;
     while(1)
     {
     	pthread_mutex_lock(&queueMutex);//lock mutex
@@ -331,11 +332,13 @@ void * threadWait(thread * thr)
 	    //thr->id = 100;//ID test - works
 	    req->countDispatchedPreviously = dispatchedRequets;
 	    req->numRequestsHigherPriority =  0;
-	    if( dispatchedRequets  > (req->hit -1) ){
-	    	req->numRequestsHigherPriority = (dispatchedRequets - (req->hit -1) ) ;
+	    arrival = (req->hit -1);
+	    if( dispatchedRequets  >  arrival){
+	    	req->numRequestsHigherPriority = (dispatchedRequets - arrival ) ;
 	    }
 
         web(req->requestInfo, req->hit, *req, thr, req->ret);
+        req = NULL;
         completedRequestsCount++;
         dispatchedRequets++;
         pthread_mutex_unlock(&queueMutex);
@@ -349,6 +352,7 @@ request * removeRequest() {
 	request * req;
     if(preference != 0 && srqueue.length > 0) {
     	logger(LOG, "remove request", "taking from SPECIAL", 0);
+    	logger(LOG, "                                how many are in SPECIAL", "", srqueue.length);
        	req = srqueue.first;	//TODO make sure this doesn't break the queue??
        	if(srqueue.length > 1){
        		srqueue.first = req->behind;
@@ -362,9 +366,8 @@ request * removeRequest() {
     
     else {
     	logger(LOG, "remove request", "taking from FIFO", 0);
-    	logger(LOG, "request info off of first in queue", "", fifoqueue.first->requestInfo);
+    	logger(LOG, "								how many are in FIFO", "", fifoqueue.length);
     	req = fifoqueue.first;
-    	logger(LOG, "request retreived", "here we go", req->requestInfo);
     	fifoqueue.first = req->behind;//NULL POINTER ERROR?
     	if(fifoqueue.length > 1){
        		fifoqueue.first = req->behind;
