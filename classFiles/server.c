@@ -514,7 +514,7 @@ void web(int fd, int hit, request req, thread * thr, long ret)
 	}
 	sleep(1);	/* allow socket to drain before signalling the socket is closed */
 	close(fd);
-	exit(1);
+	//exit(1);
 }
 
 int main(int argc, char **argv)
@@ -626,7 +626,7 @@ int main(int argc, char **argv)
 	}
 	
 	//"portNum: %d  folder: %s  NumThreads: %d  schedule num: %d\n ", port, "folder", numThreads,preference);
-	for(hit=1; 1;hit++) {
+	for(hit=1; ;hit++) {
 		logger(LOG, "starting", "loop", hit);
 
 		length = sizeof(cli_addr);
@@ -688,7 +688,6 @@ int main(int argc, char **argv)
 	        //signal thread that there is job to grab
 	        logger(LOG, "sending signal", "in main method", hit);
 	        pthread_cond_signal(&jobavail);
-	        
 	    }
 	    else
 	    {
