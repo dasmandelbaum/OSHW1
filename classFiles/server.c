@@ -77,6 +77,8 @@ typedef struct request{
    int numRequestsHigherPriority;
    int requestType; //0 for regular, 1 for html, 2 for image
    int hit;
+   long ret;
+   char requestLine[BUFSIZE + 1];//took away "static"
 } request;
 
 typedef struct request_queue{
@@ -118,7 +120,7 @@ void logger(int type, char *s1, char *s2, int socket_fd);
 void addRequest(request * req);
 thread* createThread(int i);
 request * removeRequest();
-void web(int fd, int hit, request req, thread * thr);
+void web(int fd, int hit, request req, thread * thr, long ret);
 int timeval_subtract (struct timeval *result,struct timeval *x,struct timeval *y);
 
 /*
@@ -201,7 +203,7 @@ request_queue createQueue(int indicator)
 request createRequest(int fd, int hit)
 {
     struct timeval now;
-    request * r = calloc(7, (sizeof(int) * 6) + sizeof(request));
+    request * r = calloc(9, (sizeof(int) * 6) + sizeof(request) + sizeof(long) + (BUFSIZE + 1));
     r->behind = NULL;
     r->requestInfo = fd;
     gettimeofday(&now, NULL);
@@ -216,10 +218,10 @@ request createRequest(int fd, int hit)
 /*
     http://www.gnu.org/savannah-checkouts/gnu/libc/manual/html_node/Elapsed-Time.html
     and https://www.linuxquestions.org/questions/programming-9/how-to-calculate-time-difference-in-milliseconds-in-c-c-711096/
-*/
+
 int timeval_subtract (struct timeval * result,struct timeval * x,struct timeval * y)
 {
-  /* Perform the carry for the later subtraction by updating y. */
+   Perform the carry for the later subtraction by updating y. 
   if (x->tv_usec < y->tv_usec) {
     int nsec = (y->tv_usec - x->tv_usec) / 1000000 + 1;
     y->tv_usec -= 1000000 * nsec;
@@ -231,13 +233,42 @@ int timeval_subtract (struct timeval * result,struct timeval * x,struct timeval 
     y->tv_sec -= nsec;
   }
 
-  /* Compute the time remaining to wait.
-     tv_usec is certainly positive. */
+   Compute the time remaining to wait.
+     tv_usec is certainly positive. 
   result->tv_sec = x->tv_sec - y->tv_sec;
   result->tv_usec = x->tv_usec - y->tv_usec;
 
-  /* Return 1 if result is negative. */
+  Return 1 if result is negative. 
   return (x->tv_sec < y->tv_sec);
+}*/
+
+int timeval_subtract(struct timeval *result, struct timeval *x, struct timeval *y)
+{
+  struct timeval xx = *x;
+  struct timeval yy = *y;
+  x = &xx; y = &yy;
+
+  if (x->tv_usec > 999999)
+  {
+    x->tv_sec += x->tv_usec / 1000000;
+    x->tv_usec %= 1000000;
+  }
+
+  if (y->tv_usec > 999999)
+  {
+    y->tv_sec += y->tv_usec / 1000000;
+    y->tv_usec %= 1000000;
+  }
+
+  result->tv_sec = x->tv_sec - y->tv_sec;
+
+  if ((result->tv_usec = x->tv_usec - y->tv_usec) < 0)
+  {
+    result->tv_usec += 1000000;
+    result->tv_sec--; // borrow
+  }
+
+  return result->tv_sec < 0;
 }
 
 
@@ -273,7 +304,7 @@ void addRequest(request * req)
 		fifoqueue.length++;
     }
 	logger(LOG, "request fd", "", req->requestInfo);
-	logger(LOG, "request info off of first in queue", "", fifoqueue.first->requestInfo);
+	//logger(LOG, "request info off of first in queue", "", fifoqueue.first->requestInfo);//test
 }
 
 /*
@@ -293,8 +324,8 @@ void * threadWait(thread * thr)
         //logger(LOG, "request received", "with thread", thr.id);//test
         gettimeofday(&now2, NULL);
 	    timeval_subtract(&req->dispatchedTime, &now2, &startUpTime); 
-	    thr->id = 100;
-        web(req->requestInfo, req->hit, *req, thr);
+	    //thr->id = 100;//ID test - works
+        web(req->requestInfo, req->hit, *req, thr, req->ret);
         completedRequestsCount++;
         pthread_mutex_unlock(&queueMutex);
         logger(LOG, "number of requests serviced", "...", completedRequestsCount);
@@ -364,15 +395,16 @@ void logger(int type, char *s1, char *s2, int socket_fd)
 	if(type == ERROR || type == NOTFOUND || type == FORBIDDEN) exit(3);
 }
 
-void web(int fd, int hit, request req, thread * thr)
+void web(int fd, int hit, request req, thread * thr, long ret)
 {
 	int j, file_fd, buflen;
 	struct timeval now3;
-	long i, ret, len;
+	long i, /*ret,*/ len;
 	char * fstr;
-	static char buffer[BUFSIZE+1]; /* static so zero filled */
+	//static char buffer[BUFSIZE+1]; /* static so zero filled */
+	char * buffer = req.requestLine;
 	logger(LOG, "in web", "i hope", hit);
-	ret =read(fd,buffer,BUFSIZE); 	/* read Web request in one go */
+	//ret =read(fd,buffer,BUFSIZE); 	/* read Web request in one go */
 	logger(LOG, "in web", "read done", fd);
 	//logger(LOG, "in web", "checking thread id", thr->id);//test
 	if(ret == 0 || ret == -1) {	/* read failure stop now */
@@ -454,19 +486,19 @@ void web(int fd, int hit, request req, thread * thr)
     (void)sprintf(buffer,"X-stat-req-complete-count: %d\r\n", completedRequestsCount);//seems to work
     logger(LOG,"X-stat-req-complete-count",buffer,hit);
     dummy = write(fd,buffer,strlen(buffer));
-    (void)sprintf(buffer,"X-stat-req-complete-time: %lu\r\n", (req.readCompletionTime.tv_sec) * 1000 + (req.readCompletionTime.tv_usec) / 1000);//does not work
+    (void)sprintf(buffer,"X-stat-req-complete-time: %lu\r\n", (req.readCompletionTime.tv_sec) * 1000 + (req.readCompletionTime.tv_usec) / 1000);//seems to work?
     logger(LOG,"X-stat-req-complete-time",buffer,hit);
     dummy = write(fd,buffer,strlen(buffer));
     (void)sprintf(buffer,"X-stat-req-age: %d\r\n", req.numRequestsHigherPriority);//not yet implemented
     logger(LOG,"X-stat-req-age",buffer,hit);
     dummy = write(fd,buffer,strlen(buffer));
-    (void)sprintf(buffer,"X-stat-thread-id: %d\r\n", thr->id);//does not work
+    (void)sprintf(buffer,"X-stat-thread-id: %d\r\n", thr->id);//seems to work?
     logger(LOG,"X-stat-thread-id",buffer,hit);
     dummy = write(fd,buffer,strlen(buffer));
-    (void)sprintf(buffer,"X-stat-thread-count: %d\r\n", thr->countHttpRequests);//does not work
+    (void)sprintf(buffer,"X-stat-thread-count: %d\r\n", thr->countHttpRequests);//seems to work?
     logger(LOG,"X-stat-thread-count",buffer,hit);
     dummy = write(fd,buffer,strlen(buffer));
-    (void)sprintf(buffer,"X-stat-thread-html: %d\r\n", thr->countHtmlRequests);//does not work
+    (void)sprintf(buffer,"X-stat-thread-html: %d\r\n", thr->countHtmlRequests);//seems to work?
     logger(LOG,"X-stat-thread-html",buffer,hit);
     dummy = write(fd,buffer,strlen(buffer));
     (void)sprintf(buffer,"X-stat-thread-image: %d\r\n", thr->countImageRequests);//works
@@ -604,43 +636,28 @@ int main(int argc, char **argv)
 		logger(LOG, "reached here", "...", 513);
 		request rq = createRequest(socketfd, hit); //still need to get priority type
 		//logger(LOG, "checking", "request creation", rq.dispatchedTime);//test
-
+		/* read Web request, test if img or html preference and pass to web after */
+        //static char requestLine[BUFSIZE + 1]; /* static so zero filled */
+        long ret = read(socketfd,rq.requestLine,BUFSIZE); 	
+		if(ret == 0 || ret == -1) {	/* read failure stop now */
+			logger(FORBIDDEN,"failed to read browser request","",612);
+		}
+		rq.ret = ret;
 		if(preference != 0)//has a preference
 		{
 		    //read file to see if .jpg, .gif, or .png
-		    static char requestLine[20]; /* static so zero filled */
-		    long ret =read(socketfd,requestLine,20); 	/* read Web request */
-		    if(ret == 0 || ret == -1) {	/* read failure stop now */
-					logger(FORBIDDEN,"failed to read browser request","",612);
-			}
-		    logger(LOG, "we have reached request line", requestLine, socketfd); 
-		    if((strstr(requestLine, ".jpg") != 0) || (strstr(requestLine, ".png") != 0) || (strstr(requestLine, ".gif") != 0)) //must be image
+		    
+		    
+		    logger(LOG, "we have reached request line", rq.requestLine, socketfd); 
+		    if((strstr(rq.requestLine, ".jpg") != 0) || (strstr(rq.requestLine, ".png") != 0) || (strstr(rq.requestLine, ".gif") != 0)) //must be image
 		    {
-		        logger(LOG, "request line contains image", requestLine, 5); 
+		        logger(LOG, "request line contains image", rq.requestLine, 5); 
 		        rq.requestType = 2;
 		    }
-		    else if (strstr(requestLine, ".html") != 0)//html request
+		    else if (strstr(rq.requestLine, ".html") != 0)//html request
 		    {
-		        logger(LOG, "request line contains html", requestLine, 5); 
+		        logger(LOG, "request line contains html", rq.requestLine, 5); 
 		        rq.requestType = 1;
-		    }
-		    /*
-		        try to put offset back after this read, so that next read in web works
-		    */
-		    int result = lseek(socketfd, (off_t)0, SEEK_SET);
-		    if(result != 0)
-		    {
-		        logger(ERROR, "failed seek file", "...", 654);
-		    }
-		    result = write(socketfd, requestLine, BUFSIZE);
-		    if(result != 0)
-		    {
-		        logger(ERROR, "failed write file", "...", 659);
-		    }
-		    result = lseek(socketfd, (off_t)0, SEEK_SET);
-		    if(result != 0)
-		    {
-		        logger(ERROR, "failed seek file", "...", 664);
 		    }
 		}
 		else //everything in fifo
