@@ -77,6 +77,7 @@ typedef struct request{
    int numRequestsHigherPriority;
    int requestType; //0 for regular, 1 for html, 2 for image
    int hit;
+   int numberRequest;
    long ret;
    char requestLine[BUFSIZE + 1];//took away "static"
 } request;
@@ -137,6 +138,7 @@ static int requestsPresentCount;//STAT-1: count of total requests present
 static int completedRequestsCount;//STAT-5: completed request count 
 struct timeval startUpTime;
 static int dispatchedRequets = 0;
+//static int totalRequestsRecieved = 0;
 
 /*
     initialize Thread pool, initialize Threads, and add them to Thread pool
@@ -212,6 +214,7 @@ request createRequest(int fd, int hit)
     r->countDispatchedPreviously = 0;//TODO: how do we get this number?
     r->numRequestsHigherPriority = 0;
     r->hit = hit;
+    //r->numberRequest = totalRequestsRecieved;
     //other fields declared later
     return * r;  
 }
@@ -327,6 +330,7 @@ void * threadWait(thread * thr)
 	    timeval_subtract(&req->dispatchedTime, &now2, &startUpTime); 
 	    //thr->id = 100;//ID test - works
 	    req->countDispatchedPreviously = dispatchedRequets;
+	    req->numRequestsHigherPriority = dispatchedRequets - (req->hit -1);
         web(req->requestInfo, req->hit, *req, thr, req->ret);
         completedRequestsCount++;
         dispatchedRequets++;
@@ -367,7 +371,7 @@ request * removeRequest() {
        	}
        	fifoqueue.length--;
     }
-
+	requestsPresentCount--;
     return req;
 }
 
@@ -474,7 +478,7 @@ void web(int fd, int hit, request req, thread * thr, long ret)
 	
 	
     /* Send the statistical headers described in the instructions*/
-    (void)sprintf(buffer,"X-stat-req-arrival-count: %d\r\n", requestsPresentCount - 1);//substract itself to get previous count, works
+    (void)sprintf(buffer,"X-stat-req-arrival-count: %d\r\n", req.hit - 1);//substract itself to get previous count, works
     logger(LOG,"X-stat-req-arrival-count",buffer,hit);
     dummy = write(fd,buffer,strlen(buffer));
     (void)sprintf(buffer,"X-stat-req-arrival-time: %lu\r\n", (req.arrivalTime.tv_sec) * 1000 + (req.arrivalTime.tv_usec) / 1000);//https://stackoverflow.com/a/3756954
