@@ -32,12 +32,9 @@
   pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
   char * host;
   char * portnum;
-   
-   
-  struct addrinfo *getHostInfo(char* host, char* port);
-  int establishConnection(struct addrinfo *info);
+
   void GET(int clientfd, char *path);
-  //void wait();
+  void wait();
 
   typedef struct thread {
       pthread_t pthread;
@@ -128,7 +125,7 @@
           //requestNumber++;s
   		 // }
   		thr->fd = establishConnection(getHostInfo(host, portnum));
-    	if (thr->fd == -1) {
+    	if (clientfd == -1) {
      	    printf("[main:73] Failed to connect to: %s:%s \n", host, portnum);
   	    }
   		GET(thr->fd, thr->filename);
@@ -220,7 +217,7 @@
     	}
     	// Establish connection with <hostname>:<port>
     	host = argv[1];
-    	portnum = argv[2];
+    	portnum = arv[2];
     	
 
     	if(!strcmp(argv[4], "FIFO")){
