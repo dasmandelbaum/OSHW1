@@ -467,8 +467,8 @@ void web(int fd, int hit, request req, thread * thr, long ret)
 	logger(LOG,"SEND",&buffer[5],hit);
 	
 	len = (long)lseek(file_fd, (off_t)0, SEEK_END); /* lseek to the file end to find the length */
-	      (void)lseek(file_fd, (off_t)0, SEEK_SET); /* lseek back to the file start ready for reading */
-          (void)sprintf(buffer,"HTTP/1.1 200 OK\nServer: nweb/%d.0\nContent-Length: %ld\nConnection: close\nContent-Type: %s\n", VERSION, len, fstr); /* Header + a blank line */
+	(void)lseek(file_fd, (off_t)0, SEEK_SET); /* lseek back to the file start ready for reading */
+    (void)sprintf(buffer,"HTTP/1.1 200 OK\nServer: nweb/%d.0\nContent-Length: %ld\nConnection: close\nContent-Type: %s\n", VERSION, len, fstr); /* Header + a blank line */
 	logger(LOG,"Header",buffer,hit);
 	
 	if((strstr(fstr, "jpg") != 0) || (strstr(fstr, "png") != 0) || (strstr(fstr, "gif") != 0)) //must be image
@@ -517,7 +517,7 @@ void web(int fd, int hit, request req, thread * thr, long ret)
     (void)sprintf(buffer,"X-stat-thread-html: %d\r\n", thr->countHtmlRequests);//seems to work?
     logger(LOG,"X-stat-thread-html",buffer,hit);
     dummy = write(fd,buffer,strlen(buffer));
-    (void)sprintf(buffer,"X-stat-thread-image: %d\r\n", thr->countImageRequests);//works
+    (void)sprintf(buffer,"X-stat-thread-image: %d\r\n\r\n", thr->countImageRequests);//works
 	logger(LOG,"Header",buffer,hit);
 	dummy = write(fd,buffer,strlen(buffer));
     
@@ -527,6 +527,7 @@ void web(int fd, int hit, request req, thread * thr, long ret)
 	}
 	sleep(1);	/* allow socket to drain before signalling the socket is closed */
 	close(fd);
+	//new comment
 	//exit(1);
 }
 
