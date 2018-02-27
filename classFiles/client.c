@@ -119,7 +119,7 @@
   	
   	while(1) {
   		 // if(schedule == 0) { //if FIFO
-        printf("about to LOCK MUTEX with %d\n", thr->id);
+      printf("about to LOCK MUTEX with %d\n", thr->id);
   		pthread_mutex_lock(&mutex);
   			/*if it's the first one then don't wait
   			 if(requestNumber != 0) {
@@ -209,7 +209,7 @@
   }
 
   int main(int argc, char **argv) {
-    	int clientfd;
+    	//int clientfd;
     	//char buf[BUF_SIZE];
     	char * file1;
     	char * file2;
@@ -251,7 +251,7 @@
     	numThreads = atoi(argv[3]);
     	pthread_barrier_init(&our_barrier, NULL, numThreads);
     	printf("file name %s\n", file1);
-      pool = createPool(clientfd, file1, file2); //will need to pass in both later
+      pool = createPool(0, file1, file2); //will need to pass in both later
       while(1)
       {
         //spin until killed!
