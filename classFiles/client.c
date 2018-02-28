@@ -1,3 +1,4 @@
+  /*UPDATED 2/28 6:06 PM EST*/
   /* Generic */
   #include <errno.h>
   #include <stdio.h>
@@ -37,7 +38,6 @@
   struct addrinfo *getHostInfo(char* host, char* port);
   int establishConnection(struct addrinfo *info);
   void GET(int clientfd, char *path);
-  //void wait();
 
   typedef struct thread {
       pthread_t pthread;
@@ -58,19 +58,17 @@
 
   thread * createThread(int i, int fd, char * filename)
   {
-      /*int status;*/ thread * thr;
+      thread * thr;
       thr = calloc(5, sizeof(pthread_t) + (sizeof(int) * 4));
 
       thr->id = i;
       thr->filename = filename;
-      //thr->fd = fd;
       pthread_cond_init(&(thr->cond), NULL);
       printf("ID: %d\n", thr->id);
       int status = pthread_create(&thr->pthread, NULL, threadWait, thr);
       printf("ID: %d\n", thr->id);
      if (status != 0)
       {
-          //logger(LOG, "we have reached heaven", "HI", 5);
           printf("there was issue creating thread %d\n", i);
           exit(-1);
       }    
@@ -88,12 +86,6 @@
       int i;
       for(i = 0; i < numThreads; i++)
       {
-      //char * j;
-      //j   =
-          //sprintf("creating Thread %d\n", i);
-          //TODA need to split the files across the threads depending on if there are 2 files or not
-          //if there are 2 files do a mod (mod 2) calculation to split up the files evenly between the threads
-
           //if there are two files and it's odd then pass filename2
           if(filename2 != NULL && i % 2 != 0) {//if this doesnt work we will make a global variable to true or false if there is a second file
             printf("2 files found\n");
@@ -113,36 +105,24 @@
   //CONCUR vs. FIFO (schedalg is global variable)
   void * threadWait(thread *thr)
   {
-  	//thread * thr2 = (thread *) thr;
     printf("in thread WAITTTT\n");
   	char buf[BUF_SIZE];
   	while(1) {
-  		 // if(schedule == 0) { //if FIFO
-  		pthread_barrier_wait(&our_barrier);      
+      printf("AT THE BARRIER...%d\n", thr->id);
+  		pthread_barrier_wait(&our_barrier);  
+      printf("AFTER THE BARRIER...%d\n", thr->id);    
 		if(schedule == 0) {  		
       printf("about to LOCK MUTEX with %d\n", thr->id);
 			pthread_mutex_lock(&mutex);
-  			/*if it's the first one then don't wait
-  			 if(requestNumber != 0) {
-  				  pthread_cond_wait(&(thr->cond), &mutex);
-  			 }*/
-         		 //requestNumber++;s
-  		 	// }
 		}
   		thr->fd = establishConnection(getHostInfo(host, portnum));
     		if (thr->fd == -1) {
      	    		printf("[main:73] Failed to connect to: %s:%s \n", host, portnum);
   	    	}
   		GET(thr->fd, thr->filename);
-  		// if FIFO send a signal to next thread that it can send
-  		  //if(schedule == 0) {
-  			 //int nextThread = ((thr->id) +1) % numThreads;
-  			 //pthread_cond_t nextCondition = (pool->threads[nextThread])->cond;
-  			 //pthread_cond_signal(&nextCondition);
 		if(schedule == 0) {  		
       printf("about to UNLCOK MUTEX with %d\n", thr->id);
 			pthread_mutex_unlock(&mutex);
-	  		 // }
 		}
         	printf("about to do while \n");
   		while (recv(thr->fd, buf, BUF_SIZE, 0) > 0) {
@@ -150,11 +130,6 @@
      	 		memset(buf, 0, BUF_SIZE);
      	 	}
         	close(thr->fd);
-       
-        	printf("AT THE BARRIER...%d\n", thr->id);
-     	 	 //pthread_barrier_wait(&our_barrier);
-        	printf("AFTER THE BARRIER...%d\n", thr->id);
-        
     	}
   	
       return NULL;
@@ -259,18 +234,11 @@
       {
         //spin until killed!
       }
-      //wait(1000);
-    // Send GET request > stdout
-    
-    /*
-    GET(clientfd, argv[5]);
-    while (recv(clientfd, buf, BUF_SIZE, 0) > 0) {
-      fputs(buf, stdout);
-      memset(buf, 0, BUF_SIZE);
-    }
-  	*/
-    //close(clientfd);
-    //return 0;
+      /*int i;
+      for(i = 0; i < numThreads; i++)
+      {
+        pthread_join(pool->threads[i]->pthread, NULL);
+      }*/
   }
 
 

@@ -6258,3 +6258,1313 @@ Content-Type: image/jpg
 
 :15
  INFO: number of requests serviced:...:15
+ INFO: 
+
+ nweb starting:4455:3374
+ERROR: system call:bind Errno=98 exiting pid=3374
+ INFO: reached here:...:513
+ INFO: preference set to:....:0
+ INFO: about to add request:woohoo:0
+ INFO: mutex locked:in main method:16
+ INFO: request fd::16
+ INFO: mutex unlocked:in main method:16
+ INFO: sending signal:in main method:16
+ INFO: starting:loop:17 INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::1
+ INFO: in web:i hope:16
+ INFO: in web:read done:16
+ INFO: request:GET /nigel.jpg HTTP/1.0****:16
+ INFO: SEND:nigel.jpg:16
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+:16
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 15
+:16
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 438269
+:16
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 15
+:16
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 438273
+:16
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 15
+:16
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 438274
+:16
+ INFO: reached here:...:513
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:16
+ INFO: preference set to:....:0
+ INFO: X-stat-thread-id:X-stat-thread-id: 4
+:16
+
+ INFO: X-stat-thread-count:X-stat-thread-count: 4
+:16 INFO: about to add request:woohoo:0
+
+ INFO: X-stat-thread-html:X-stat-thread-html: 0
+:16
+ INFO: Header:X-stat-thread-image: 4
+
+:16
+ INFO: number of requests serviced:...:16 INFO: mutex locked:in main method:17
+ INFO: request fd::14
+ INFO: mutex unlocked:in main method:17
+ INFO: sending signal:in main method:17
+
+ INFO: starting:loop:18 INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::1
+ INFO: in web:i hope:17
+ INFO: in web:read done:14
+ INFO: request:GET /nigel.jpg HTTP/1.0****:17
+ INFO: SEND:nigel.jpg:17
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+:17
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 16
+:17
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 438274
+:17
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 16
+:17
+ INFO: reached here:...:513
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 439279
+:17
+
+ INFO: preference set to:....:0 INFO: X-stat-req-complete-count:X-stat-req-complete-count: 16
+:17
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 439279
+:17
+
+ INFO: about to add request:woohoo:0
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:17
+ INFO: X-stat-thread-id:X-stat-thread-id: 3
+:17
+ INFO: X-stat-thread-count:X-stat-thread-count: 4
+:17
+ INFO: X-stat-thread-html:X-stat-thread-html: 0
+:17
+ INFO: Header:X-stat-thread-image: 4
+
+:17
+ INFO: number of requests serviced:...:17 INFO: mutex locked:in main method:18
+ INFO: request fd::16
+ INFO: mutex unlocked:in main method:18
+ INFO: sending signal:in main method:18
+ INFO: starting:loop:19 INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::1
+ INFO: in web:i hope:18
+ INFO: in web:read done:16
+ INFO: request:GET /nigel.jpg HTTP/1.0****:18
+ INFO: SEND:nigel.jpg:18
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+:18
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 17
+:18
+ INFO: reached here:...:513
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 439280
+:18
+ INFO: preference set to:....:0
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 17
+:18
+
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 440286
+:18 INFO: about to add request:woohoo:0
+
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 17
+:18
+
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 440287
+:18
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:18
+ INFO: X-stat-thread-id:X-stat-thread-id: 2
+:18
+ INFO: X-stat-thread-count:X-stat-thread-count: 4
+:18
+ INFO: X-stat-thread-html:X-stat-thread-html: 0
+:18
+ INFO: Header:X-stat-thread-image: 4
+
+:18
+ INFO: number of requests serviced:...:18 INFO: mutex locked:in main method:19
+ INFO: request fd::20
+ INFO: mutex unlocked:in main method:19
+ INFO: sending signal:in main method:19
+ INFO: starting:loop:20 INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::1
+ INFO: in web:i hope:19
+ INFO: in web:read done:20
+ INFO: request:GET /nigel.jpg HTTP/1.0****:19
+ INFO: SEND:nigel.jpg:19
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+:19
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 18
+:19
+
+ INFO: reached here:...:513
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 440288
+:19
+ INFO: preference set to:....:0
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 18
+:19
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 441297
+:19
+ INFO: about to add request:woohoo:0
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 18
+:19
+
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 441297
+:19
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:19
+ INFO: X-stat-thread-id:X-stat-thread-id: 0
+:19
+ INFO: X-stat-thread-count:X-stat-thread-count: 4
+:19
+ INFO: X-stat-thread-html:X-stat-thread-html: 0
+:19
+ INFO: Header:X-stat-thread-image: 4
+
+:19
+ INFO: number of requests serviced:...:19 INFO: mutex locked:in main method:20
+ INFO: request fd::14
+ INFO: mutex unlocked:in main method:20
+ INFO: sending signal:in main method:20
+ INFO: starting:loop:21 INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::1
+ INFO: in web:i hope:20
+ INFO: in web:read done:14
+ INFO: request:GET /nigel.jpg HTTP/1.0****:20
+ INFO: SEND:nigel.jpg:20
+
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+:20
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 19
+:20
+
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 441298
+:20
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 19
+:20
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 442303
+:20
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 19
+:20
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 442304
+:20
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:20
+ INFO: X-stat-thread-id:X-stat-thread-id: 1
+:20
+ INFO: X-stat-thread-count:X-stat-thread-count: 4
+:20
+ INFO: X-stat-thread-html:X-stat-thread-html: 0
+:20
+ INFO: Header:X-stat-thread-image: 4
+
+:20
+ INFO: number of requests serviced:...:20 INFO: reached here:...:513
+
+ INFO: preference set to:....:0
+ INFO: about to add request:woohoo:0
+ INFO: mutex locked:in main method:21
+ INFO: request fd::20
+ INFO: mutex unlocked:in main method:21
+ INFO: sending signal:in main method:21
+ INFO: starting:loop:22 INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::1
+ INFO: in web:i hope:21
+ INFO: in web:read done:20
+ INFO: request:GET /nigel.jpg HTTP/1.0****:21
+ INFO: SEND:nigel.jpg:21
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+:21
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 20
+:21
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 443308
+:21
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 20
+:21
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 443314
+:21
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 20
+:21
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 443315
+:21
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:21
+ INFO: X-stat-thread-id:X-stat-thread-id: 4
+:21
+ INFO: X-stat-thread-count:X-stat-thread-count: 5
+:21
+ INFO: X-stat-thread-html:X-stat-thread-html: 0
+:21
+ INFO: Header:X-stat-thread-image: 5
+
+:21
+
+ INFO: reached here:...:513
+ INFO: preference set to:....:0
+ INFO: about to add request:woohoo:0
+ INFO: number of requests serviced:...:21
+ INFO: mutex locked:in main method:22
+ INFO: request fd::14
+ INFO: mutex unlocked:in main method:22
+ INFO: sending signal:in main method:22
+ INFO: starting:loop:23
+ INFO: reached here:...:513
+ INFO: preference set to:....:0
+ INFO: about to add request:woohoo:0
+ INFO: mutex locked:in main method:23
+ INFO: request fd::20
+ INFO: mutex unlocked:in main method:23
+ INFO: sending signal:in main method:23
+ INFO: starting:loop:24
+ INFO: reached here:...:513
+ INFO: preference set to:....:0
+ INFO: about to add request:woohoo:0
+ INFO: mutex locked:in main method:24
+ INFO: request fd::24
+ INFO: mutex unlocked:in main method:24
+ INFO: sending signal:in main method:24
+ INFO: starting:loop:25
+ INFO: reached here:...:513
+ INFO: preference set to:....:0
+ INFO: about to add request:woohoo:0
+ INFO: mutex locked:in main method:25
+ INFO: request fd::25
+ INFO: mutex unlocked:in main method:25
+ INFO: sending signal:in main method:25
+ INFO: starting:loop:26
+ INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::4
+ INFO: in web:i hope:25
+ INFO: in web:read done:25
+ INFO: request:GET /nigel.jpg HTTP/1.0****:25
+ INFO: SEND:nigel.jpg:25
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+:25
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 24
+:25
+ INFO: 
+
+ nweb starting:4455:3403
+ INFO: we have reached CREATE POOL:5:5
+ INFO: Number of threads::5
+ INFO: About to create pThread:Number:0
+ INFO: checking id:in createthread:0
+ INFO: we have CREATED A THREAD:THREADING:0
+ INFO: About to create pThread:Number:1
+ INFO: checking id:in createthread:1
+ INFO: we have CREATED A THREAD:THREADING:1
+ INFO: About to create pThread:Number:2
+ INFO: checking id:in createthread:2
+ INFO: we have CREATED A THREAD:THREADING:2
+ INFO: About to create pThread:Number:3
+ INFO: checking id:in createthread:3
+ INFO: we have CREATED A THREAD:THREADING:3
+ INFO: About to create pThread:Number:4
+ INFO: checking id:in createthread:4
+ INFO: we have CREATED A THREAD:THREADING:4
+ INFO: we have reached FIFO:FIFO:0
+ INFO: starting:loop:1
+ INFO: reached here:...:513
+ INFO: preference set to:....:0
+ INFO: about to add request:woohoo:0
+ INFO: mutex locked:in main method:1
+ INFO: request fd::1
+ INFO: mutex unlocked:in main method:1
+ INFO: sending signal:in main method:1
+ INFO: starting:loop:2 INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::1
+ INFO: in web:i hope:1
+ INFO: in web:read done:1
+ INFO: request:GET /nigel.jpg HTTP/1.0****:1
+ INFO: SEND:nigel.jpg:1
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+:1
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 0
+:1
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 3342
+:1
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 0
+:1
+
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 3346
+:1 INFO: reached here:...:513
+ INFO: preference set to:....:0
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 0
+:1
+
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 3346
+:1 INFO: about to add request:woohoo:0
+
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:1
+ INFO: X-stat-thread-id:X-stat-thread-id: 4
+:1
+ INFO: X-stat-thread-count:X-stat-thread-count: 1
+:1
+ INFO: X-stat-thread-html:X-stat-thread-html: 0
+:1
+ INFO: Header:X-stat-thread-image: 1
+
+:1
+ INFO: number of requests serviced:...:1
+ INFO: mutex locked:in main method:2
+ INFO: request fd::2
+ INFO: mutex unlocked:in main method:2
+ INFO: sending signal:in main method:2
+ INFO: starting:loop:3
+ INFO: reached here:...:513
+ INFO: preference set to:....:0
+ INFO: about to add request:woohoo:0
+ INFO: mutex locked:in main method:3
+ INFO: request fd::1
+ INFO: mutex unlocked:in main method:3
+ INFO: sending signal:in main method:3
+ INFO: starting:loop:4
+ INFO: reached here:...:513
+ INFO: preference set to:....:0
+ INFO: about to add request:woohoo:0
+ INFO: mutex locked:in main method:4
+ INFO: request fd::4
+ INFO: mutex unlocked:in main method:4
+ INFO: sending signal:in main method:4
+ INFO: starting:loop:5
+ INFO: reached here:...:513
+ INFO: preference set to:....:0
+ INFO: about to add request:woohoo:0
+ INFO: mutex locked:in main method:5
+ INFO: request fd::5
+ INFO: mutex unlocked:in main method:5
+ INFO: sending signal:in main method:5
+ INFO: starting:loop:6
+ INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::4
+ INFO: in web:i hope:5
+ INFO: in web:read done:5
+ INFO: request:GET /nigel.jpg HTTP/1.0****:5
+ INFO: SEND:nigel.jpg:5
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+:5
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 4
+:5
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 4348
+:5
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 1
+:5
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 4348
+:5
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 1
+:5
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 4348
+:5
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:5
+ INFO: X-stat-thread-id:X-stat-thread-id: 3
+:5
+ INFO: X-stat-thread-count:X-stat-thread-count: 1
+:5
+ INFO: X-stat-thread-html:X-stat-thread-html: 0
+:5
+ INFO: Header:X-stat-thread-image: 1
+
+:5
+ INFO: number of requests serviced:...:2
+ INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::3
+ INFO: in web:i hope:5
+ INFO: in web:read done:5
+ INFO: request:GET /nigel.jpg HTTP/1.0****:5
+ INFO: SEND:nigel.jpg:5
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+:5
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 4
+:5
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 4348
+:5
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 2
+:5
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 5349
+:5
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 2
+:5
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 5350
+:5
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:5
+ INFO: X-stat-thread-id:X-stat-thread-id: 2
+:5
+ INFO: X-stat-thread-count:X-stat-thread-count: 1
+:5
+ INFO: X-stat-thread-html:X-stat-thread-html: 0
+:5
+ INFO: Header:X-stat-thread-image: 1
+
+:5
+ INFO: number of requests serviced:...:3
+ INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::2
+ INFO: in web:i hope:5
+ INFO: in web:read done:5
+ INFO: request:GET /nigel.jpg HTTP/1.0****:5
+ INFO: SEND:nigel.jpg:5
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+:5
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 4
+:5
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 4348
+:5
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 3
+:5
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 6350
+:5
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 3
+:5
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 6350
+:5
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:5
+ INFO: X-stat-thread-id:X-stat-thread-id: 1
+:5
+ INFO: X-stat-thread-count:X-stat-thread-count: 1
+:5
+ INFO: X-stat-thread-html:X-stat-thread-html: 0
+:5
+ INFO: Header:X-stat-thread-image: 1
+
+:5
+ INFO: number of requests serviced:...:4
+ INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::1
+ INFO: in web:i hope:5
+ INFO: in web:read done:5
+ INFO: request:GET /nigel.jpg HTTP/1.0****:5
+ INFO: SEND:nigel.jpg:5
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+:5
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 4
+:5
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 4348
+:5
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 4
+:5
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 7351
+:5
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 4
+:5
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 7351
+:5
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:5
+ INFO: X-stat-thread-id:X-stat-thread-id: 0
+:5
+ INFO: X-stat-thread-count:X-stat-thread-count: 1
+:5
+ INFO: X-stat-thread-html:X-stat-thread-html: 0
+:5
+ INFO: Header:X-stat-thread-image: 1
+
+:5
+ INFO: number of requests serviced:...:5
+ INFO: 
+
+ nweb starting:4455:3429
+ERROR: system call:bind Errno=98 exiting pid=3429
+ INFO: reached here:...:513
+ INFO: preference set to:....:0
+ INFO: about to add request:woohoo:0
+ INFO: mutex locked:in main method:6
+ INFO: request fd::6
+ INFO: mutex unlocked:in main method:6
+ INFO: sending signal:in main method:6
+ INFO: starting:loop:7 INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::1
+ INFO: in web:i hope:6
+ INFO: in web:read done:6
+ INFO: request:GET /nigel.jpg HTTP/1.0****:6
+ INFO: SEND:nigel.jpg:6
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+:6
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 5
+:6
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 95803
+:6
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 5
+:6
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 95808
+:6
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 5
+:6
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 95808
+:6
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:6
+ INFO: X-stat-thread-id:X-stat-thread-id: 4
+:6
+
+ INFO: X-stat-thread-count:X-stat-thread-count: 2
+:6 INFO: reached here:...:513
+ INFO: X-stat-thread-html:X-stat-thread-html: 0
+:6
+ INFO: preference set to:....:0
+ INFO: Header:X-stat-thread-image: 2
+
+:6
+
+ INFO: about to add request:woohoo:0
+ INFO: number of requests serviced:...:6 INFO: mutex locked:in main method:7
+ INFO: request fd::5
+ INFO: mutex unlocked:in main method:7
+ INFO: sending signal:in main method:7
+ INFO: starting:loop:8 INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::1
+ INFO: in web:i hope:7
+ INFO: in web:read done:5
+ INFO: request:GET /nigel.jpg HTTP/1.0****:7
+
+ INFO: SEND:nigel.jpg:7
+ INFO: reached here:...:513
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+:7
+
+ INFO: preference set to:....:0 INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 6
+:7
+
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 95809
+:7 INFO: about to add request:woohoo:0
+
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 6
+:7
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 96812
+:7
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 6
+:7
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 96813
+:7
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:7
+ INFO: X-stat-thread-id:X-stat-thread-id: 3
+:7
+ INFO: X-stat-thread-count:X-stat-thread-count: 2
+:7
+ INFO: X-stat-thread-html:X-stat-thread-html: 0
+:7
+ INFO: Header:X-stat-thread-image: 2
+
+:7
+ INFO: number of requests serviced:...:7 INFO: mutex locked:in main method:8
+ INFO: request fd::6
+ INFO: mutex unlocked:in main method:8
+ INFO: sending signal:in main method:8
+
+ INFO: starting:loop:9 INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::1
+ INFO: in web:i hope:8
+ INFO: in web:read done:6
+ INFO: request:GET /nigel.jpg HTTP/1.0****:8
+ INFO: SEND:nigel.jpg:8
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+:8
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 7
+:8
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 96813
+:8
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 7
+:8
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 97816
+:8
+ INFO: reached here:...:513
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 7
+:8
+
+ INFO: preference set to:....:0 INFO: X-stat-req-complete-time:X-stat-req-complete-time: 97816
+:8
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:8
+
+ INFO: X-stat-thread-id:X-stat-thread-id: 2
+:8 INFO: about to add request:woohoo:0
+
+ INFO: X-stat-thread-count:X-stat-thread-count: 2
+:8
+ INFO: X-stat-thread-html:X-stat-thread-html: 0
+:8
+ INFO: Header:X-stat-thread-image: 2
+
+:8
+ INFO: number of requests serviced:...:8 INFO: mutex locked:in main method:9
+ INFO: request fd::5
+ INFO: mutex unlocked:in main method:9
+ INFO: sending signal:in main method:9
+ INFO: starting:loop:10 INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::1
+ INFO: in web:i hope:9
+ INFO: in web:read done:5
+ INFO: request:GET /nigel.jpg HTTP/1.0****:9
+ INFO: SEND:nigel.jpg:9
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+:9
+
+ INFO: reached here:...:513 INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 8
+:9
+
+ INFO: preference set to:....:0
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 97816
+:9
+
+ INFO: about to add request:woohoo:0 INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 8
+:9
+
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 98821
+:9
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 8
+:9
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 98822
+:9
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:9
+ INFO: X-stat-thread-id:X-stat-thread-id: 1
+:9
+ INFO: X-stat-thread-count:X-stat-thread-count: 2
+:9
+ INFO: X-stat-thread-html:X-stat-thread-html: 0
+:9
+ INFO: Header:X-stat-thread-image: 2
+
+:9
+ INFO: number of requests serviced:...:9 INFO: mutex locked:in main method:10
+ INFO: request fd::11
+ INFO: mutex unlocked:in main method:10
+ INFO: sending signal:in main method:10
+
+ INFO: starting:loop:11 INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::1
+ INFO: in web:i hope:10
+ INFO: in web:read done:11
+ INFO: request:GET /nigel.jpg HTTP/1.0****:10
+ INFO: SEND:nigel.jpg:10
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+:10
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 9
+:10
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 98823
+:10
+
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 9
+:10
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 99828
+:10
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 9
+:10
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 99829
+:10
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:10
+ INFO: X-stat-thread-id:X-stat-thread-id: 0
+:10
+ INFO: X-stat-thread-count:X-stat-thread-count: 2
+:10
+ INFO: X-stat-thread-html:X-stat-thread-html: 0
+:10
+ INFO: Header:X-stat-thread-image: 2
+
+:10
+ INFO: number of requests serviced:...:10 INFO: reached here:...:513
+
+ INFO: preference set to:....:0
+ INFO: about to add request:woohoo:0
+ INFO: mutex locked:in main method:11
+ INFO: request fd::5
+ INFO: mutex unlocked:in main method:11
+ INFO: sending signal:in main method:11
+ INFO: starting:loop:12 INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::1
+ INFO: in web:i hope:11
+ INFO: in web:read done:5
+ INFO: request:GET /nigel.jpg HTTP/1.0****:11
+ INFO: SEND:nigel.jpg:11
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+:11
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 10
+:11
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 100831
+:11
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 10
+:11
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 100835
+:11
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 10
+:11
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 100835
+:11
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:11
+ INFO: X-stat-thread-id:X-stat-thread-id: 4
+:11
+
+ INFO: reached here:...:513
+ INFO: preference set to:....:0
+ INFO: about to add request:woohoo:0
+ INFO: X-stat-thread-count:X-stat-thread-count: 3
+:11
+ INFO: X-stat-thread-html:X-stat-thread-html: 0
+:11
+ INFO: Header:X-stat-thread-image: 3
+
+:11
+ INFO: number of requests serviced:...:11 INFO: mutex locked:in main method:12
+ INFO: request fd::11
+ INFO: mutex unlocked:in main method:12
+ INFO: sending signal:in main method:12
+ INFO: starting:loop:13 INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::1
+ INFO: in web:i hope:12
+ INFO: in web:read done:11
+ INFO: request:GET /nigel.jpg HTTP/1.0****:12
+
+ INFO: SEND:nigel.jpg:12
+
+ INFO: reached here:...:513 INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+:12
+
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 11
+:12 INFO: preference set to:....:0
+
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 100837
+:12 INFO: about to add request:woohoo:0
+
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 11
+:12
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 101842
+:12
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 11
+:12
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 101844
+:12
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:12
+ INFO: X-stat-thread-id:X-stat-thread-id: 3
+:12
+ INFO: X-stat-thread-count:X-stat-thread-count: 3
+:12
+ INFO: X-stat-thread-html:X-stat-thread-html: 0
+:12
+ INFO: Header:X-stat-thread-image: 3
+
+:12
+ INFO: number of requests serviced:...:12 INFO: mutex locked:in main method:13
+ INFO: request fd::5
+ INFO: mutex unlocked:in main method:13
+ INFO: sending signal:in main method:13
+
+ INFO: starting:loop:14 INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::1
+ INFO: in web:i hope:13
+ INFO: in web:read done:5
+ INFO: request:GET /nigel.jpg HTTP/1.0****:13
+ INFO: SEND:nigel.jpg:13
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+:13
+
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 12
+:13 INFO: reached here:...:513
+ INFO: preference set to:....:0
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 101844
+:13
+
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 12
+:13 INFO: about to add request:woohoo:0
+
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 102849
+:13
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 12
+:13
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 102850
+:13
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:13
+ INFO: X-stat-thread-id:X-stat-thread-id: 2
+:13
+ INFO: X-stat-thread-count:X-stat-thread-count: 3
+:13
+ INFO: X-stat-thread-html:X-stat-thread-html: 0
+:13
+ INFO: Header:X-stat-thread-image: 3
+
+:13
+ INFO: number of requests serviced:...:13 INFO: mutex locked:in main method:14
+ INFO: request fd::11
+ INFO: mutex unlocked:in main method:14
+ INFO: sending signal:in main method:14
+
+ INFO: starting:loop:15 INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::1
+ INFO: in web:i hope:14
+ INFO: in web:read done:11
+ INFO: request:GET /nigel.jpg HTTP/1.0****:14
+
+ INFO: SEND:nigel.jpg:14 INFO: reached here:...:513
+
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+:14 INFO: preference set to:....:0
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 13
+:14
+ INFO: about to add request:woohoo:0
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 102850
+:14
+
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 13
+:14
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 103854
+:14
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 13
+:14
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 103854
+:14
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:14
+ INFO: X-stat-thread-id:X-stat-thread-id: 1
+:14
+ INFO: X-stat-thread-count:X-stat-thread-count: 3
+:14
+ INFO: X-stat-thread-html:X-stat-thread-html: 0
+:14
+ INFO: Header:X-stat-thread-image: 3
+
+:14
+ INFO: number of requests serviced:...:14 INFO: mutex locked:in main method:15
+ INFO: request fd::16
+ INFO: mutex unlocked:in main method:15
+
+ INFO: sending signal:in main method:15
+ INFO: starting:loop:16 INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::1
+ INFO: in web:i hope:15
+ INFO: in web:read done:16
+ INFO: request:GET /nigel.jpg HTTP/1.0****:15
+ INFO: SEND:nigel.jpg:15
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+:15
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 14
+:15
+
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 103854
+:15
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 14
+:15
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 104862
+:15
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 14
+:15
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 104863
+:15
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:15
+ INFO: X-stat-thread-id:X-stat-thread-id: 0
+:15
+ INFO: X-stat-thread-count:X-stat-thread-count: 3
+:15
+ INFO: X-stat-thread-html:X-stat-thread-html: 0
+:15
+ INFO: Header:X-stat-thread-image: 3
+
+:15
+ INFO: number of requests serviced:...:15 INFO: reached here:...:513
+
+ INFO: preference set to:....:0
+ INFO: about to add request:woohoo:0
+ INFO: mutex locked:in main method:16
+ INFO: request fd::11
+ INFO: mutex unlocked:in main method:16
+ INFO: sending signal:in main method:16
+ INFO: starting:loop:17 INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::1
+ INFO: in web:i hope:16
+ INFO: in web:read done:11
+ INFO: request:GET /nigel.jpg HTTP/1.0****:16
+ INFO: SEND:nigel.jpg:16
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+:16
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 15
+:16
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 105873
+:16
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 15
+:16
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 105878
+:16
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 15
+:16
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 105879
+:16
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:16
+ INFO: X-stat-thread-id:X-stat-thread-id: 4
+:16
+ INFO: X-stat-thread-count:X-stat-thread-count: 4
+:16
+ INFO: X-stat-thread-html:X-stat-thread-html: 0
+:16
+
+ INFO: Header:X-stat-thread-image: 4
+
+:16
+ INFO: reached here:...:513
+ INFO: preference set to:....:0
+ INFO: about to add request:woohoo:0
+ INFO: number of requests serviced:...:16 INFO: mutex locked:in main method:17
+
+ INFO: request fd::16
+ INFO: mutex unlocked:in main method:17
+ INFO: sending signal:in main method:17
+ INFO: starting:loop:18 INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::1
+ INFO: in web:i hope:17
+ INFO: in web:read done:16
+ INFO: request:GET /nigel.jpg HTTP/1.0****:17
+ INFO: SEND:nigel.jpg:17
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+:17
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 16
+:17
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 105892
+:17
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 16
+:17
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 106884
+:17
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 16
+:17
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 106884
+:17
+
+ INFO: reached here:...:513 INFO: X-stat-req-age:X-stat-req-age: 0
+:17
+ INFO: preference set to:....:0
+ INFO: X-stat-thread-id:X-stat-thread-id: 3
+:17
+ INFO: X-stat-thread-count:X-stat-thread-count: 4
+:17
+ INFO: X-stat-thread-html:X-stat-thread-html: 0
+:17
+
+ INFO: Header:X-stat-thread-image: 4
+
+:17 INFO: about to add request:woohoo:0
+
+ INFO: number of requests serviced:...:17 INFO: mutex locked:in main method:18
+ INFO: request fd::11
+ INFO: mutex unlocked:in main method:18
+ INFO: sending signal:in main method:18
+ INFO: starting:loop:19 INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::1
+ INFO: in web:i hope:18
+ INFO: in web:read done:11
+ INFO: request:GET /nigel.jpg HTTP/1.0****:18
+ INFO: SEND:nigel.jpg:18
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+:18
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 17
+:18
+
+
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 106886
+:18 INFO: reached here:...:513
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 17
+:18
+ INFO: preference set to:....:0
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 107889
+:18
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 17
+:18
+ INFO: about to add request:woohoo:0
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 107889
+:18
+
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:18
+ INFO: X-stat-thread-id:X-stat-thread-id: 2
+:18
+ INFO: X-stat-thread-count:X-stat-thread-count: 4
+:18
+ INFO: X-stat-thread-html:X-stat-thread-html: 0
+:18
+ INFO: Header:X-stat-thread-image: 4
+
+:18
+ INFO: number of requests serviced:...:18 INFO: mutex locked:in main method:19
+ INFO: request fd::20
+ INFO: mutex unlocked:in main method:19
+ INFO: sending signal:in main method:19
+ INFO: starting:loop:20 INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::1
+ INFO: in web:i hope:19
+ INFO: in web:read done:20
+ INFO: request:GET /nigel.jpg HTTP/1.0****:19
+ INFO: SEND:nigel.jpg:19
+
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+:19 INFO: reached here:...:513
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 18
+:19
+
+ INFO: preference set to:....:0 INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 107890
+:19
+
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 18
+:19
+ INFO: about to add request:woohoo:0
+
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 108894
+:19
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 18
+:19
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 108895
+:19
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:19
+ INFO: X-stat-thread-id:X-stat-thread-id: 1
+:19
+ INFO: X-stat-thread-count:X-stat-thread-count: 4
+:19
+ INFO: X-stat-thread-html:X-stat-thread-html: 0
+:19
+ INFO: Header:X-stat-thread-image: 4
+
+:19
+ INFO: number of requests serviced:...:19 INFO: mutex locked:in main method:20
+ INFO: request fd::16
+ INFO: mutex unlocked:in main method:20
+ INFO: sending signal:in main method:20
+
+ INFO: starting:loop:21 INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::1
+ INFO: in web:i hope:20
+ INFO: in web:read done:16
+ INFO: request:GET /nigel.jpg HTTP/1.0****:20
+ INFO: SEND:nigel.jpg:20
+
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+:20
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 19
+:20
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 108896
+:20
+ INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 19
+:20
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 109899
+:20
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 19
+:20
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 109900
+:20
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:20
+ INFO: X-stat-thread-id:X-stat-thread-id: 0
+:20
+ INFO: X-stat-thread-count:X-stat-thread-count: 4
+:20
+ INFO: X-stat-thread-html:X-stat-thread-html: 0
+:20
+ INFO: Header:X-stat-thread-image: 4
+
+:20
+ INFO: number of requests serviced:...:20 INFO: reached here:...:513
+
+ INFO: preference set to:....:0
+ INFO: about to add request:woohoo:0
+ INFO: mutex locked:in main method:21
+ INFO: request fd::11
+ INFO: mutex unlocked:in main method:21
+ INFO: sending signal:in main method:21
+ INFO: starting:loop:22 INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::1
+ INFO: in web:i hope:21
+ INFO: in web:read done:11
+ INFO: request:GET /nigel.jpg HTTP/1.0****:21
+ INFO: SEND:nigel.jpg:21
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+:21
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 20
+:21
+ INFO: X-stat-req-arrival-time:X-stat-req-arrival-time: 110913
+:21
+
+ INFO: reached here:...:513 INFO: X-stat-req-dispatch-count:X-stat-req-dispatch-count: 20
+:21
+
+ INFO: X-stat-req-dispatch-time:X-stat-req-dispatch-time: 110918
+:21 INFO: preference set to:....:0
+ INFO: X-stat-req-complete-count:X-stat-req-complete-count: 20
+:21
+
+ INFO: X-stat-req-complete-time:X-stat-req-complete-time: 110919
+:21 INFO: about to add request:woohoo:0
+
+ INFO: X-stat-req-age:X-stat-req-age: 0
+:21
+ INFO: X-stat-thread-id:X-stat-thread-id: 4
+:21
+ INFO: X-stat-thread-count:X-stat-thread-count: 5
+:21
+ INFO: X-stat-thread-html:X-stat-thread-html: 0
+:21
+ INFO: Header:X-stat-thread-image: 5
+
+:21
+ INFO: number of requests serviced:...:21
+ INFO: mutex locked:in main method:22
+ INFO: request fd::16
+ INFO: mutex unlocked:in main method:22
+ INFO: sending signal:in main method:22
+ INFO: starting:loop:23
+ INFO: reached here:...:513
+ INFO: preference set to:....:0
+ INFO: about to add request:woohoo:0
+ INFO: mutex locked:in main method:23
+ INFO: request fd::11
+ INFO: mutex unlocked:in main method:23
+ INFO: sending signal:in main method:23
+ INFO: starting:loop:24
+ INFO: reached here:...:513
+ INFO: preference set to:....:0
+ INFO: about to add request:woohoo:0
+ INFO: mutex locked:in main method:24
+ INFO: request fd::24
+ INFO: mutex unlocked:in main method:24
+ INFO: sending signal:in main method:24
+ INFO: starting:loop:25
+ INFO: reached here:...:513
+ INFO: preference set to:....:0
+ INFO: about to add request:woohoo:0
+ INFO: mutex locked:in main method:25
+ INFO: request fd::25
+ INFO: mutex unlocked:in main method:25
+ INFO: sending signal:in main method:25
+ INFO: starting:loop:26
+ INFO: remove request:taking from FIFO:0
+ INFO: 								how many are in FIFO::4
+ INFO: in web:i hope:25
+ INFO: in web:read done:25
+ INFO: request:GET /nigel.jpg HTTP/1.0****:25
+ INFO: SEND:nigel.jpg:25
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 10184
+Connection: close
+Content-Type: image/jpg
+:25
+ INFO: X-stat-req-arrival-count:X-stat-req-arrival-count: 24
+:25
