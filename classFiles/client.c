@@ -146,12 +146,11 @@
      	 	memset(buf, 0, BUF_SIZE);
      	 }
         close(thr->fd);
-        if(schedule == 0)
-        {
-            printf("AT THE BARRIER...%d\n", thr->id);
-     	    pthread_barrier_wait(&our_barrier);
-            printf("AFTER THE BARRIER...%d\n", thr->id);
-        }
+       
+        printf("AT THE BARRIER...%d\n", thr->id);
+     	  pthread_barrier_wait(&our_barrier);
+        printf("AFTER THE BARRIER...%d\n", thr->id);
+        
     }
   	
       return NULL;
