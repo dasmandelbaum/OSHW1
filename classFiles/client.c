@@ -116,42 +116,46 @@
   	//thread * thr2 = (thread *) thr;
     printf("in thread WAITTTT\n");
   	char buf[BUF_SIZE];
-  	
   	while(1) {
   		 // if(schedule == 0) { //if FIFO
+  		pthread_barrier_wait(&our_barrier);      
+		if(schedule == 0) {  		
       printf("about to LOCK MUTEX with %d\n", thr->id);
-  		pthread_mutex_lock(&mutex);
+			pthread_mutex_lock(&mutex);
   			/*if it's the first one then don't wait
   			 if(requestNumber != 0) {
   				  pthread_cond_wait(&(thr->cond), &mutex);
   			 }*/
-          //requestNumber++;s
-  		 // }
+         		 //requestNumber++;s
+  		 	// }
+		}
   		thr->fd = establishConnection(getHostInfo(host, portnum));
-    	if (thr->fd == -1) {
-     	    printf("[main:73] Failed to connect to: %s:%s \n", host, portnum);
-  	    }
+    		if (thr->fd == -1) {
+     	    		printf("[main:73] Failed to connect to: %s:%s \n", host, portnum);
+  	    	}
   		GET(thr->fd, thr->filename);
   		// if FIFO send a signal to next thread that it can send
   		  //if(schedule == 0) {
-        printf("about to UNLCOK MUTEX with %d\n", thr->id);
   			 //int nextThread = ((thr->id) +1) % numThreads;
   			 //pthread_cond_t nextCondition = (pool->threads[nextThread])->cond;
   			 //pthread_cond_signal(&nextCondition);
-  		pthread_mutex_unlock(&mutex);
-  		 // }
-        printf("about to do while \n");
+		if(schedule == 0) {  		
+      printf("about to UNLCOK MUTEX with %d\n", thr->id);
+			pthread_mutex_unlock(&mutex);
+	  		 // }
+		}
+        	printf("about to do while \n");
   		while (recv(thr->fd, buf, BUF_SIZE, 0) > 0) {
-      	    fputs(buf, stdout);
-     	 	memset(buf, 0, BUF_SIZE);
-     	 }
-        close(thr->fd);
+      	    		fputs(buf, stdout);
+     	 		memset(buf, 0, BUF_SIZE);
+     	 	}
+        	close(thr->fd);
        
-        printf("AT THE BARRIER...%d\n", thr->id);
-     	  pthread_barrier_wait(&our_barrier);
-        printf("AFTER THE BARRIER...%d\n", thr->id);
+        	printf("AT THE BARRIER...%d\n", thr->id);
+     	 	 //pthread_barrier_wait(&our_barrier);
+        	printf("AFTER THE BARRIER...%d\n", thr->id);
         
-    }
+    	}
   	
       return NULL;
   }
@@ -268,4 +272,5 @@
     //close(clientfd);
     //return 0;
   }
+
 
