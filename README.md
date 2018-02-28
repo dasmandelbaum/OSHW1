@@ -1,5 +1,5 @@
-•	Group info \n
-    1) Judah Brick \n
+•	Group info 
+    1) Judah Brick 
     2) Jeffrey Hagler 
     3) David Mandelbaum 
     Breakdown of effort:
