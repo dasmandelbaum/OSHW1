@@ -60,14 +60,14 @@
 	When looking through the logs and print outs you can see that when using CONCUR on the client 
 	you can see how all of the threads are running at different parts of the code.
 	In order to see this you can type     ./server 3333 . 4 10 HPIC &     into the command line
-	followed by      ./client localhost 3333 CONCUR /index.html /nigel.jpg &
+	followed by      ./client localhost 3333 8 CONCUR /index.html /nigel.jpg &
 	
 
 **SCHEDULING**
 	
 Highest Priority to Image Content (HPIC):  
 	./server 4444 . 4 10 HPIC &
-	./client localhost 4444 CONCUR /index.html /nigel.jpg &
+	./client localhost 4444 8 CONCUR /index.html /nigel.jpg &
 	
 	when running this you should see in the output that all of the received image requests
 	will be serviced before all other requests.  What is important to notice is that there
@@ -77,14 +77,14 @@ Highest Priority to Image Content (HPIC):
 	
 Highest Priority to HTML Content (HPHC):
 	./server 5555 . 4 10 HPHC &
-	./client localhost 5555 CONCUR /index.html /nigel.jpg &
+	./client localhost 5555 8 CONCUR /index.html /nigel.jpg &
 	
 	When running this we will se the exact oposite as in HPIC.  All of the html requests 
 	will be serviced before the image requests even if it arrived later.
 	
 First-in-First-out (FIFO): 
 	./server 6666 . 4 10 FIFO &
-	./client localhost 6666 CONCUR /index.html /nigel.jpg &
+	./client localhost 6666 8 CONCUR /index.html /nigel.jpg &
 	
 	In FIFO we should never see a request that arrived later than any other request being serviced
 	before it's friend who arrived earlier.  The first request the server receives,
@@ -92,7 +92,7 @@ First-in-First-out (FIFO):
 	
 Any Concurrent Policy (ANY):
 	./server 7777 . 4 10 ANY &
-	./client localhost 7777 CONCUR /index.html /nigel.jpg &
+	./client localhost 7777 8 CONCUR /index.html /nigel.jpg &
 	
 	This will work just like FIFO.
 
